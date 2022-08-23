@@ -1,10 +1,16 @@
 # Important-Notes
-Message Enpoints:
-Adapters: to connect another system
-Filter: to remove
-Transformer: to convert contect or structure
-Enricher: add content
+Message Enpoints:  
+
+Adapters: to connect another system  
+
+Filter: to remove  
+
+Transformer: to convert contect or structure  
+
+Enricher: add content  
+
 Service Activator: Invoke service operations
+
 Gateway: connect your channel without SI coupling
 There are 2 types of message channel: Pollable and subscribable 
 
