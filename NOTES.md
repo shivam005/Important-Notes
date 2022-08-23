@@ -20,3 +20,6 @@ In this the kernel is told to start operation and to notify when the **entire** 
 
 # which constructor of the thread class accepts runnable parameter.
 Thread(Runnable target)
+
+# What are the steps followed by computer when it starts? 
+The CPU starts and fetches instructions into RAM from the BIOS, which is stored in the ROM. The BIOS starts the monitor and keyboard, and does some basic checks to make sure the computer is working properly. For example, it will look for the RAM. The BIOS then starts the boot sequence. It will look for the operating system. If you don’t change any of the settings, the BIOS will fetch the operating system from the hard drive and load it into the RAM. The BIOS then transfers control to the operating system.
