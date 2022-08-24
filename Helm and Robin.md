@@ -1,6 +1,11 @@
 # Robin-Notes
 | Kubernetes Command | Description |
 | --- | ----------- |
+|robin login [username] --password [password]|To login into robin cluster|
+|robin login [username] --namespace|To login into a definite namespace|
+|||
+|||
+|||
 |robin bundle  add [given-name] [given-version] [filepath of bundle at server]| This command is used to add bundle in the cluster |
 |robin bundle list| To get the list of all available bundles| 
 |  robin bundle remove zoneid bundleid --force --yes| To remove bundle|
