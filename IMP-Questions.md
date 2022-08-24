@@ -1,4 +1,4 @@
-# Notes
+# Important Questions
 
 # Why redis is faster, even after being single threaded ?? 
 **Redis uses IO multiplexing, hence it's faster even after being single threaded.**
