@@ -1,3 +1,3 @@
 # Uber-System-Design-Notes
 
-![image](https://user-images.githubusercontent.com/38420375/186371592-d329e37e-5c2f-47d7-938b-55f4f2b76a23.png)
+ ![twitter](https://user-images.githubusercontent.com/38420375/186372002-a733dcf1-5d14-4003-b7ff-87309e529e8f.png)
