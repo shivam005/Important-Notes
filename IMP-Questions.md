@@ -23,3 +23,6 @@ Thread(Runnable target)
 
 # What are the steps followed by computer when it starts? 
 The CPU starts and fetches instructions into RAM from the BIOS, which is stored in the ROM. The BIOS starts the monitor and keyboard, and does some basic checks to make sure the computer is working properly. For example, it will look for the RAM. The BIOS then starts the boot sequence. It will look for the operating system. If you don’t change any of the settings, the BIOS will fetch the operating system from the hard drive and load it into the RAM. The BIOS then transfers control to the operating system.
+
+# What is WebSocket API?
+The WebSocket API is an advanced technology that makes it possible to open a two-way interactive communication session between the user's browser and a server. With this API, you can send messages to a server and receive event-driven responses without having to poll the server for a reply.
