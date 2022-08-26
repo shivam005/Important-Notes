@@ -26,6 +26,8 @@ Version 3, automatically creates the network. Hence, we need not to use –link 
  ![image](https://user-images.githubusercontent.com/38420375/186399174-854f976c-704b-4df7-b21e-e941094bfabe.png)
 Here, in order to make separation between frontend and backend. Networks are used. 
 
+[docker.pdf](https://github.com/shivam005/Important-Notes/files/9433548/docker.pdf)
+
 
 
 |||
