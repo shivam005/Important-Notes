@@ -40,3 +40,6 @@
 |||
 |||
 |||
+
+[Kubernetes.pdf](https://github.com/shivam005/Important-Notes/files/9433563/Kubernetes.pdf)
+
