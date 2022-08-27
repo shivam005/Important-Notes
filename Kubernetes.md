@@ -41,5 +41,7 @@
 |||
 |||
 
+### Service is meant to route the traffic to the nodes as the nodes will have dynamic IPs(Due to auto-creation or self healing). Labels in the deployment is meant to get identified by Service, hence it should exactly mentioned inside the service.  
+
 [Kubernetes.pdf](https://github.com/shivam005/Important-Notes/files/9433563/Kubernetes.pdf)
 
