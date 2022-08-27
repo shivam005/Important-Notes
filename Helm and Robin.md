@@ -41,3 +41,4 @@
 |||
 |||
 |||
+#### Helm is package manager for k8s like pip for python. 
