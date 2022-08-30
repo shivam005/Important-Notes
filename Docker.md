@@ -7,6 +7,7 @@
 |docker image inspect **image-id** |To display detailed image information for a given image id |
 |docker ps -a|To show all containers including running and stopped|
 |docker container restart container-id|To restart one or more containers|
+|docker container ls |To get list of all the containers|
 |docker run -v **Target Location**:**Default Location** **Name of Container**|It will store the data outside the default location, hence even if the container is deleted, data will be stay there.|
 |docker run -e **Env-variable** **Name of Container**|-e is used to specify the environment variable|
 |docker run -d -e MYSQL_ROOT_PASSWORD=db_pass123 --name mysql-db mysql|here, name, env variable is being passed before running the container|
