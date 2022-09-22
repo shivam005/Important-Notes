@@ -29,7 +29,7 @@
 |helm uninstall [NAME]|Uninstall all of the resources associated with a given release|
 |helm template [NAME] [CHART]|Render chart templates locally along with the values|
 |helm list|Lists all of the helm releases inside a K8s cluster|
-|||
+|helm get manifest [Chart-Name] |To get the manifest info which will have all the info related to chart |
 |||
 |||
 |||
