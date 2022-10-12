@@ -40,6 +40,9 @@
 |||
 |||
 |||
+Here, the ETCD will be storing information related to all the resources and kube API server is working as the single point of contact between all the k8s objects. 
+![image](https://user-images.githubusercontent.com/38420375/195338708-a4e944d0-b2f0-4634-b7b0-ce63ee01d8f3.png)
+
 https://kubernetes.io/docs/reference/kubectl/cheatsheet/ 
 
 ### Service is meant to route the traffic to the nodes as the nodes will have dynamic IPs(Due to auto-creation or self healing). Labels in the deployment is meant to get identified by Service, hence it should exactly mentioned inside the service.  
