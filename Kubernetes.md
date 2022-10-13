@@ -17,7 +17,7 @@
 |kubectl proxy --port 8080| It will redirect all the API present in the cluster to the localhost:8080|
 |kubectl api-resources|It is meant for showing all the resources available in the cluster|
 |kubectl explain [pod/configmap/replicaset| It will give explaination about that service or reference|
-|||
+|kubectl run nginx --image=nginx --port=80 --dry-run=client -o yaml| for getting the yaml file demo version, we can use it. Here, the dry-run=client will not create any resourse instead, it is used for testing purpose|
 |||
 |||
 |||
