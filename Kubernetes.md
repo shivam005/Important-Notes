@@ -14,9 +14,9 @@
 |kubectl rollout history deployment **Name-of-deployment**|To know the rollout history for a deployment inside your cluster|
 |kubectl rollout undo deployment **Name-of-deployment** --to-revision=1|To rollback to a given revision for a deployment inside your cluster|
 | kubectl logs [App-NAme] -f|For following the logs of application|
-|||
-|||
-|||
+|kubectl proxy --port 8080| It will redirect all the API present in the cluster to the localhost:8080|
+|kubectl api-resources|It is meant for showing all the resources available in the cluster|
+|kubectl explain [pod/configmap/replicaset| It will give explaination about that service or reference|
 |||
 |||
 |||
@@ -40,6 +40,8 @@
 |||
 |||
 |||
+ https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.25/#-strong-api-overview-strong-
+ https://kubernetes.io/docs/reference/kubernetes-api/
 Here, the ETCD will be storing information related to all the resources and kube API server is working as the single point of contact between all the k8s objects. 
 ![image](https://user-images.githubusercontent.com/38420375/195338708-a4e944d0-b2f0-4634-b7b0-ce63ee01d8f3.png)
 
