@@ -42,6 +42,7 @@
 |||
  https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.25/#-strong-api-overview-strong-
  https://kubernetes.io/docs/reference/kubernetes-api/
+ https://github.com/kubernetes/community/blob/master/contributors/devel/sig-architecture/api-conventions.md
 Here, the ETCD will be storing information related to all the resources and kube API server is working as the single point of contact between all the k8s objects. 
 ![image](https://user-images.githubusercontent.com/38420375/195338708-a4e944d0-b2f0-4634-b7b0-ce63ee01d8f3.png)
 
