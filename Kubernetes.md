@@ -18,7 +18,7 @@
 |kubectl api-resources|It is meant for showing all the resources available in the cluster|
 |kubectl explain [pod/configmap/replicaset| It will give explaination about that service or reference|
 |kubectl run nginx --image=nginx --port=80 --dry-run=client -o yaml| for getting the yaml file demo version, we can use it. Here, the dry-run=client will not create any resourse instead, it is used for testing purpose|
-|||
+| kubectl get pods -l env=dev| It will filter all the pods which will have label named as env and has value as dev|
 |||
 |||
 |||
