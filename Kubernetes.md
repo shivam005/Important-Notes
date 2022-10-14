@@ -9,7 +9,7 @@
 |kubectl delete pod pod-id|To delete a given pod from cluster |
 |kubectl get services|To get all the services details inside your cluster|
 |kubectl get events --sort-by=.metadata.creationTimestamp|To get all the events occured inside your cluster|
-|kubectl scale deployment accounts-deployment --replicas=3|To increase the number of replicas for a deployment inside your cluster|
+|kubectl scale deployment accounts-deployment --replicas=3|To increase the number of replicas for a deployment inside your cluster **Unexpectedly --replicas is not wroking**|
 |kubectl autoscale deployment **Name-of-deployment** --min=3 --max=10 --cpu-percent=70|To create automatic scaling using HPA for a deployment inside your cluster|
 |kubectl rollout history deployment **Name-of-deployment**|To know the rollout history for a deployment inside your cluster|
 |kubectl rollout undo deployment **Name-of-deployment** --to-revision=1|To rollback to a given revision for a deployment inside your cluster|
