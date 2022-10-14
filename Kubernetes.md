@@ -20,7 +20,7 @@
 |kubectl run nginx --image=nginx --port=80 --dry-run=client -o yaml| for getting the yaml file demo version, we can use it. Here, the dry-run=client will not create any resourse instead, it is used for testing purpose|
 | kubectl get pods -l env=dev| It will filter all the pods which will have label named as env and has value as dev|
 |kubectl get pods  --show-labels| To get the list of pods along with the labels |
-|||
+|kubectl label pod [pod-name] [label key value] | It is for assigning label to any specific pod|
 |||
 |||
 |||
