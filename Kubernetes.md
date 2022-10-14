@@ -12,6 +12,7 @@
 |kubectl scale deployment accounts-deployment --replicas=3|To increase the number of replicas for a deployment inside your cluster **Unexpectedly --replicas is not wroking**|
 |kubectl autoscale deployment **Name-of-deployment** --min=3 --max=10 --cpu-percent=70|To create automatic scaling using HPA for a deployment inside your cluster|
 |kubectl set image deployment [Name of deployment] nginx=nginx:1.16.1| It is for changing the image in the deployment, In this case image is being updated from nginx to nginx1.16.1|
+|kubectl set image deployment [Name of deployment] nginx=nginx:1.16.1 --record|Here the --record plays very imp role by saving the command internally which will shown to us when we will run kubectl rollout history deployment [name of deployment] |
 |kubectl rollout history deployment **Name-of-deployment**|To know the rollout history for a deployment inside your cluster|
 |kubectl rollout undo deployment **Name-of-deployment** --to-revision=1|To rollback to a given revision for a deployment inside your cluster|
 | kubectl logs [App-NAme] -f|For following the logs of application|
