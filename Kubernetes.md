@@ -21,7 +21,7 @@
 | kubectl get pods -l env=dev| It will filter all the pods which will have label named as env and has value as dev|
 |kubectl get pods  --show-labels| To get the list of pods along with the labels |
 |kubectl label pod [pod-name] [label key value] | It is for assigning label to any specific pod|
-|||
+|kubectl label  pods --all status=running| To get the info about all the pods which has status as running|
 |||
 |||
 |||
