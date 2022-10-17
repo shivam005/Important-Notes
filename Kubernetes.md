@@ -24,7 +24,7 @@
 |kubectl get pods  --show-labels| To get the list of pods along with the labels |
 |kubectl label pod [pod-name] [label key value] | It is for assigning label to any specific pod|
 |kubectl label  pods --all status=running| To get the info about all the pods which has status as running|
-|||
+|nodeSelector:   disktype: ssd| Under the (spec:) section of yaml, we can put this label and our pod will be deployed in only that node which will have this label. Make sure that disktype=ssd label has already been defined at the time of node creation  https://kubernetes.io/docs/tasks/configure-pod-container/assign-pods-nodes/ |
 |||
 |||
 |||
@@ -42,6 +42,10 @@
 |||
 |||
 |||
+
+
+
+
  https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.25/#-strong-api-overview-strong-
  https://kubernetes.io/docs/reference/kubernetes-api/
  https://github.com/kubernetes/community/blob/master/contributors/devel/sig-architecture/api-conventions.md
