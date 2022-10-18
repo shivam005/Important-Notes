@@ -25,7 +25,7 @@
 |kubectl label pod [pod-name] [label key value] | It is for assigning label to any specific pod|
 |kubectl label  pods --all status=running| To get the info about all the pods which has status as running|
 |systemctl||
-|||
+|Taint and Toleration| Taint is for allowing a node to repel a set of pods. If taint has been applied to any node then only those pod which will have toleration with same value|
 |||
 |||
 |||
