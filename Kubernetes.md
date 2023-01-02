@@ -28,7 +28,7 @@
 |Taint and Toleration| Taint is for allowing a node to repel a set of pods. If taint has been applied to any node then only those pod which will have toleration with same value|
 |kubectl config view| It is for checking the current context|
 |kubectl config set-context --current --nameOfAttiribute toBeUpdatedValue| for changing any attribute of context|
-|||
+|kubectl get sa|It is for fetching the service account which is responsible for athenticating client in the API server. It consist of secrets or token which is used by client. It we dont specify SA then a default SA is taken.|
 |||
 |||
 |||
