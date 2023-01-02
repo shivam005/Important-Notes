@@ -86,7 +86,7 @@
 |||
 |||
 |||
-|||
+|https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#-strong-getting-started-strong-| It has list commands of kubectl api|
 
 
  https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.25/#-strong-api-overview-strong-
