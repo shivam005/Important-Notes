@@ -2,7 +2,7 @@
 
 ## For vault login
 
-### Using Username and password. 
+### Using Username and password. (vault login -method=userpass username=[] password=[]  )
 curl -gk --insecure -X PUT -H "X-Vault-Request: true" -d '{"password":"password"}' http://127.0.0.1:8200/v1/auth/support/login/username
 
   Here, v1 is the compulsory param for mentioning the api version.  <br />
@@ -16,6 +16,33 @@ It will return the client token which may be used further in the subsequent step
 ### Using Token
 
 
+
+## For storing kv (vault kv put secret/cred user=hex)
+
+ curl --header "X-Vault-Token: root" -X POST --data '{"user": "hex"}' 'http://127.0.0.1:8200/v1/sys/internal/ui/mounts/secret/cred1'
+ 
+ 
+## for fetching kv from specific path (vault kv get secret/cred)
+
+ curl -s --header "X-Vault-Token: root" -X GET  "http://127.0.0.1:8200/v1/secret/data/cred"
+ 
+ 
+ ## for fetching the list of all the secrets (vault kv list secret)
+ 
+ curl -s --header "X-Vault-Token: root" -X GET  "http://127.0.0.1:8200/v1/secret/metadata?list=true"
+ 
+ Metadata is actually used for fetching all the secrets. In the policy also, I have specified policy as "path "secret/+/*" {
+		capabilities = ["create", "read", "update", "patch", "delete", "list"]
+}"
+
+## for creating approle (vault write auth/approle/role/jenkins token_policies="jenkin_policy")
+ 
+ URL: PUT http://127.0.0.1:8200/v1/auth/approle/role/jenkins
+ 
+ Here, we created an approle named as jenkin and linked it to the policy jenkin_policy.
+ 
+ for getting the role-id --> vault read auth/approle/role/jenkins/role-id
+ for getting the secret-id --> vault write -f auth/approle/role/jenkins/secret-id
 
 ### payload.json
 {
@@ -64,17 +91,49 @@ curl \
     
     Here, the format may be either of them. 
     
- ## For listing all the path in the vault. 
+ ## For listing all the auth path in the vault. 
   
   curl  -s --header "X-Vault-Token: hvs.cMMyetiE6OeMtGzU87rWOBEb" --request GET  "http://127.0.0.1:8200/v1/sys/auth" 
 
   ## For listing all the path in the secret. 
     
-     curl  -s --header "X-Vault-Token: hvs.cMMyetiE6OeMtGzU87rWOBEb" --request GET  "http://127.0.0.1:8200/v1/sys/audit-hash/file" 
+     curl  -s --header "X-Vault-Token: root" --request GET  "http://127.0.0.1:8200/v1/sys/" 
+     
+ ## For monitoring vault
+ 
+      curl \
+    --header "X-Vault-Token: hvs.cMMyetiE6OeMtGzU87rWOBEb" \
+    'http://127.0.0.1:8200/v1/sys/monitor?log_level=debug'
+
+
+## for listing policies
+curl  -s --header "X-Vault-Token: root" -X GET 'http://127.0.0.1:8200/v1/sys/policies/acl?list=true'
+
+
+
+ 
+|||
+|vault login -method=userpass username=admin password=password| for logging with specific method and credentials|
+|vault auth enable userpass|In order to enable the userpass as the authentication method.|
+|vault kv get  secret/cred| for fetching the kv present in the vault in the secret engine at cred path|
+|vault kv get  secret/cred| user=pass|Here, in the secret engine, a cred path will be created and, user and pass will get stored as the key-value pair|
+|||
+|||
+|||
+
+
+ 
+     curl  -s --header "X-Vault-Token: hvs.cMMyetiE6OeMtGzU87rWOBEb" -d '{"level":"debug"}' --request GET  "http://127.0.0.1:8200/v1/sys/loggers" 
+     
+     curl \
+    --header "X-Vault-Token: hvs.cMMyetiE6OeMtGzU87rWOBEb" \
+    'http://127.0.0.1:8200/v1/sys/monitor?log_level=debug'
 
 
 
 
+
+  curl  -s --header "X-Vault-Token: hvs.CAESIJ9F-m3FeVo0lekpvTAaJHJhPRW_gVSeM3gkdtDUdO9gGh4KHGh2cy42YXdHaFVXcVdYam9DZHpodDZ6MThpdWU" --request GET  "http://127.0.0.1:8200/v1/sys/auth" 
 
 
 
@@ -103,12 +162,13 @@ curl -gk -H 'X-Vault-Token:hvs.cMMyetiE6OeMtGzU87rWOBEb' http://127.0.0.1:8200/v
 curl -gk -H 'X-Vault-Token:hvs.cMMyetiE6OeMtGzU87rWOBEb' http://127.0.0.1:8200/v1/username/data/cred
 
 
-
+curl -s --header "X-Vault-Token: root" -X GET  "http://127.0.0.1:8200/v1/secret/data/cred"
  
- 
+ curl -s --header "X-Vault-Token: root" -d '{"username":"Passqored"}'  -X POST  "http://127.0.0.1:8200/v1/secret/data/cred" 
 
 
 '{"format": "hex"}'
 
- 
+ curl --header "X-Vault-Token: root" -X POST --data '{"user": "hex"}' "http://127.0.0.1:8200/v1/secret/data/cred008989878789"
+
     
