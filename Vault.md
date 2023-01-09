@@ -13,9 +13,9 @@ curl -gk --insecure -X PUT -H "X-Vault-Request: true" -d '{"password":"password"
 
 It will return the client token which may be used further in the subsequent steps. 
 
-### Using Token
+### Using Approle (vault write auth/approle/login role_id="60ef4e96-da1e-62bd-0ddf-6ddd1dce0037" secret_id="fa004dd9-f8a1-02bc-f0ba-3c9feae49ab1")
 
-
+URL: PUT http://127.0.0.1:8200/v1/auth/approle/login
 
 ## For storing kv (vault kv put secret/cred user=hex)
 
@@ -41,8 +41,10 @@ It will return the client token which may be used further in the subsequent step
  
  Here, we created an approle named as jenkin and linked it to the policy jenkin_policy.
  
- for getting the role-id --> vault read auth/approle/role/jenkins/role-id
+ for getting the role-id --> vault read auth/approle/role/jenkins/role-id </br>
  for getting the secret-id --> vault write -f auth/approle/role/jenkins/secret-id
+ 
+ ## Curl for updating Secret configuration
 
 ### payload.json
 {
@@ -50,7 +52,6 @@ It will return the client token which may be used further in the subsequent step
   "cas_required": false,
 }
 
-## Curl for updating Secret configuration
 curl \
    --insecure  --header "X-Vault-Token: hvs.cMMyetiE6OeMtGzU87rWOBEb" \
     --request POST \
@@ -117,7 +118,7 @@ curl  -s --header "X-Vault-Token: root" -X GET 'http://127.0.0.1:8200/v1/sys/pol
 |vault auth enable userpass|In order to enable the userpass as the authentication method.|
 |vault kv get  secret/cred| for fetching the kv present in the vault in the secret engine at cred path|
 |vault kv get  secret/cred| user=pass|Here, in the secret engine, a cred path will be created and, user and pass will get stored as the key-value pair|
-|||
+|vault token capabilities cubbyhole/|It is for checking the capability or policy access of any specific secret engine|
 |||
 |||
 
@@ -170,5 +171,8 @@ curl -s --header "X-Vault-Token: root" -X GET  "http://127.0.0.1:8200/v1/secret/
 '{"format": "hex"}'
 
  curl --header "X-Vault-Token: root" -X POST --data '{"user": "hex"}' "http://127.0.0.1:8200/v1/secret/data/cred008989878789"
+
+
+ 
 
     
