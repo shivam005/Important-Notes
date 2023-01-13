@@ -29,10 +29,10 @@
 |kubectl config view| It is for checking the current context|
 |kubectl config set-context --current --nameOfAttiribute toBeUpdatedValue| for changing any attribute of context|
 |kubectl get sa|It is for fetching the service account which is responsible for athenticating client in the API server. It consist of secrets or token which is used by client. It we dont specify SA then a default SA is taken.|
-|||
-|||
-|||
-|||
+|kubectl config get-contexts| It is getting info related to the currect context. Context refers to the default information available to be used by kubectl while communicating with the server |
+|kubectl config set-context [name of context]| it is for setting the context|
+|kubectl config --kubeconfig=base-config set-cluster development --server=https://1.2.3.4| for creating kubeconfig with the cluster detail|
+|kubectl config --kubeconfig=base-config set-credentials experimenter --username=dev --password=some-password|for adding user detail in the config|
 |||
 |||
 |||
