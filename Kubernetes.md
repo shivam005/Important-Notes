@@ -33,11 +33,11 @@
 |kubectl config set-context [name of context]| it is for setting the context|
 |kubectl config --kubeconfig=base-config set-cluster development --server=https://1.2.3.4| for creating kubeconfig with the cluster detail|
 |kubectl config --kubeconfig=base-config set-credentials experimenter --username=dev --password=some-password|for adding user detail in the config|
-|||
-|||
-|||
-||| 
-|||
+|kubectl get pv| to fetch the list of persistent volumes|
+|kubectl get pvc| to fetch the list of persistent volume claim. |
+|PV and PVC |In kubernetes, we just have got to define the pvc inside the pod and on the basis of configuration which has been demanded in PVC, a PV will be allocated automatically which will have sufficient resources to fullfill the demand of PVC. If in case, none of the PV matches the requirement then an PV will get created dynamically. |
+|kubectl get configmap| configmap is like application.properties which can be mounted in pod like volumes and can be replaced as per our convenience or we can also directly make changes in the configmap without affecting the pod. | 
+|Security-context| It is for specifying the access privilege of any pod as it is dangerous to have root access. it may be of three type runasuser, runasgroup, fsgroup. fsgroup applies the context to the volume path, runasuser applies to the current user and runasGroup applies to primary group of all the services within the group. |
 |||
 |||
 |||
