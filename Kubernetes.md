@@ -38,32 +38,6 @@
 |PV and PVC |In kubernetes, we just have got to define the pvc inside the pod and on the basis of configuration which has been demanded in PVC, a PV will be allocated automatically which will have sufficient resources to fullfill the demand of PVC. If in case, none of the PV matches the requirement then an PV will get created dynamically. |
 |kubectl get configmap| configmap is like application.properties which can be mounted in pod like volumes and can be replaced as per our convenience or we can also directly make changes in the configmap without affecting the pod. | 
 |Security-context| It is for specifying the access privilege of any pod as it is dangerous to have root access. it may be of three type runasuser, runasgroup, fsgroup. fsgroup applies the context to the volume path, runasuser applies to the current user and runasGroup applies to primary group of all the services within the group. |
-|||
-|||
-|||
-|||
-|||
-|||
-|||
-|||
-|||
-|||
-|||
-|||
-|||
-|||
-|||
-|||
-|||
-||| 
-|||
-|||
-|||
-|||
-|||
-|||
-|||
-|||
 |nodeSelector:   disktype: ssd | Under the (spec:) section of yaml, we can put this label and our pod will be deployed in only that node which will have this label. Make sure that disktype=ssd label has already been defined at the time of node creation  https://kubernetes.io/docs/tasks/configure-pod-container/assign-pods-nodes/ |
 | https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/ |Node Affinity is similar to Node-Selector, It is also more flexible. Node Selector has also been depricated, so its better to use it. It has two types of checks preferredDuringSchedulingIgnoredDuringExecution(Soft check), requiredDuringSchedulingIgnoredDuringExecution(Hard check) |
 |resource request and limit |Request and Limit are the upper and the lower bound for the resource assignment in the given pod. It specifies that the given pod will not work in the node which has less capacity than request. https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/|
@@ -80,6 +54,32 @@
 |||
 |||
 ||| 
+|||
+|||
+|||
+|||
+|||
+|||
+|||
+|||
+|||
+|||
+|||
+|||
+|||
+|||
+|||
+|||
+|||
+|||
+|||
+|||
+|||
+|||
+|||
+||| 
+|||
+|||
 |||
 |||
 |||
