@@ -2,7 +2,7 @@
 
 | Kubernetes Command | Description |
 | --- | ----------- |
-|  kubectl apply -f filename | To create a deployment/service/configmap based on a given YAML file |
+|  kubectl apply -f filename -n namespace | To create a deployment/service/configmap based on a given YAML file |
 |kubectl get all | To get all the components inside your cluster|
 |kubectl describe pod pod-id|To get more details of a given pod id|
 |kubectl get pod pod-id|To get the details of a given pod id|
