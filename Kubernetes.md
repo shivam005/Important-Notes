@@ -42,7 +42,7 @@
 | https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/ |Node Affinity is similar to Node-Selector, It is also more flexible. Node Selector has also been depricated, so its better to use it. It has two types of checks preferredDuringSchedulingIgnoredDuringExecution(Soft check), requiredDuringSchedulingIgnoredDuringExecution(Hard check) |
 |resource request and limit |Request and Limit are the upper and the lower bound for the resource assignment in the given pod. It specifies that the given pod will not work in the node which has less capacity than request. https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/|
 |Pod affinity and antiaffinity |Node affinity allows you to schedule a pod on a set of nodes based on labels present on the nodes. However, in certain scenarios, we might want to schedule certain pods together or we might want to make sure that certain pods are never scheduled together. This can be achieved by PodAffinity and/or PodAntiAffinity respectively. https://github.com/infracloudio/kubernetes-scheduling-examples|
-|||
+|If the two application, blue application and the db-service are in different namespaces. In this case, we need to use the service name along with the namespace to access the database. The FQDN (fully Qualified Domain Name) for the db-service in this example would be db-service.dev.svc.cluster.local.  or db-service.dev||
 |||
 |||
 |||
