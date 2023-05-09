@@ -9,7 +9,7 @@
 |kubectl delete pod pod-id|To delete a given pod from cluster |
 |kubectl get services|To get all the services details inside your cluster|
 |kubectl get events --sort-by=.metadata.creationTimestamp|To get all the events occured inside your cluster|
-|kubectl scale deployment accounts-deployment --replicas=3|To increase the number of replicas for a deployment inside your cluster **Unexpectedly --replicas is not wroking**|
+|kubectl scale deployment accounts-deployment --replicas=3  or  kubectl scale replicaset new-replica-set --replicas=5 |To increase the number of replicas for a deployment inside your cluster **Unexpectedly --replicas is not wroking**|
 |kubectl autoscale deployment **Name-of-deployment** --min=3 --max=10 --cpu-percent=70|To create automatic scaling using HPA for a deployment inside your cluster|
 |kubectl set image deployment [Name of deployment] nginx=nginx:1.16.1| It is for changing the image in the deployment, In this case image is being updated from nginx to nginx1.16.1|
 |kubectl set image deployment [Name of deployment] nginx=nginx:1.16.1 --record|Here the --record plays very imp role by saving the command internally which will shown to us when we will run kubectl rollout history deployment [name of deployment] |
