@@ -30,7 +30,7 @@
 |helm template [NAME] [CHART]|Render chart templates locally along with the values|
 |helm list|Lists all of the helm releases inside a K8s cluster|
 |helm get manifest [Chart-Name] |To get the manifest info which will have all the info related to chart |
-|||
+|helm uninstall releasename --no-hooks --kubeconfig config| it is for uninstalling with no hooks|
 |||
 |||
 |||
