@@ -16,4 +16,15 @@ Using static factory method is more efficient because it can return an already-e
 
 "This" cannot be referenced from a static context because "this" refers to the current instance of an object, and a static context refers to a class or method that does not have access to an instance of an object. In other words, "this" refers to an object that has been instantiated, whereas a static context refers to the class or method itself, which does not have access to any specific instance of an object.
 
-## 
+## What is CompletableFuture?
+It is the way of handling async methods without blocking the main thread. Usually in case of future, main thread gets blocked but here a seperate thread is created which actually processes the async method and the main method keeps on processing rest of the code.
+It has below methods:
+runAsync() --> It runs in the background and does not return anything.
+supplyAsync() --> Run async in the background and will return value from the task.
+get() --> It blocks the execution untill the future is completed. 
+thenApply() --> It will wait for the previous async method to be completed and whatever the output will come from there. It will use it for further processing. 
+thenAccept() --> It does not return anything, it just accepts the output coming from previous future.  
+
+
+
+
