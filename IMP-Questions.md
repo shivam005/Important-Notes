@@ -26,3 +26,7 @@ The CPU starts and fetches instructions into RAM from the BIOS, which is stored 
 
 # What is WebSocket API?
 The WebSocket API is an advanced technology that makes it possible to open a two-way interactive communication session between the user's browser and a server. With this API, you can send messages to a server and receive event-driven responses without having to poll the server for a reply.
+
+# What is JSR (Java Specification Request) Annotations ?
+JSR annotations are part of the Java standard, and they play a significant role in improving code readability, maintainability, and portability by providing a standard way to express various semantics and configurations in Java applications. Developers can also create custom annotations to suit their specific needs, but JSR annotations represent the set of standard annotations provided by the Java platform. Eg; @Resource @PostConstruct @PreDestroy @Nullable @Inject @Entity @GeneratedValue etc.
+
