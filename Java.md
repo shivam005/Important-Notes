@@ -36,7 +36,10 @@ Map.Entry is a key and its value combined into one class.
 ## What is <? extends T> and <? super T>?
 It is bounded wildcards. A bounded wildcard (<? extends T> or <? super T>) places a restriction on the type by saying that it either has to extend a specific type (<? extends T> is known as an upper bound), or has to be an ancestor of a specific type (<? super T> is known as a lower bound).
 ## What is difference between map.entry and entryset
-Map.Entry is an interface that represents a **single** key-value pair, and it's used when you need to work with individual entries of a map. entrySet() is a method provided by the Map interface that returns a **set of all key-value pairs** in the map, which can be used for iterating over all entries or performing batch operations
+Map.Entry is an interface that represents a **single** key-value pair, and it's used when you need to work with individual entries of a map. entrySet() is a method provided by the Map interface that returns a **set of all key-value pairs** in the map, which can be used for iterating over all entries or performing batch operations.
+
+## what is for (;;)?
+It is an infinite loop and needs break statement to terminate.
 
 
 
