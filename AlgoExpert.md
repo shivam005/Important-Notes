@@ -42,6 +42,7 @@ public class Shiva {
     }
 }
 
+// Time Complexity == O(N)
 ```
 ### Move 
 
