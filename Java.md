@@ -41,6 +41,14 @@ Map.Entry is an interface that represents a **single** key-value pair, and it's 
 ## what is for (;;)?
 It is an infinite loop and needs break statement to terminate.
 
+## what is coupling and cohesion?
+Cohesion refers to the degree to which elements within a module work together to fulfill a single, well-defined purpose.
+High cohesion means that elements are closely related and focused on a single purpose, while low cohesion means that elements are loosely related and serve multiple purposes.
+Coupling is the measure of the degree of interdependence between the modules. A good software will have low coupling. 
+High cohesion means that elements are closely related and focused on a single purpose, while low cohesion means that elements are loosely related and serve multiple purposes.
+High coupling and low cohesion can make a system difficult to change and test, while low coupling and high cohesion make a system easier to maintain and improve.
+
+
 
 
 
