@@ -28,3 +28,6 @@ If you don’t change any of the settings, the BIOS will fetch the operating sys
 The BIOS then transfers control to the operating system.
 
 Spring Security:: https://github.com/eazybytes/springsecurity6
+
+Eight falacies of distributed computing, describing false assumptions that programmers new to distributed applications invariably make.
+https://en.wikipedia.org/wiki/Fallacies_of_distributed_computing
