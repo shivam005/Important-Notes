@@ -2,6 +2,7 @@
 # Merge multiple commit into one
 
 git rebase -i HEAD~3
+
 Here, 3 denotes the last afew commits which has to be merged into one. We can change this number as per our use case.
 
 Step.1: you will get this into the editor -->
