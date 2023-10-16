@@ -2,6 +2,7 @@
 
 | Kubernetes Command | Description |
 | --- | ----------- |
+|kubectl rollout restart deploy -n namespace  nameofapplication | |
 |  kubectl apply -f filename -n namespace | To create a deployment/service/configmap based on a given YAML file |
 |kubectl get all | To get all the components inside your cluster|
 |kubectl describe pod pod-id|To get more details of a given pod id|
