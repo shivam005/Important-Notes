@@ -68,3 +68,47 @@ Here, in order to make separation between frontend and backend. Networks are use
 |||
 |||
 |||
+
+## Steps for pulling image to local docker registry"
+
+1. Docker Desktop > Settings > Resources > Proxies 
+ add "http://localhost:8082" in web server and secure webserver
+
+ 2. Docker Desktop > Settings > Docker Engine 
+
+ add (It has insecure registries):  
+
+ {
+  "builder": {
+    "gc": {
+      "defaultKeepStorage": "20GB",
+      "enabled": true
+    }
+  },
+  "docker": {
+    "insecure-registries": [
+      "registry url"
+    ]
+  },
+  "experimental": false,
+  "features": {
+    "buildkit": true
+  }
+}
+
+3. port forward to 8082
+
+ ssh <AD_ACCOUNT>@localhost -p2200 -L8082:localhost:80
+
+4. sudo vi /etc/hosts
+add below mentioned mapping in the hosts file
+
+########## Artifactory ###########
+
+<IP_ADDRESS> <REGISTRY_URL>
+
+5. docker login -u <USER> <Registry_URL>
+
+6. docker pull <IMAGE_URL>
+
+
