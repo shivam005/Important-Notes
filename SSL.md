@@ -8,6 +8,9 @@ openssl req -x509 -newkey rsa:2048 -nodes -keyout localhost.key -out localhost.c
 ### First
 keytool -importcert -alias localhost -file localhost.crt -keystore cacerts
 ### 
+Below is the way to import multiple certs in the truststore, It is done using alias.
+keytool -import -file C:\cascerts\firstCA.cert -alias firstCA -keystore myTrustStore
+
 
 
 
