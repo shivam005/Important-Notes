@@ -1,5 +1,12 @@
 # DSA
 
+## Time Complexity
+
+O(1) no matter how many items you have to sort, it'll take the same amount of time
+O(logn)  doesn't grow very quickly with input size. It's like having a phonebook and being able to find a name quickly by splitting it in half repeatedly.
+O(n) If you double the input size, it will take roughly twice as long to run. It's like checking each item in a list one by one.
+O(n^2)   If you double the input size, it will take about four times as long to run.
+
 ## Recursion
 Recursion is useful in solving problems which can be broken down into smaller problems of the same kind. Recursion uses more memory, because the recursive function adds to the stack with each recursive call, and keeps the values there until the call is finished. The recursive function uses LIFO (LAST IN FIRST OUT) Structure just like the stack data structure.
 
