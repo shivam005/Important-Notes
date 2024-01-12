@@ -111,4 +111,21 @@ add below mentioned mapping in the hosts file
 
 6. docker pull <IMAGE_URL>
 
-
+ 
+###################################-Docker Process-#############################
+1.on the SandBox go microservice pod-
+2.make tar exluding log folder-
+--tar -czvf not-listener.tar
+3.return back to sanbox and create image using tar
+--docker build -t image_name:version
+4.push the image
+--docker push image_name:version
+5.when we put this image on another service so we need to perform this steps:-
+  1. create image tar -
+    --docker save -o not-listener.tar not-listener:1.4.0
+  2. put tar on server and need to load the tar-
+    --docker load < not-listener.tar
+  3. after load image we need to push the image
+docker save -o not-listener.tar not-listener:1.4.0                 |
+docker load < not-listener.tar                                              |
+docker push artifactory/not-listener:1.4.0
