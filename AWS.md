@@ -1,6 +1,6 @@
-# Kubernetes-Notes
+# AWS-Notes
 
-| Kubernetes Command | Description |
+| Keywords | Description |
 | --- | ----------- |
 | | |
 | | |
