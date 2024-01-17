@@ -31,3 +31,6 @@ Spring Security:: https://github.com/eazybytes/springsecurity6
 
 Eight falacies of distributed computing, describing false assumptions that programmers new to distributed applications invariably make.
 https://en.wikipedia.org/wiki/Fallacies_of_distributed_computing
+
+## To Find IP of System
+ifconfig | grep "inet " | grep -Fv 127.0.0.1 | awk '{print $2}'
