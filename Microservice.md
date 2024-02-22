@@ -1,6 +1,8 @@
 How do you decide on the boundaries of a microservice?
 Scenario: You have to design a new microservice for a large e-commerce website. How would you go about identifying the boundaries of this microservice?
 
+https://stackoverflow.com/questions/50562495/how-to-handle-microservice-interaction-when-one-of-the-microservice-is-down
+
 How do you handle communication between microservices?
 Scenario: Two microservices need to communicate with each other to complete a business transaction. How would you handle this communication in Java?
 
