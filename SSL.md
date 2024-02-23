@@ -44,3 +44,23 @@ openssl x509 -in cacert-0-0.pem -text -noout
 
 >>>>to see content of truststore file.
 keytool -list -v -keystore ru_truststore.jks -storepass changeit
+
+
+
+
+................................................
+## Generate CSR
+### Generate private key
+openssl ecparam -name prime256v1 -genkey -noout -out private-key.pem
+### Generate CSR
+openssl req -out CSR.csr -key private-key.pem -new 
+### To list all the curves in the ec cryptography 
+openssl ecparam -list_curves
+
+## Some General Commands 
+### Check a Certificate Signing Request (CSR)
+openssl req -text -noout -verify -in CSR.csr
+### Check a private key
+openssl rsa -in privateKey.key -check
+### Check a certificate
+openssl x509 -in certificate.crt -text -noout
