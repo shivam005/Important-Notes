@@ -44,7 +44,7 @@
 |resource request and limit |Request and Limit are the upper and the lower bound for the resource assignment in the given pod. It specifies that the given pod will not work in the node which has less capacity than request. https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/|
 |Pod affinity and antiaffinity |Node affinity allows you to schedule a pod on a set of nodes based on labels present on the nodes. However, in certain scenarios, we might want to schedule certain pods together or we might want to make sure that certain pods are never scheduled together. This can be achieved by PodAffinity and/or PodAntiAffinity respectively. https://github.com/infracloudio/kubernetes-scheduling-examples|
 |If the two application, blue application and the db-service are in different namespaces. In this case, we need to use the service name along with the namespace to access the database. The FQDN (fully Qualified Domain Name) for the db-service in this example would be db-service.dev.svc.cluster.local.  or db-service.dev||
-|||
+|Create Service Account ||
 |||
 |||
 |||
@@ -88,6 +88,23 @@
 |||
 |||
 |https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#-strong-getting-started-strong-| It has list commands of kubectl api|
+
+# Steps to create service account and to use it with kube API.
+## Create service account
+## Create secret and bind it with service account.
+apiVersion: v1
+kind: Secret
+metadata:
+  name: <secretname>
+  annotations:
+    kubernetes.io/service-account.name: <serviceaccount-name>
+type: kubernetes.io/service-account-token
+
+## fetch token from service account and use it in the kubernetes API
+curl -k https://<kubernetes-api-server>/api/v1/namespaces/<namespace>/secrets/<secret-name> -H "Authorization: Bearer <your-token>"
+
+
+
 
 
  https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.25/#-strong-api-overview-strong-
