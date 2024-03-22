@@ -89,9 +89,13 @@
 |||
 |https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#-strong-getting-started-strong-| It has list commands of kubectl api|
 
+
 # Steps to create service account and to use it with kube API.
+
 ## Create service account
 ## Create secret and bind it with service account.
+
+---
 apiVersion: v1
 kind: Secret
 metadata:
@@ -99,11 +103,42 @@ metadata:
   annotations:
     kubernetes.io/service-account.name: <serviceaccount-name>
 type: kubernetes.io/service-account-token
+---
 
 ## fetch token from service account and use it in the kubernetes API
 curl -k https://<kubernetes-api-server>/api/v1/namespaces/<namespace>/secrets/<secret-name> -H "Authorization: Bearer <your-token>"
 
 
+## Create Role and RoleBinding
+
+ ---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  namespace: <namespace>
+  name: secret-reader
+rules:
+- apiGroups: [""]
+  resources: ["secrets"]
+  verbs: ["get", "list"]
+
+---
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  namespace: <namespace>
+  name: secret-reader-binding
+subjects:
+- kind: ServiceAccount
+  name: <service account name>
+  namespace: <namespace>
+roleRef:
+  kind: Role
+  name: secret-reader
+  apiGroup: rbac.authorization.k8s.io
+
+---
 
 
 
@@ -117,7 +152,9 @@ Here, the ETCD will be storing information related to all the resources and kube
 
 https://kubernetes.io/docs/reference/kubectl/cheatsheet/ 
 
-### Service is meant to route the traffic to the nodes as the nodes will have dynamic IPs(Due to auto-creation or self healing). Labels in the deployment is meant to get identified by Service, hence it should exactly mentioned inside the service.  
+### Service is meant to route the traffic to the nodes as the nodes will have dynamic IPs(Due to auto-creation or self healing). Labels in the deployment is meant to get identified by Service, hence it should exactly mentioned inside the service. 
+
+
 
 [Kubernetes.pdf](https://github.com/shivam005/Important-Notes/files/9433563/Kubernetes.pdf)
 
