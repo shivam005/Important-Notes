@@ -1,4 +1,60 @@
-# DSA
+## Two pointer with comparison {Two Sum}
+Create two pointer which is left and right. 
+Sort the array.
+Initialize a loop as long as left is less that right. 
+If the condition on both pointer exceeds the target then decrease the right pointer.
+If the condition on both pointer subceed the target then increase the left pointer. 
+If matches then return it. 
+```
+ public static int[] check(int[] arr, int target){
+ int left =0;
+    int right = arr.length-1;
+    int[] array= new int[2];
+    int counter=0;
+    Arrays.sort(arr);
+ while (left < right){
+        if(arr[left]+arr[right]>target){
+            right--;
+        } else if (arr[left]+arr[right]<target) {
+            left++;
+        } else if (arr[left]+arr[right]==target) {
+            array[counter] = arr[left];
+            counter++;
+            array[counter] = arr[right];
+            return array;
+        }else {
+            throw new RuntimeException("Cannt found");
+           }
+    }
+return array;
+    }
+```
+## Two pointer with comparison {Two Sum}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ## Time Complexity
 
