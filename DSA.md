@@ -96,9 +96,31 @@ public int[] check(int[] arr, int k){
       return arr;
         }
 ```
-## Two pointer with comparison {Two Sum}
+## Union of Array {Using HashMap}
+Herein, create a hashmap and get all the elements of Array stored there in hashmap while storing make sure to increase the frequency of value. 
 ```
-d
+static ArrayList<Integer> check(int[] arr, int[] arr1){
+        HashMap<Integer, Integer> hs = new HashMap<>();
+        for(int i: arr){
+            if(hs.containsKey(i)){
+                hs.put(i,hs.get(i)+1);
+            }else {
+                hs.put(i,1);
+            }
+        }
+        for(int i: arr1) {
+            if (hs.containsKey(i)) {
+                hs.put(i, hs.get(i) + 1);
+            } else {
+                hs.put(i, 1);
+            }
+        }
+        ArrayList<Integer> AL=new ArrayList<>();
+        for(var j : hs.keySet()){
+            AL.add(j);
+        }
+        return AL;
+    }
 ```
 ## Two pointer with comparison {Two Sum}
 ```
