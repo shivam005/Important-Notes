@@ -57,10 +57,10 @@ public boolean check(int[] arr){
         boolean desc=true;
         for(int i=1;i< arr.length;i++){
             if(arr[i]>arr[i-1]){
-                asc= false;
+                desc= false;
             }
             if(arr[i]<arr[i-1]){
-                desc=false;
+                asc=false;
             }
         }
         return asc || desc;
