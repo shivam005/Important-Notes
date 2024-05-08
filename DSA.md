@@ -29,7 +29,76 @@ If matches then return it.
 return array;
     }
 ```
+## RemoveDuplicateFromSortedArray {Move Unique Element to Front}
+Sort the Array. 
+Start traversing from first index and check whether present one is different than the current one and 
+if true then move it to the front place.
+```
+public void check(int[] arr, int k){
+        Arrays.sort(arr);
+        int j=0;
+        for(int i=1;i< arr.length;i++){
+            if(arr[i]!=arr[j]){
+                arr[j]=arr[i];
+                j++;
+            }
+        }
+    }
+
+```
+## Check if sorted or not
+start traversing from first index and check if the 
+element at zero index is greater than one at first index
+If true then turn the flag of asc to false
+check same for desc. Herein we are checking if it is not ascending then it is descending. 
+```
+public boolean check(int[] arr){
+        boolean asc=true;
+        boolean desc=true;
+        for(int i=1;i< arr.length;i++){
+            if(arr[i]>arr[i-1]){
+                asc= false;
+            }
+            if(arr[i]<arr[i-1]){
+                desc=false;
+            }
+        }
+        return asc || desc;
+    }
+
+```
 ## Two pointer with comparison {Two Sum}
+```
+d
+```
+## Two pointer with comparison {Two Sum}
+```
+d
+```
+## Two pointer with comparison {Two Sum}
+```
+d
+```
+## Two pointer with comparison {Two Sum}
+```
+d
+```
+## Two pointer with comparison {Two Sum}
+```
+d
+```
+## Two pointer with comparison {Two Sum}
+```
+d
+```
+## Two pointer with comparison {Two Sum}
+```
+d
+```
+## Two pointer with comparison {Two Sum}
+```
+d
+```
 
 
 
