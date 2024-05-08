@@ -67,9 +67,34 @@ public boolean check(int[] arr){
     }
 
 ```
-## Two pointer with comparison {Two Sum}
+## Shift zeroes  
+One pointer is being used here with the swap function. 
+Traverse and keep the condition that the current pointer should not go beyond the another pointer.
+If current one is equal to zero then swap. 
+For leftward, just start the pointer from zero and no need to put any extra condition. 
 ```
-d
+// For rightward
+public int[] check(int[] arr, int k){
+        int j=arr.length-1;
+      for(int i=0;i<arr.length & i< j;i++){
+          if(arr[i]==0){
+              swap(arr,i,j);
+              j--;
+          }
+      }
+      return arr;
+        }
+// For leftward
+public int[] check(int[] arr, int k){
+        int j=0;
+      for(int i=0;i<arr.length;i++){
+          if(arr[i]==0){
+              swap(arr,i,j);
+              j++;
+          }
+      }
+      return arr;
+        }
 ```
 ## Two pointer with comparison {Two Sum}
 ```
