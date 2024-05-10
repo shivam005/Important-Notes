@@ -38,7 +38,24 @@ public class RunnerClass {
     }
 }
 
-Output -> 
+Output ->
 9
 Parent
 ```
+### Can constructors be inherited in Java?
+Constructors are not inherited in Java. However, when a subclass is created, the superclass's constructor is invoked 
+implicitly to initialize the inherited members of the subclass. If the superclass has multiple constructors, 
+the subclass constructor must explicitly call one of them using the super() keyword.
+
+
+
+
+
+
+
+
+
+
+
+
+
