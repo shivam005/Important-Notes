@@ -47,10 +47,10 @@ Constructors are not inherited in Java. However, when a subclass is created, the
 implicitly to initialize the inherited members of the subclass. If the superclass has multiple constructors, 
 the subclass constructor must explicitly call one of them using the super() keyword.
 
-
-
-
-
+###  What is Principle of Widening Access?
+It is a fundamental principle in object-oriented design and inheritance. 
+It states that subclasses should be able to widen the access of inherited methods, 
+but they should not restrict or narrow the access compared to the superclass.
 
 
 
