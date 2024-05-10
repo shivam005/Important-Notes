@@ -1,4 +1,4 @@
-# Interview Questions
+
 ### Can we override variables in Java?
 No, in Java, you cannot override variables. Variable hiding, also known as shadowing, occurs when a subclass declares a variable 
 with the same name as a variable in its superclass. 
