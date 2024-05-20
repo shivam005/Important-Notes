@@ -122,9 +122,57 @@ static ArrayList<Integer> check(int[] arr, int[] arr1){
         return AL;
     }
 ```
-## Two pointer with comparison {Two Sum}
+## Boyer-Moore Majority Voting Algorithm
+ This algo works in two steps, in first step we check for the possible candidate
+  and in second step we verify whether the given candidate appears more than the given time
+ 
+  In first step, we first checks whether the first element is equal to the traversing element as long as
+  the current pointer matches, we increase the counter and if it does not match then we decrease the counter
+ In the situation wherein this counter gets zero then we instantly increase the majority element
+ and same thing goes on....
 ```
-d
+public class MooresVotingAlgo {
+
+public int findCandidate(int[] arr){
+        int maj=0;
+        int count=1;
+        for(int i=0; i<arr.length;i++){
+            if(arr[i]==arr[maj]){
+                count++;
+            }else{
+                count--;
+
+            }
+            if(count==0){
+                maj=i;
+                count=1;
+            }
+        }
+        return arr[maj];
+    }
+
+    public int isMajority(int[] arr, int maj){
+        int n=arr.length/2;
+        int count=0;
+        for(int i=0; i< arr.length;i++){
+            if(arr[i]==maj){
+                count++;
+            }
+            if(count >n){
+                return maj;
+            }
+        }
+        return -1;
+    }
+
+
+    public static void main(String[] args) {
+        int[] arr= {2,4,2,3,2,2,1};
+        System.out.println(new MooresVotingAlgo().isMajority(arr,new MooresVotingAlgo().findCandidate(arr)));
+
+    }
+}
+
 ```
 ## Two pointer with comparison {Two Sum}
 ```
