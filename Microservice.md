@@ -7,8 +7,49 @@ It is meant to assess the devops best practices, It is analyzed based on below m
 
 Every architecture can also be tested based upon the outcome of dora metrics. 
 
-### 
+### Service collaboration pattern:
+There are 4 service collaboration pattern:
+1. Saga, which implements a distributed command as a series of local transactions
+2. Command-side replica, which replicas read-only data to the service that implements a command
+3. API composition, which implements a distributed query as a series of local queries
+4. CQRS, which implements a distributed query as a series of local queries
 
+### Services can communicate using Messaging and Remote Procedure Invocation:
+#### Messaging: There are several different styles of asynchronous communication:
+1. Request/response - a service sends a request message to a recipient and expects to receive a reply message promptly
+2. Notifications - a sender sends a message a recipient but does not expect a reply. Nor is one sent.
+3. Request/asynchronous response - a service sends a request message to a recipient and expects to receive a reply message eventually
+4. Publish/subscribe - a service publishes a message to zero or more recipients
+5. Publish/asynchronous response - a service publishes a request to one or recipients, some of whom send back a reply
+#### RPI : There are numerous examples of RPI technologies:
+1. REST
+2. gRPC
+3. Apache Thrift
+
+### Log Aggregation
+While the ELK stack is a powerful and popular solution for centralized logging, there are several other options available, each with its own advantages. Fluentd and Fluent Bit offer lightweight and flexible logging solutions, Graylog provides a robust open-source alternative, Splunk offers comprehensive enterprise features, AWS CloudWatch Logs is ideal for AWS environments, and Azure Monitor is perfect for Azure-based infrastructure. The choice of logging solution depends on your specific requirements, infrastructure, and budget.
+
+### Application Metrics: Instrument a service to gather statistics about individual operations
+Instrumentation libraries:
+1. Coda Hale/Yammer Java Metrics Library
+2. Prometheus client libraries
+Metrics aggregation services
+1. Prometheus
+2. AWS Cloud Watch
+
+### Distributed tracing: to understand behavior of an individual service
+1. Instrument services with code that Assigns each external request a unique external request id
+2. Passes the external request id to all services that are involved in handling the request
+3. Includes the external request id in all log messages
+4. Records information (e.g. start time, end time) about the requests and operations performed when handling a external request in a centralized service
+Example:
+Open Zipkin - service for recording and displaying tracing information
+Open Tracing - standardized API for distributed tracing.
+
+### Exception tracking: 
+Report all exceptions to a centralized exception tracking service that aggregates and tracks exceptions and notifies developers.
+
+### 
 
 How do you decide on the boundaries of a microservice?
 Scenario: You have to design a new microservice for a large e-commerce website. How would you go about identifying the boundaries of this microservice?
