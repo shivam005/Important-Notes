@@ -49,7 +49,7 @@ Open Tracing - standardized API for distributed tracing.
 ### Exception tracking: 
 Report all exceptions to a centralized exception tracking service that aggregates and tracks exceptions and notifies developers.
 
-### microservice chassis: Consistency, Efficiency, Maintainability, Scalability, Observability
+### microservice chassis: It basically provide chasis for software which helps in achieving Consistency, Efficiency, Maintainability, Scalability, Observability
 #### Spring Boot (Spring Cloud):
 Spring Boot, together with Spring Cloud, provides a comprehensive microservice chassis. Spring Cloud includes tools for service discovery (Eureka), configuration management (Config Server), circuit breakers (Hystrix), and distributed tracing (Sleuth).
 
