@@ -174,9 +174,27 @@ public int findCandidate(int[] arr){
 }
 
 ```
-## Two pointer with comparison {Two Sum}
+## Kadane's Algorithm (Maximum sum of contagious subarray)
+Here, we will iterate the given array with a single loop and while iterating we will add the elements in a sum variable. Now, if at any point the sum becomes less than 0, we will set the sum as 0 as we are not going to consider any subarray with a negative sum. Among all the sums calculated, we will consider the maximum one.
 ```
-d
+public int check(int arr[]){
+    int max=0;
+    int sum=0;
+    for(int i=0; i< arr.length;i++){
+        if(arr[i]!=0) {
+            sum = sum + arr[i];
+            if (sum > max) {
+                max = sum;
+            }
+        }
+       if(sum<0){
+           sum=0;
+       }
+
+    }
+    return max;
+}
+
 ```
 ## Two pointer with comparison {Two Sum}
 ```
