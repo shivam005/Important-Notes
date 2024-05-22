@@ -49,7 +49,25 @@ Open Tracing - standardized API for distributed tracing.
 ### Exception tracking: 
 Report all exceptions to a centralized exception tracking service that aggregates and tracks exceptions and notifies developers.
 
-### 
+### microservice chassis: Consistency, Efficiency, Maintainability, Scalability, Observability
+#### Spring Boot (Spring Cloud):
+Spring Boot, together with Spring Cloud, provides a comprehensive microservice chassis. Spring Cloud includes tools for service discovery (Eureka), configuration management (Config Server), circuit breakers (Hystrix), and distributed tracing (Sleuth).
+
+#### Netflix OSS:
+Netflix provides several open-source tools as part of their microservice chassis, including Eureka (service discovery), Hystrix (circuit breaker), Ribbon (client-side load balancing), and Zuul (API gateway).
+Istio:
+
+#### Istio 
+It is a service mesh that provides many features of a microservice chassis, including traffic management, security, and observability. It works by injecting sidecar proxies (Envoy) alongside microservices to handle these cross-cutting concerns.
+
+#### Micronaut:
+Micronaut is a modern JVM-based framework designed for building microservices. It provides features such as dependency injection, configuration management, service discovery, and HTTP client abstraction.
+#### Go-Kit:
+Go-Kit is a toolkit for building microservices in Go. It provides components for service discovery, logging, metrics, tracing, and more.
+
+
+
+
 
 How do you decide on the boundaries of a microservice?
 Scenario: You have to design a new microservice for a large e-commerce website. How would you go about identifying the boundaries of this microservice?
