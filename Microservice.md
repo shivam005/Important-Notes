@@ -1,3 +1,15 @@
+### Dora (DevOps Research and Assessment) Metrics:
+It is meant to assess the devops best practices, It is analyzed based on below mentioned points:
+ 1. Frequency of deployments 
+ 2. The amount of time between acceptance and deployment 
+ 3. How frequently deployments fail 
+ 4. How long it takes to restore service—or recover from a failure
+
+Every architecture can also be tested based upon the outcome of dora metrics. 
+
+### 
+
+
 How do you decide on the boundaries of a microservice?
 Scenario: You have to design a new microservice for a large e-commerce website. How would you go about identifying the boundaries of this microservice?
 
