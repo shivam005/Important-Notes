@@ -22,7 +22,7 @@ A<⎯⎯⎯⎯>B
 #### Unidirectional association 
 A can call B but B can not call A.
 ```
-.
+A⎯⎯⎯⎯⎯>B
 ```
 #### Multiplicity
 Herein, we can also define one to many, many to many or many to one sort of relationship. 
