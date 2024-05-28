@@ -246,10 +246,11 @@ and go back to the new upcoming element.
    }
 
 ```
-## Count and Say {Two Sum}
+## Count and Say { Use recursion and the use logic to return the soltion}
 In this program, we will look back to the previous solution and will say, how much time a number has appeared.
 Finally, we will write the "count"+"the present number".
-In this program, the important part is in processing wherein
+In this program, the important part is in processing wherein we are using recursion followed by 
+checking the count of any value by the previously derived result of method, at last we print the count followed by the digit.
 
 ```
 1 -> 1
