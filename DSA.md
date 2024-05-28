@@ -279,9 +279,43 @@ checking the count of any value by the previously derived result of method, at l
         return result;
     }
 ```
-## Two pointer with comparison {Two Sum}
+##  Check whether the Two String are Close
+ Here, we just need to return the boolean result hence, there are some point which would be certain
+  As only two operation are allowed either to swap a character or to transform the character
+  hence, both the string should have same length of string
+  sum of frequency of the character should be same as if it will not be true then transformation will also not work.
+  Character at a particular index should be same in both the array.
 ```
-d
+ public boolean check(String str1, String str2){
+        if(str2.length()!=str1.length()){
+            return false;
+        }
+
+        int[] array=new int[26];
+        int[] array1= new int[26];
+
+        for(int i=0; i<str1.length();i++){
+             char a ='a';
+             int index=str1.charAt(i)-a;
+             array[index]=array[index]+1;
+            int index1=str2.charAt(i)-a;
+            array1[index1]=array1[index1]+1;
+        }
+
+        for(int i=0; i<26;i++){
+            if(array1[i]==0 && array[i]==0){
+                continue;
+            }if(array1[i]!=0 && array[i]!=0){
+                continue;
+            }
+            return false;
+        }
+
+        Arrays.sort(array); Arrays.sort(array1);
+        return Arrays.equals(array1, array) ; // Here == will not work as it will check for reference
+        // array with same content would be there in the different location.
+    }
+
 ```
 
 
