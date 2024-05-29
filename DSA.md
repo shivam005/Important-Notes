@@ -220,7 +220,7 @@ public String execute(Integer n){
         return result;
     }
 ```
-## Make the string great {Use hashset to refer values using the contains method of set}
+## Remove the pair of character wherein both upper & lower case char are in consecutive order {Use hashset to refer values using the contains method of set}
 Herein, using stack we will be checking if the present element in stack has difference of 
 32 with the current element and if It is found that we pop the stack and skip the insertion of the current element 
 and go back to the new upcoming element. 
