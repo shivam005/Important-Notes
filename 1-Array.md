@@ -175,8 +175,23 @@ public int findCandidate(int[] arr){
 }
 
 ```
+## Check whether the sum of subarray is zero or not
+To check the sum of subarray, we can create a variable named as sum and will continiously adding each value into it. Once it becomes zero then we can return it right away.  
+```
+  public boolean check(int[] arr) {
+        int sum = 0;
+        for (int j = 0; j < arr.length; j++) {
+            sum = sum + arr[j];
+            if (sum == 0) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+```
 ## Kadane's Algorithm (Maximum sum of contagious subarray)
-Here, we will iterate the given array with a single loop and while iterating we will add the elements in a sum variable. Now, if at any point the sum becomes less than 0, we will set the sum as 0 as we are not going to consider any subarray with a negative sum. Among all the sums calculated, we will consider the maximum one.
+Here, we will iterate the given array with a single loop and while iterating we will add the elements in a sum variable. Now, if at any point the sum becomes less than 0, we will set the sum as 0 as we are not going to consider any subarray with a negative sum. Among all the sums calculated, we will consider the maximum one. Herein, we are basically discarding the array which is moving towards zero or negative value. 
 ```
 public int check(int arr[]){
     int max=0;
@@ -198,9 +213,7 @@ public int check(int arr[]){
 
 ```
 
-## 
-```
-```
+
 ## 
 ```
 ```
