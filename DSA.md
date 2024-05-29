@@ -122,7 +122,7 @@ static ArrayList<Integer> check(int[] arr, int[] arr1){
         return AL;
     }
 ```
-## Boyer-Moore Majority Voting Algorithm
+## Boyer-Moore Majority Voting Algorithm {Find Majority Element}
  This algo works in two steps, in first step we check for the possible candidate
   and in second step we verify whether the given candidate appears more than the given time
  
@@ -130,6 +130,7 @@ static ArrayList<Integer> check(int[] arr, int[] arr1){
   the current pointer matches, we increase the counter and if it does not match then we decrease the counter
  In the situation wherein this counter gets zero then we instantly increase the majority element
  and same thing goes on....
+ Point to be noted is, we are discarding the subarray wherein the majority of element is not present and moving to new sub-array
 ```
 public class MooresVotingAlgo {
 
