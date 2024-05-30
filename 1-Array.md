@@ -176,18 +176,22 @@ public int findCandidate(int[] arr){
 
 ```
 ## Check whether the sum of subarray is zero or not
-To check the sum of subarray, we can create a variable named as sum and will continiously adding each value into it. Once it becomes zero then we can return it right away.  
+To check the sum of subarray, we can create a variable named as sum and will continiously adding each value into it and at the same time, we will be adding it into the set. Finally, we will check If the the current sum is already there in the hashset then we can return true right away. Point to be noted, if the current sum is already there in the set then it means that the present value would have reduced it to the previous sum, hence it means that if it would have summed up then  the resulatant would have been zero.  
 ```
-  public boolean check(int[] arr) {
+   public boolean check(int[] arr) {
+        Set<Integer> hs = new HashSet<>();
         int sum = 0;
         for (int j = 0; j < arr.length; j++) {
             sum = sum + arr[j];
-            if (sum == 0) {
+            hs.add(sum);
+            if (sum == 0 || hs.contains(sum)) {
                 return true;
             }
         }
         return false;
     }
+
+int[] yash={1,2,3,-3,1,-2};
 
 ```
 ## Kadane's Algorithm (Maximum sum of contagious subarray)
