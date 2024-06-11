@@ -218,11 +218,42 @@ public int check(int arr[]){
 ```
 
 
-## 
+## Find K largest element (Using Min-heap) (By Default PQ uses min-heap)
+It can be easily solved using minheap or priority queue, we will just have to add all the elements in priority queue and will have to check If the size of the priority queue exceeds the k then poll the elements or remove the elements. 
 ```
+public void find(int[] arr, int k){
+        PriorityQueue<Integer> pq= new PriorityQueue<>();
+        for(int a:arr){
+            pq.add(a);
+
+            if(pq.size()>k){
+                pq.poll();
+            }
+
+        }
+        System.out.println(pq);
+    }
+  int[] arr={4,5,8,99,100,6,7};
+  Output: [99, 100];
 ```
-## 
+## Find K smallest element (Using max-heap)  
+It can also be done as presviously, just we will have to pass the comparator to PQ in order to convert it into Max-Heap;
 ```
+public void find(int[] arr, int k){
+        PriorityQueue<Integer> pq= new PriorityQueue<>(Comparator.reverseOrder());
+        for(int a:arr){
+            pq.add(a);
+
+            if(pq.size()>k){
+                pq.poll();
+            }
+
+        }
+        System.out.println(pq);
+    }
+
+   int[] arr={4,5,8,99,100,6,7};
+   Output: [5, 4]
 ```
 ## 
 ```
