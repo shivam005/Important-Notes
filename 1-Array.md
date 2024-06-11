@@ -255,8 +255,40 @@ public void find(int[] arr, int k){
    int[] arr={4,5,8,99,100,6,7};
    Output: [5, 4]
 ```
-## 
+## Find K largest element from sorted array (Using binary search) 
+Here, we will be directly dealing with the elements intead of their indices. First, we will assign the lowest and highest value to low and and high pointer, we will achieve by traversing and comparing the whole array. Now, we will run a loop and will check; how many elements do we have which is higher than the middle element and whether the count of this elements is higher  or lower than the k or not. If It is higher than k then we will make the low as pointer as mid+1 or If it is not true then we will make the high pointer mid-1;
 ```
+    public static int findKthLargest(int[] arr, int n,
+                                     int k) {
+
+        int low = Integer.MAX_VALUE;
+        int high = Integer.MIN_VALUE;
+        for (int a : arr) {
+            low = Math.min(a, low);
+            high = Math.max(a, high);
+        }
+
+        while(low<=high){
+        int count = 0;
+        int mid = low + (high - low) / 2;
+        for (int a : arr) {
+            if (a > mid) {
+                count++;
+            }
+        }
+
+
+        if (count >= k) {
+            low = mid + 1;
+        }
+     else {
+            high = mid - 1;
+        }
+    }
+
+        // Return the Kth largest element
+        return high;
+    }
 ```
 ## 
 ```
