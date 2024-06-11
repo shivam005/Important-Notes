@@ -10,7 +10,8 @@ This join returns all the rows of the table on the right side of the join and ma
 FULL JOIN creates the result set by combining the results of both LEFT JOIN and RIGHT JOIN. The result set will contain all the rows from both tables. 
 For the rows for which there is no matching, the result set will contain NULL values.
 ### 
-
+|   Question | Command |
+| --- | ----------- |
 |Show first name of patients that start with the letter 'C'| SELECT first_name FROM patients where first_name like 'C%' ;| 
 |Show first name and last name of patients who does not have allergies. (null)| SELECT first_name,last_name  FROM patients where allergies is null; |
 |Show first name and last name of patients that weight within the range of 100 to 120 (inclusive)|SELECT first_name, last_name FROM patients where  weight between 100 and 120 ;|
