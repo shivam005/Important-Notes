@@ -26,12 +26,12 @@ For the rows for which there is no matching, the result set will contain NULL va
 |Write a query to find list of patients first_name, last_name, and allergies where allergies are not null and are from the city of 'Hamilton'|select first_name, last_name, allergies from patients where allergies is not null and city='Hamilton'; |
 |Show unique birth years from patients and order them by ascending.|select distinct(year(birth_date)) as year from patients order by YEAR ;|
 |Show unique first names from the patients table which only occurs once in the list.| SELECT first_name FROM patients GROUP BY first_name HAVING COUNT(first_name) = 1|
-|||
-|||
-|||
-|||
-|||
-|||
+|Show patient_id and first_name from patients where their first_name start and ends with 's' and is at least 6 characters long.|SELECT patient_id,first_name FROM patients WHERE first_name LIKE 's%s'AND len(first_name) >= 6;|
+|Show patient_id, first_name, last_name from patients whos diagnosis is 'Dementia'. herein, we are using patients.patient_id to remove ambiguity as this patient_id is present in both tables|SELECT  patients.patient_id, first_name,  last_name FROM patients join admissions WHERE admissions.diagnosis='Dementia'    ;|
+|Show the total amount of male patients and the total amount of female patients in the patients table. Display the two results in the same row.|select (select count(*) from patients where gender='M') , (select count(*) from patients where gender='F')|
+|Show first and last name, allergies from patients which have allergies to either 'Penicillin' or 'Morphine'. Show results ordered ascending by allergies then by first_name then by last_name.|select first_name,last_name , allergies from patients where allergies='Penicillin' or allergies='Morphine' order by allergies,first_name,last_name ;|
+|Show patient_id, diagnosis from admissions. Find patients admitted multiple times for the same diagnosis.|SELECT patient_id, diagnosis FROM admissions GROUP BY patient_id, diagnosis HAVING COUNT(*) > 1;|
+|Show the city and the total number of patients in the city. Order from most to least patients and then by city name ascending.|select city , count(patient_id) as patient_count from patients group by city order by patient_count desc , city asc; |
 |||
 |||
 |||
