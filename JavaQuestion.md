@@ -48,3 +48,34 @@ public class EmployeeComparatorByAddress implements Comparator<Employee> {
 the automatically-generated UID is generated based on a class name, implemented interfaces, and all public and protected members. 
 Changing any of these in any way will change the serialVersionUID. So you don't need to mess with them only if you are certain that no more than one version 
 of the class will ever be serialized (either across processes or retrieved from storage at a later time).
+
+### If there is a common default method in two interfaces then when we will implement it in a class then what would be the behaviour which one would be called??
+Herein, It would become mandatory to implement default method as well and while implementating it, we will have to mention which method from which interface needs to be called up. 
+like "Interface1.super.check()" or "Interface2.super.check().
+```
+public interface Interface1 { 
+    default void check(){
+        System.out.println("Interface1");
+    }
+}
+```
+```
+public interface Interface2 {
+    default void check(){
+        System.out.println("Interface2");
+    }
+}
+```
+```
+public class InterfaceRunner implements Interface1, Interface2{
+    @Override
+    public void check() {
+        Interface1.super.check();
+    }
+    public static void main(String[] args) {
+        InterfaceRunner i=new InterfaceRunner();
+        i.check();
+    }
+
+}
+```
