@@ -1,7 +1,15 @@
 ### What do you mean by foreign key? 
 A Foreign key is a field that can uniquely identify each row in another table. 
+
+### Join Syntax
+```
+SELECT table1.column1,table1.column2,table2.column1,....
+FROM table1 
+INNER JOIN table2
+ON  table1.matching_column = table2.matching_column;
+```
 ### INNER JOIN
-The INNER JOIN keyword selects all rows from both tables as long as the condition is satisfied i.e. the value of the common field will be the same.
+The INNER JOIN keyword selects all rows from both tables as long as the condition is satisfied i.e. the value of the common field will be the same. 
 ### LEFT JOIN or LEFT OUTER JOIN
 This join returns all the rows of the table on the left side of the join and matching rows for the table on the right side of the join. 
 ### RIGHT JOIN or RIGHT OUTER JOIN
