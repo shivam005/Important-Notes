@@ -79,3 +79,14 @@ public class InterfaceRunner implements Interface1, Interface2{
 
 }
 ```
+### Causes of memory leak
+JavaVisualVM is package comes with JDK which can be used to check the object creation and the memory usage. We can also analyze the memory and can call GC.
+1. Excessive use of static variables. Static members never gc as they are stored in heap and has life equals to the application.
+2. Unclosed resources
+3. Improper equals and hashcode method implementation
+4. Excessive session objects
+5. Poorly written custom data structures.
+
+Eden Space >> Survivor space >> Tenured Space >> Metaspace(Expand and shrink size automatically)
+When Eden(young gen) space gets filled up then a minor GC runs which cleans up the memory, the objects which survives more GC than threshold are promoted to survivor space(Young gen) and who survives here are further promoted to tenured space (Old Gen Space) when the old gen gets filled up then major GC is called up which considerably releases memory but as heavy as to impact the main thread. 
+Metaspace is also there which is used to store metadata about classes, such as class names, method names, field names, and other class-related information. 
