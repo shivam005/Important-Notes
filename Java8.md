@@ -51,10 +51,13 @@ list.stream().collect(Collectors.groupingBy(x->x.getAddress().getPincode()));
 ```
 
 ### Find the most frequent element in the list
-Herein, we will first find the frequency of each digit and then we will again stream() the resultant map and will invoke max() which takes comparator as the input param. 
+Herein, we will first find the frequency of each digit and then we will again stream() the resultant map and will invoke max() which takes comparator as the input param. In order to pass comparator in the max funxtion then we can also pass two variable which would be basically 
+representing two different map and then using compareTo method we will be making comparison.
 ```
  List<Integer> list1 = Arrays.asList(2,3,4,5,6,7,7);
 list1.stream().collect(Collectors.groupingBy(x->x,Collectors.counting())).entrySet().stream().max(Map.Entry.comparingByValue()).get().getKey();
+//OR
+list1.stream().collect(Collectors.groupingBy(x->x,Collectors.counting())).entrySet().stream().max((x,y)-> y.getValue().compareTo(y.getValue()).get().getKey();
 ```
 ### Partition negative and positive numbers  
 ```
