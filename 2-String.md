@@ -1,3 +1,7 @@
+|ASCII Value| Description|
+|32 to 126| Printable characters, including digits, uppercase and lowercase letters, punctuation, and special symbols|
+|||
+
 ##  Integer to Roman {Store Value in Array and refer it while traversing}
 Herein, we will be checking the divisibling by integer values and will assign the corresponding string in the result string. 
 At last using modulus operator will be discarding the digit for which symbol has been assigned. 
