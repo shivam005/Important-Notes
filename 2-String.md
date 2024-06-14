@@ -1,6 +1,13 @@
 |ASCII Value| Description|
+|---|---|
 |32 to 126| Printable characters, including digits, uppercase and lowercase letters, punctuation, and special symbols|
-|||
+|32 to 47|space ! " # $ % & ' ( ) * + , - . /|
+|48 to 57 |0123456789|
+|58 to 64|  :;<=>?@|
+|65 to 90| A to Z|
+|91 to 96 |[\	]^_`|
+|97 to 122|a to z|
+|123 to 126 |{}~ |
 
 ##  Integer to Roman {Store Value in Array and refer it while traversing}
 Herein, we will be checking the divisibling by integer values and will assign the corresponding string in the result string. 
