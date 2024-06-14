@@ -210,7 +210,11 @@ public void check(String str, String ans){
     }
 ```
 ### All Possible Subsequence of String using Dynamic Programming
-
+Here,  after computing each result or answer we will be keep on storing it into a array. Once It has been computed for the given string 
+then we will get it stored into the hashmap corresponding to the key which will have combination of given string and answer. 
+Further whenever a call will be made to calculate the all possible combination for the given pair of string and answer then we can first
+look into the hashmap and if it is there then we can add the combination into the arraylist and can call the return method which would
+basically stop the execution for the current flow.
 ```
  static ArrayList<String> al= new ArrayList<>();
  static HashMap<String, ArrayList<String>> hm= new HashMap<>();
