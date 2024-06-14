@@ -173,3 +173,66 @@ We have given three condition to check 1. Whether all letters are in upper case 
       return false;
     }
 ```
+### All Possible Subsequence of String
+We can use recursive technique to get it done. All possible subsequence means that we need to deal with all posible combinations
+hence, we will call our method twice recursively wherein in the first instance we will not be including the character at the given index
+and in the second instance, we will be including the character at the given index. In this way, we will end up considering all possible
+subsequences. 
+```
+static ArrayList<String> al= new ArrayList<>();
+public void check(String str, String ans){
+        if(str.length()==0){
+            al.add(ans);
+            return;
+        }
+// This base case is intended to check If the length of the string has become 0 then add all possible combination into arraylist.
+        check(str.substring(1),ans);
+      //Here we are excluding the the character
+        check(str.substring(1),ans+str.charAt(0));
+      // Here we are including the character
+        return;
+    }
+```
+```
+   public ArrayList<String> execute(String str){
+        ArrayList<String> al= new ArrayList<>();
+        check(str,"",al);
+        return al;
+    }
+ public void check(String str, String ans, ArrayList<String> al){
+        if(str.length()==0){
+            al.add(ans);
+            return;
+        }
+        check(str.substring(1),ans, al);
+        check(str.substring(1),ans+str.charAt(0), al);
+        return;
+    }
+```
+### All Possible Subsequence of String using Dynamic Programming
+
+```
+ static ArrayList<String> al= new ArrayList<>();
+ static HashMap<String, ArrayList<String>> hm= new HashMap<>();
+  public   void check(String str, String ans){
+        if(str.length()==0){
+            al.add(ans);
+            return;
+        }
+        ArrayList<String> currentResult = new ArrayList<>();
+        String key = str + "|" + ans;
+        if(hm.containsKey(key)){
+            al.addAll(hm.get(key));
+            return;
+        }
+        check(str.substring(1),ans);
+        currentResult.add(ans);
+
+        check(str.substring(1),ans+str.charAt(0));
+        currentResult.add(ans+str.charAt(0));
+
+        hm.put(key,currentResult);
+
+    }
+
+```
