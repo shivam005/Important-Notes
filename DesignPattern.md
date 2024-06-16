@@ -438,9 +438,137 @@ public class SingletonDemo {
 # Structural : Assembling objects and classes into larger structures
 ### Adapter
 ```
+public interface Shape {
+    void draw();
+}
+```
+```
+public class LegacyRectangle {
+    public void drawRectangle() {
+        System.out.println("Drawing a Rectangle");
+    }
+}
+```
+```
+public class RectangleAdapter implements Shape {
+    private LegacyRectangle legacyRectangle;
 
+    public RectangleAdapter(LegacyRectangle legacyRectangle) {
+        this.legacyRectangle = legacyRectangle;
+    }
+
+    @Override
+    public void draw() {
+        legacyRectangle.drawRectangle();
+    }
+}
+```
+```
+public class AdapterPatternDemo {
+    public static void main(String[] args) {
+        // Create an instance of LegacyRectangle
+        LegacyRectangle legacyRectangle = new LegacyRectangle();
+
+        // Create an adapter for the LegacyRectangle
+        Shape rectangleAdapter = new RectangleAdapter(legacyRectangle);
+
+        // Use the adapter to draw the rectangle
+        rectangleAdapter.draw(); // Output: Drawing a Rectangle
+    }
+}
 ```
 ### Bridge
+```
+public interface DrawAPI {
+    void drawCircle(int radius, int x, int y);
+    void drawRectangle(int width, int height, int x, int y);
+}
+```
+```
+public class RedDrawAPI implements DrawAPI {
+    @Override
+    public void drawCircle(int radius, int x, int y) {
+        System.out.println("Drawing Circle[ color: red, radius: " + radius + ", x: " + x + ", y: " + y + " ]");
+    }
+
+    @Override
+    public void drawRectangle(int width, int height, int x, int y) {
+        System.out.println("Drawing Rectangle[ color: red, width: " + width + ", height: " + height + ", x: " + x + ", y: " + y + " ]");
+    }
+}
+
+public class GreenDrawAPI implements DrawAPI {
+    @Override
+    public void drawCircle(int radius, int x, int y) {
+        System.out.println("Drawing Circle[ color: green, radius: " + radius + ", x: " + x + ", y: " + y + " ]");
+    }
+
+    @Override
+    public void drawRectangle(int width, int height, int x, int y) {
+        System.out.println("Drawing Rectangle[ color: green, width: " + width + ", height: " + height + ", x: " + x + ", y: " + y + " ]");
+    }
+}
+```
+```
+public abstract class Shape {
+    protected DrawAPI drawAPI;
+
+    protected Shape(DrawAPI drawAPI) {
+        this.drawAPI = drawAPI;
+    }
+
+    public abstract void draw();
+}
+```
+```
+public class Circle extends Shape {
+    private int x, y, radius;
+
+    public Circle(int x, int y, int radius, DrawAPI drawAPI) {
+        super(drawAPI);
+        this.x = x;
+        this.y = y;
+        this.radius = radius;
+    }
+
+    @Override
+    public void draw() {
+        drawAPI.drawCircle(radius, x, y);
+    }
+}
+
+public class Rectangle extends Shape {
+    private int x, y, width, height;
+
+    public Rectangle(int x, int y, int width, int height, DrawAPI drawAPI) {
+        super(drawAPI);
+        this.x = x;
+        this.y = y;
+        this.width = width;
+        this.height = height;
+    }
+
+    @Override
+    public void draw() {
+        drawAPI.drawRectangle(width, height, x, y);
+    }
+}
+```
+```
+public class BridgePatternDemo {
+    public static void main(String[] args) {
+        Shape redCircle = new Circle(100, 100, 10, new RedDrawAPI());
+        Shape greenCircle = new Circle(100, 100, 10, new GreenDrawAPI());
+        Shape redRectangle = new Rectangle(200, 200, 20, 30, new RedDrawAPI());
+        Shape greenRectangle = new Rectangle(200, 200, 20, 30, new GreenDrawAPI());
+
+        redCircle.draw();        // Output: Drawing Circle[ color: red, radius: 10, x: 100, y: 100 ]
+        greenCircle.draw();      // Output: Drawing Circle[ color: green, radius: 10, x: 100, y: 100 ]
+        redRectangle.draw();     // Output: Drawing Rectangle[ color: red, width: 20, height: 30, x: 200, y: 200 ]
+        greenRectangle.draw();   // Output: Drawing Rectangle[ color: green, width: 20, height: 30, x: 200, y: 200 ]
+    }
+}
+```
 ### Composite
 ### Facade
 ### Decorator
