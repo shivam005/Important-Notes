@@ -193,6 +193,114 @@ public class AbstractFactoryDemo {
 
 ```
 ### Builder 
+```
+public interface Shape {
+    void draw();
+}
+```
+```
+public class Circle implements Shape {
+    private String color;
+    private int borderThickness;
+
+    private Circle(CircleBuilder builder) {
+        this.color = builder.color;
+        this.borderThickness = builder.borderThickness;
+    }
+
+    @Override
+    public void draw() {
+        System.out.println("Drawing a Circle with color: " + color + " and border thickness: " + borderThickness);
+    }
+
+    // Builder for Circle
+    public static class CircleBuilder {
+        private String color;
+        private int borderThickness;
+
+        public CircleBuilder setColor(String color) {
+            this.color = color;
+            return this;
+        }
+
+        public CircleBuilder setBorderThickness(int borderThickness) {
+            this.borderThickness = borderThickness;
+            return this;
+        }
+
+        public Circle build() {
+            return new Circle(this);
+        }
+    }
+}
+
+public class Rectangle implements Shape {
+    private String color;
+    private int borderThickness;
+
+    private Rectangle(RectangleBuilder builder) {
+        this.color = builder.color;
+        this.borderThickness = builder.borderThickness;
+    }
+
+    @Override
+    public void draw() {
+        System.out.println("Drawing a Rectangle with color: " + color + " and border thickness: " + borderThickness);
+    }
+
+    // Builder for Rectangle
+    public static class RectangleBuilder {
+        private String color;
+        private int borderThickness;
+
+        public RectangleBuilder setColor(String color) {
+            this.color = color;
+            return this;
+        }
+
+        public RectangleBuilder setBorderThickness(int borderThickness) {
+            this.borderThickness = borderThickness;
+            return this;
+        }
+
+        public Rectangle build() {
+            return new Rectangle(this);
+        }
+    }
+}
+```
+```
+public class ShapeFactory {
+    public Circle.CircleBuilder getCircleBuilder() {
+        return new Circle.CircleBuilder();
+    }
+
+    public Rectangle.RectangleBuilder getRectangleBuilder() {
+        return new Rectangle.RectangleBuilder();
+    }
+}
+```
+```
+public class BuilderFactoryDemo {
+    public static void main(String[] args) {
+        ShapeFactory shapeFactory = new ShapeFactory();
+
+        // Create a Circle using Builder
+        Circle circle = shapeFactory.getCircleBuilder()
+                .setColor("Red")
+                .setBorderThickness(2)
+                .build();
+        circle.draw(); // Output: Drawing a Circle with color: Red and border thickness: 2
+
+        // Create a Rectangle using Builder
+        Rectangle rectangle = shapeFactory.getRectangleBuilder()
+                .setColor("Blue")
+                .setBorderThickness(3)
+                .build();
+        rectangle.draw(); // Output: Drawing a Rectangle with color: Blue and border thickness: 3
+    }
+}
+```
 ### Prototype
 ### Singleton
 
