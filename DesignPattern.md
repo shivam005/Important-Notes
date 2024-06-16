@@ -302,10 +302,144 @@ public class BuilderFactoryDemo {
 }
 ```
 ### Prototype
+```
+public interface Shape extends Cloneable {
+    Shape clone();
+    void draw();
+}
+```
+```
+public class Circle implements Shape {
+    private String color;
+    private int radius;
+
+    public Circle(String color, int radius) {
+        this.color = color;
+        this.radius = radius;
+    }
+
+    @Override
+    public Circle clone() {
+        return new Circle(this.color, this.radius);
+    }
+
+    @Override
+    public void draw() {
+        System.out.println("Drawing a Circle with color: " + color + " and radius: " + radius);
+    }
+
+    // Getters and setters for color and radius can be added if needed
+}
+
+public class Rectangle implements Shape {
+    private String color;
+    private int width;
+    private int height;
+
+    public Rectangle(String color, int width, int height) {
+        this.color = color;
+        this.width = width;
+        this.height = height;
+    }
+
+    @Override
+    public Rectangle clone() {
+        return new Rectangle(this.color, this.width, this.height);
+    }
+
+    @Override
+    public void draw() {
+        System.out.println("Drawing a Rectangle with color: " + color + " and dimensions: " + width + "x" + height);
+    }
+
+    // Getters and setters for color, width, and height can be added if needed
+}
+```
+```
+public class PrototypeDemo {
+    public static void main(String[] args) {
+        // Create original objects
+        Circle originalCircle = new Circle("Red", 10);
+        Rectangle originalRectangle = new Rectangle("Blue", 20, 30);
+
+        // Clone the objects
+        Circle clonedCircle = originalCircle.clone();
+        Rectangle clonedRectangle = originalRectangle.clone();
+
+        // Draw the original and cloned objects
+        originalCircle.draw();    // Output: Drawing a Circle with color: Red and radius: 10
+        clonedCircle.draw();      // Output: Drawing a Circle with color: Red and radius: 10
+
+        originalRectangle.draw(); // Output: Drawing a Rectangle with color: Blue and dimensions: 20x30
+        clonedRectangle.draw();   // Output: Drawing a Rectangle with color: Blue and dimensions: 20x30
+    }
+}
+```
 ### Singleton
+```
+public interface Shape {
+    void draw();
+}
+```
+```
+public class Circle implements Shape {
+    @Override
+    public void draw() {
+        System.out.println("Drawing a Circle");
+    }
+}
+
+public class Rectangle implements Shape {
+    @Override
+    public void draw() {
+        System.out.println("Drawing a Rectangle");
+    }
+}
+```
+```
+public class ShapeManager {
+    // The single instance of the class
+    private static ShapeManager instance;
+
+    // Private constructor to prevent instantiation
+    private ShapeManager() {}
+
+    // Method to get the single instance of the class
+    public static synchronized ShapeManager getInstance() {
+        if (instance == null) {
+            instance = new ShapeManager();
+        }
+        return instance;
+    }
+
+    // Example methods to manage shapes
+    public void drawShape(Shape shape) {
+        shape.draw();
+    }
+}
+```
+```
+public class SingletonDemo {
+    public static void main(String[] args) {
+        // Get the single instance of ShapeManager
+        ShapeManager shapeManager = ShapeManager.getInstance();
+
+        // Create shapes
+        Shape circle = new Circle();
+        Shape rectangle = new Rectangle();
+
+        // Use ShapeManager to draw shapes
+        shapeManager.drawShape(circle);    // Output: Drawing a Circle
+        shapeManager.drawShape(rectangle); // Output: Drawing a Rectangle
+    }
+}
+```
 
 # Structural : Assembling objects and classes into larger structures
 ### Adapter
+```
+
+```
 ### Bridge
 ### Composite
 ### Facade
