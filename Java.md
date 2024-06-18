@@ -48,7 +48,11 @@ Coupling is the measure of the degree of interdependence between the modules. A 
 High cohesion means that elements are closely related and focused on a single purpose, while low cohesion means that elements are loosely related and serve multiple purposes.
 High coupling and low cohesion can make a system difficult to change and test, while low coupling and high cohesion make a system easier to maintain and improve.
 
-
+## How String class works?
+String in java is immuatble class which internally points to a shell address which further points to the actual instance. We can not make
+any changes in the instance whenever we perform any assignment then we just change the address. Even when we use 'new' keyword then also
+it does not make any change in the instance rather it create a new shell address which starts pointing to the same instance which is lying
+in the string constant pool. Hence, String instance is immuatable but there reference is mutable. 
 
 
 
