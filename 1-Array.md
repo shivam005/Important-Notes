@@ -290,8 +290,59 @@ Here, we will be directly dealing with the elements intead of their indices. Fir
         return high;
     }
 ```
-## 
+## Find the length of longest consecutive sequence
+[Brute force approach]: Herein we can iterate a loop wherein we will first choose the first element and then we will be checking the exact next element(x+1) in the given array and if we find it then we will increase the counter and the chosen element by 1. We will also
+maintain a seperate counter which would be updated by comparing the maximum value with the count variable.
 ```
+   public boolean find(int[] a, int k){
+        for(int i=0; i<a.length;i++){
+            if(a[i]==k){
+                return true;
+            }
+        }
+        return false;
+    }
+  public int longestSubSeq(int[] arr){
+        int n = arr.length;
+        int longest=1;
+        for(int i=0; i<n;i++){
+            int x=arr[i];
+            int count=1;
+            while(find(arr,x+1)==true){
+                count++;
+                x=x+1;
+            }
+            longest = Math.max(longest, count);
+        }
+        return longest;
+    }
+```
+[Optimal Approach]: We can get all the elements stored in the hashmap or hashset and then we can check for the next element in comparison
+to the choosen element in the hashmap and if It is found then we can increase the counter (Remember to keep your counter outside the loop as it will get updated with assigned value after each iteration). This checking would be done inside the for loop
+and we will be keep on checking the consecutive element. 
+```
+public int longestSubSeq(int[] arr){
+        int n = arr.length;
+        int longest=1;
+        HashMap<Integer, Integer> hm = new HashMap<>();
+        for(int i=0; i<n;i++){
+            if(hm.containsKey(arr[i])){
+                hm.put(arr[i],hm.get(arr[i]+1));
+            }else {
+                hm.put(arr[i],1);
+            }
+        }
+        int count=1;
+        for(int i=0; i<n;i++){
+            int x=arr[i];
+            if(hm.containsKey(x+1)){
+                count++;
+            }
+            longest = Math.max(count, longest);
+        }
+
+        return longest;
+    }
 ```
 ## 
 ```
