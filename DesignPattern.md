@@ -405,7 +405,7 @@ public class ShapeManager {
     private ShapeManager() {}
 
     // Method to get the single instance of the class
-    public static ShapeManager getInstance() {
+    public static synchronized  ShapeManager getInstance() {
         if (instance == null) {
             instance = new ShapeManager();
         }
