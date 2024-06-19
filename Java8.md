@@ -64,9 +64,10 @@ list1.stream().collect(Collectors.groupingBy(x->x,Collectors.counting())).entryS
 Map<Boolean, List<Integer>> collect = list1.stream().collect(Collectors.partitioningBy(x->x>0));
 Output: {false=[-7, -1], true=[2, 3, 4, 5, 6, 7, 7]}
 ```
-
-
-
+### Remove special character from string
+```
+str.chars().mapToObj(x->(char)x).filter(x->x>=65 && x<=122 || x==32).forEach(System.out::print);
+```
 
 
 
