@@ -344,9 +344,8 @@ public int longestSubSeq(int[] arr){
         return longest;
     }
 ```
-## 
-```
-```
+## Remove odd numbers from arraylist
+It is a  tricky question with the simple logic. If you will run a loop to filter out the even number from 0 to n then whenever you remove any element the indices are shifted which sometimes skips the elements and causes problem. Hence, the simple solution is to run the loop in the reverse order from n to 0, It would change the indices in the backward direction hence would not affect elements. 
 ## 
 ```
 ```
