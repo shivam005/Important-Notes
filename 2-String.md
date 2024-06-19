@@ -257,3 +257,20 @@ This problem can be effectively handled by using ASCII values. Ascii value for c
         }
       }
 ```
+### Write the character and their occurence corresponding to each other
+```
+    String str = "aaaxbbccd";
+    String res=""+str.charAt(0);
+    int count =1;
+    for(int i=1;i<str.length();i++){
+      if(str.charAt(i)==str.charAt(i-1)){
+        count++;
+      }else{
+        res=res+count+str.charAt(i);
+        count=1;
+      }
+    }
+
+      System.out.println(res);
+// Output: a3x1b2c2d
+```
