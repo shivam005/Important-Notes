@@ -240,3 +240,20 @@ basically stop the execution for the current flow.
     }
 
 ```
+### Remove special character from string
+This problem can be effectively handled by using ASCII values. Ascii value for capital letters are in between 65 to 90, and small letter is in between 97 to 122 and value of space is 32. Hence, we can put simple check as below.
+```
+      String[] split = str.split("");
+      String str1="";
+      for(int i=0;i<split.length;i++){
+      if(split[i].charAt(0)==32){
+        str1=str1+split[i];
+        continue;
+      }
+        if(split[i].charAt(0)>=65 && split[i].charAt(0)<=121){
+          str1=str1+split[i];
+        }else {
+          continue;
+        }
+      }
+```
