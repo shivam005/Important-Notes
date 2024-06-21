@@ -69,6 +69,13 @@ Output: {false=[-7, -1], true=[2, 3, 4, 5, 6, 7, 7]}
 str.chars().mapToObj(x->(char)x).filter(x->x>=65 && x<=122 || x==32).forEach(System.out::print);
 ```
 
+### Shift zero rightward
+Here significant thing is boxed() which is used to convert a stream of primitive values (such as int, long, or double) into a stream of their corresponding wrapper class objects (Integer, Long, or Double).
+```
+int[] arr={3,2,4,5,7,0,0,1,2};
+List<Integer> collect = Arrays.stream(arr).filter(x -> x >=0).boxed().sorted(Comparator.reverseOrder()).collect(Collectors.toList());
+```
+
 
 
 
