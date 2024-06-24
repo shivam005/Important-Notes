@@ -10,3 +10,16 @@ ApplicationContext is the extended version of BeanFactory as It extends Listable
      Object bean = context.getBean("IdDefinedInConfigxml", ClassFileName.class);
      bean.callMethodWhichIsInsideTheBean();
 ```
+### Bean Life Cycle 
+Bean Instantiation  >> Populate Properties  >> BeanNameAware.setBeanName() >> BeanFactoryAware.setBeanFactory()  >>  ApplicationContextAware.setApplicationContext() >>
+ postProcessBeforeInitialization() (BeanPostProcessor)  >> InitializingBean.afterPropertiesSet()  >>    Custom Init Method  >> postProcessAfterInitialization() (BeanPostProcessor)  >> Bean Ready to Use   >> Container Shutdown   >> DisposableBean.destroy() >> Custom Destroy 
+                                                                                 OR
+Container Started >> Bean Instantiated >> Dependency Injected >> Custom Init Method >> Bean Destroyed Or IOC Container Closed >> Custom Destoy Method 
+### Scope of Bean
+There are 6 scope of Bean but last 4 are limited to web aware application or web application context.
+1. Singleton (Single shared instance)
+2. Prototype (New instance for each request and destructionis managed by client not IOC)
+3. Request (new instance of the bean is created for each HTTP request)
+4. Session (one instance is created for multiple HTTP requests within a single session, once session ends bean gone)
+5. Application (Created for the lifecycle of a ServletContext and exist during the entire lifecycle of the web application)
+6. Websocket 
