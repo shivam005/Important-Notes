@@ -24,3 +24,5 @@ There are 6 scope of Bean but last 4 are limited to web aware application or web
 5. Application (Created for the lifecycle of a ServletContext and exist during the entire lifecycle of the web application)
 6. Global Session Scope (Maintain state across multiple HTTP requests and across multiple portlets within a global session.)
 
+
+
