@@ -24,5 +24,9 @@ There are 6 scope of Bean but last 4 are limited to web aware application or web
 5. Application (Created for the lifecycle of a ServletContext and exist during the entire lifecycle of the web application)
 6. Global Session Scope (Maintain state across multiple HTTP requests and across multiple portlets within a global session.)
 
+|   Question | Command |
+| --- | ----------- |
+|Dependency Injection| It can be done using three ways: constructor injection, settor injection and field injection. In case of constructor and setter injection we annotate the constructor and setter with @Autowired which would be ultimately assigning value to the current instance after taking it as the aurgument. Remember, this setter and constructor are used by Spring IOC container internally for the dependency injection.|
+| @Autowired | It checks for all the class which implements the interface annotated with @Autowired and has @Component as annotation to find the implementation and to inject it | 
 
 
