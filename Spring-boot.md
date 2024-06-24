@@ -22,6 +22,5 @@ There are 6 scope of Bean but last 4 are limited to web aware application or web
 3. Request (new instance of the bean is created for each HTTP request)
 4. Session (one instance is created for multiple HTTP requests within a single session, once session ends bean gone)
 5. Application (Created for the lifecycle of a ServletContext and exist during the entire lifecycle of the web application)
-6. Websocket (Custom scopes to handle specific use cases specific to a WebSocket session)
-
+6. Global Session Scope (Maintain state across multiple HTTP requests and across multiple portlets within a global session.)
 
