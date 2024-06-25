@@ -143,7 +143,7 @@ public class StrategyPatternDemo {
 10. DiscountService :: PercentageDiscount, BuyOneGetOneFree, FixedDiscount
 
 ## Observer Design Pattern
-There are two entities in this design pattern: 1. Observable (Has State) 2. Observer. We manage 
+There are two entities in this design pattern: 1. Observable (Has State) 2. Observer. We manage the list of observer (Which could have any number of implementation) and whenever any observer subscribe, we add it to the list. Whenever, we find any difference or change in the observable state. We iterate the list and notify all the observers.  This notification would be triggered from the method(update()) of implementing class of the observer.  
 
 Example;
 1. Context-> NewsPublisher :: Observers -> Subscribers (EmailSubscriber, SMSSubscriber, AppSubscriber)
@@ -154,44 +154,6 @@ Example;
 6. ChatRoom :: Users (Users get notified when a new message is posted in the chat room)
 7. TrafficLight :: Cars (Cars get notified when the traffic light changes its state (e.g., from red to green))
 8. BuildSystem :: (Build agents get notified when there is a new build task to perform)
-```
-public interface Observer {
-    void update(String news);
-}
-
-public class EmailSubscriber implements Observer {
-    public void update(String news) {
-        System.out.println("Email Subscriber: " + news);
-    }
-}
-
-public class NewsPublisher {
-    private List<Observer> subscribers = new ArrayList<>();
-    
-    public void subscribe(Observer observer) {
-        subscribers.add(observer);
-    }
-    
-    public void unsubscribe(Observer observer) {
-        subscribers.remove(observer);
-    }
-    
-    public void notifySubscribers(String news) {
-        for (Observer subscriber : subscribers) {
-            subscriber.update(news);
-        }
-    }
-}
-public class Main {
-    public static void main(String[] args) {
-        NewsPublisher newsPublisher = new NewsPublisher();
-        Observer emailSubscriber = new EmailSubscriber();
-        
-        newsPublisher.subscribe(emailSubscriber);
-        newsPublisher.notifySubscribers("Breaking News: Observer pattern in Java!");
-    }
-}
-```
 ```
 public interface WeatherObserver {
     void update(float temperature, float humidity);
@@ -235,6 +197,44 @@ public class Main {
         
         weatherStation.addObserver(phoneDisplay);
         weatherStation.setMeasurements(23.5f, 65.0f);
+    }
+}
+```
+```
+public interface Observer {
+    void update(String news);
+}
+
+public class EmailSubscriber implements Observer {
+    public void update(String news) {
+        System.out.println("Email Subscriber: " + news);
+    }
+}
+
+public class NewsPublisher {
+    private List<Observer> subscribers = new ArrayList<>();
+    
+    public void subscribe(Observer observer) {
+        subscribers.add(observer);
+    }
+    
+    public void unsubscribe(Observer observer) {
+        subscribers.remove(observer);
+    }
+    
+    public void notifySubscribers(String news) {
+        for (Observer subscriber : subscribers) {
+            subscriber.update(news);
+        }
+    }
+}
+public class Main {
+    public static void main(String[] args) {
+        NewsPublisher newsPublisher = new NewsPublisher();
+        Observer emailSubscriber = new EmailSubscriber();
+        
+        newsPublisher.subscribe(emailSubscriber);
+        newsPublisher.notifySubscribers("Breaking News: Observer pattern in Java!");
     }
 }
 ```
