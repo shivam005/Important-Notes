@@ -83,6 +83,65 @@ public class NoCoinState implements VendingMachineState {
 
 ```
 ## Strategy Design Pattern
+We use this design pattern when we realise that the child has duplicate code which should have been present in the parent class but because of design flaw, we are bound to write it into different child. 
+Using this design pattern, we create a instance of any strategy (Interface) and selection of implementing class would be done by constructor injection. 
+Herein, we create an interface as strategy which would have different implement class as their actual strategy. At the time of use which actual strategy should be used, would be determined by the object created of a particular class and this would be done using constructor injection sort of design. 
+Example;
+1. Name->PaymentService :: Strategy-> CreditCardPayment, PayPalPayment, BitcoinPayment
+2. Sorter:: BubbleSort, QuickSort, MergeSort
+3. FileCompressor:: ZipCompression, RarCompression, TarCompression
+   ```
+   public interface CompressionStrategy {
+    void compress(String file);
+}
+
+public class ZipCompression implements CompressionStrategy {
+    public void compress(String file) {
+        System.out.println("Compressing using ZIP.");
+    }
+}
+
+public class RarCompression implements CompressionStrategy {
+    public void compress(String file) {
+        System.out.println("Compressing using RAR.");
+    }
+}
+
+public class FileCompressor {
+    private CompressionStrategy strategy;
+    
+    public void setCompressionStrategy(CompressionStrategy strategy) {
+        this.strategy = strategy;
+    }
+    
+    public void compressFile(String file) {
+        strategy.compress(file);
+    }
+}
+public class StrategyPatternDemo {
+    public static void main(String[] args) {
+        FileCompressor compressor = new FileCompressor();
+        // Using ZipCompression strategy
+        CompressionStrategy zipCompression = new ZipCompression();
+        compressor.setCompressionStrategy(zipCompression);
+        compressor.compressFile("file.txt");
+
+        // Changing to RarCompression strategy
+        CompressionStrategy rarCompression = new RarCompression();
+        compressor.setCompressionStrategy(rarCompression);
+        compressor.compressFile("file.txt");
+    }
+}
+
+   ```
+4. Authenticator :: OAuthAuthentication, LDAPAuthentication, SAMLAuthentication
+5. TaxCalculator::
+6. RouteCalculator::CarRoute ,BikeRoute, WalkingRoute
+7. FileParser :: CSVParser, JSONParser, XMLParser
+8. ImageFilter :: BlackAndWhiteFilter, SepiaFilter, BlurFilter
+9. NotificationService :: EmailNotification, SMSNotification, PushNotification
+10. DiscountService :: PercentageDiscount, BuyOneGetOneFree, FixedDiscount
+
 
 ## Adapter design Pattern
 public class SocketClassAdapterImpl extends Socket implements SocketAdapter
