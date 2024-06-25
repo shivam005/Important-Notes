@@ -142,7 +142,102 @@ public class StrategyPatternDemo {
 9. NotificationService :: EmailNotification, SMSNotification, PushNotification
 10. DiscountService :: PercentageDiscount, BuyOneGetOneFree, FixedDiscount
 
+## Observer Design Pattern
+There are two entities in this design pattern: 1. Observable (Has State) 2. Observer. We manage 
 
+Example;
+1. Context-> NewsPublisher :: Observers -> Subscribers (EmailSubscriber, SMSSubscriber, AppSubscriber)
+2. Stock :: Brokers, Investors (Brokers and investors get notified when stock prices change)
+3. WeatherStation :: DisplayDevices (PhoneDisplay, WindowDisplay)
+4. UserAccount :: Followers (Followers get notified when the user posts new content)
+5. Button :: EventListeners (ClickListener, HoverListener)
+6. ChatRoom :: Users (Users get notified when a new message is posted in the chat room)
+7. TrafficLight :: Cars (Cars get notified when the traffic light changes its state (e.g., from red to green))
+8. BuildSystem :: (Build agents get notified when there is a new build task to perform)
+```
+public interface Observer {
+    void update(String news);
+}
+
+public class EmailSubscriber implements Observer {
+    public void update(String news) {
+        System.out.println("Email Subscriber: " + news);
+    }
+}
+
+public class NewsPublisher {
+    private List<Observer> subscribers = new ArrayList<>();
+    
+    public void subscribe(Observer observer) {
+        subscribers.add(observer);
+    }
+    
+    public void unsubscribe(Observer observer) {
+        subscribers.remove(observer);
+    }
+    
+    public void notifySubscribers(String news) {
+        for (Observer subscriber : subscribers) {
+            subscriber.update(news);
+        }
+    }
+}
+public class Main {
+    public static void main(String[] args) {
+        NewsPublisher newsPublisher = new NewsPublisher();
+        Observer emailSubscriber = new EmailSubscriber();
+        
+        newsPublisher.subscribe(emailSubscriber);
+        newsPublisher.notifySubscribers("Breaking News: Observer pattern in Java!");
+    }
+}
+```
+```
+public interface WeatherObserver {
+    void update(float temperature, float humidity);
+}
+
+public class PhoneDisplay implements WeatherObserver {
+    public void update(float temperature, float humidity) {
+        System.out.println("Phone display updated: Temp = " + temperature + ", Humidity = " + humidity);
+    }
+}
+
+public class WeatherStation {
+    private List<WeatherObserver> observers = new ArrayList<>();
+    private float temperature;
+    private float humidity;
+    
+    public void addObserver(WeatherObserver observer) {
+        observers.add(observer);
+    }
+    
+    public void removeObserver(WeatherObserver observer) {
+        observers.remove(observer);
+    }
+    
+    public void setMeasurements(float temperature, float humidity) {
+        this.temperature = temperature;
+        this.humidity = humidity;
+        notifyObservers();
+    }
+    
+    private void notifyObservers() {
+        for (WeatherObserver observer : observers) {
+            observer.update(temperature, humidity);
+        }
+    }
+}
+public class Main {
+    public static void main(String[] args) {
+        WeatherStation weatherStation = new WeatherStation();
+        WeatherObserver phoneDisplay = new PhoneDisplay();
+        
+        weatherStation.addObserver(phoneDisplay);
+        weatherStation.setMeasurements(23.5f, 65.0f);
+    }
+}
+```
 ## Adapter design Pattern
 public class SocketClassAdapterImpl extends Socket implements SocketAdapter
 This can be understood in the way that SocketAdapter has all the method which is desirable in the output. 
