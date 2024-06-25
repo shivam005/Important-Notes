@@ -90,7 +90,7 @@ Example;
 1. Name->PaymentService :: Strategy-> CreditCardPayment, PayPalPayment, BitcoinPayment
 2. Sorter:: BubbleSort, QuickSort, MergeSort
 3. FileCompressor:: ZipCompression, RarCompression, TarCompression
-   ```
+```
    public interface CompressionStrategy {
     void compress(String file);
 }
@@ -133,7 +133,7 @@ public class StrategyPatternDemo {
     }
 }
 
-   ```
+```
 4. Authenticator :: OAuthAuthentication, LDAPAuthentication, SAMLAuthentication
 5. TaxCalculator::
 6. RouteCalculator::CarRoute ,BikeRoute, WalkingRoute
