@@ -238,6 +238,66 @@ public class Main {
     }
 }
 ```
+## Chain of Responsibility Design Pattern
+1. Technical Support System (Handling support tickets based on severity) :: Level 1 Support, Level 2 Support, Level 3 Support
+2. ATM Withdrawal (Dispensing money based on denominations) :: 100-dollar dispenser, 50-dollar dispenser, 20-dollar dispenser
+3. Email Filtering :: SpamFilter, FanMailFilter, BusinessMailFilter
+4. Request Handling in Web Server ::  AuthenticationHandler, AuthorizationHandler, DataValidationHandler
+```
+abstract class Logger {
+    protected Logger nextLogger;
+    
+    public void setNextLogger(Logger nextLogger) {
+        this.nextLogger = nextLogger;
+    }
+    
+    public abstract void logMessage(String message, int level);
+}
+
+class InfoLogger extends Logger {
+    public void logMessage(String message, int level) {
+        if (level == 1) {
+            System.out.println("Info: " + message);
+        } else if (nextLogger != null) {
+            nextLogger.logMessage(message, level);
+        }
+    }
+}
+
+class DebugLogger extends Logger {
+    public void logMessage(String message, int level) {
+        if (level == 2) {
+            System.out.println("Debug: " + message);
+        } else if (nextLogger != null) {
+            nextLogger.logMessage(message, level);
+        }
+    }
+}
+
+class ErrorLogger extends Logger {
+    public void logMessage(String message, int level) {
+        if (level == 3) {
+            System.out.println("Error: " + message);
+        } else if (nextLogger != null) {
+            nextLogger.logMessage(message, level);
+        }
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Logger infoLogger = new InfoLogger();
+        Logger debugLogger = new DebugLogger();
+        Logger errorLogger = new ErrorLogger();
+        
+        infoLogger.setNextLogger(debugLogger);
+        debugLogger.setNextLogger(errorLogger);
+        
+        infoLogger.logMessage("This is a debug message.", 2);
+    }
+}
+
+```
 ## Adapter design Pattern
 public class SocketClassAdapterImpl extends Socket implements SocketAdapter
 This can be understood in the way that SocketAdapter has all the method which is desirable in the output. 
