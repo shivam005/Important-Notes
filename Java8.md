@@ -75,6 +75,27 @@ Here significant thing is boxed() which is used to convert a stream of primitive
 int[] arr={3,2,4,5,7,0,0,1,2};
 List<Integer> collect = Arrays.stream(arr).filter(x -> x >=0).boxed().sorted(Comparator.reverseOrder()).collect(Collectors.toList());
 ```
+### reduce()
+It is used to reduce the stream into single output. It has various implementation:
+1. Summing a list of integers
+```
+List<Integer> list1 = Arrays.asList(2,3,4,5,6,7,-7,7, -1);
+al.stream().reduce((a, b) -> a + b).get();
+```
+2. Finding the maximum value in a list of integers
+```
+list1.stream().reduce((a,b)->Math.max(a,b)).get();
+```
+3. Concatenating a list of characrers into a single string
+Herein, we are using overloaded reduce() with an parameter named as identity. This is basically used to store the resultant output(We usually initialize it with some null or empty values). 
+```
+List<Character> charList = Arrays.asList('s','h','i','v','a','m');
+charList.stream().map(x->String.valueOf(x)).reduce("",(x,y)->x + ""+y)
+```
+4. Multiplying a list of integers.
+```
+list1.stream().reduce((x,y)->x*y).get()
+```
 
 
 
