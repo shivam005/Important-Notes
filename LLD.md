@@ -30,7 +30,7 @@
 |Memento|The memento design pattern is used when we want to save the state of an object so that we can restore later on.||
 
 ## Factory Design Pattern 
-It is to be used when the type object which needs to be created, is determined at the runtime on the basis of the paremeter passed. Lets assume that you have a interface which has many implementing class which class needs to be instantiated, would be determined on the basis of the parameter passed. Whatever parameter will be passed, we will return the object of the class by reintantiating it. 
+It is to be used when the type object which needs to be created, is determined at the runtime on the basis of the paremeter passed. Lets assume that you have a interface which has many implementing class which class needs to be instantiated, would be determined on the basis of the parameter passed. Whatever parameter will be passed, we will return the object of the class by reintantiating it. It is beneficial, when we are need to use different implementation on the basis of the incoming parameter then we can pass it through the factory and can instantiate object on the basis of the parameter.  
 
 ```
 // Product interface
