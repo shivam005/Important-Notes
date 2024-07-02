@@ -6,7 +6,7 @@
 |  Singleton | The singleton pattern restricts the initialization of a class to ensure that only one instance of the class can be created. |Herein, we create a static instance and we check, If the instance is null then assign it with a newly created object and If it is not null then return it right away.|
 |Prototype|Creating a new object instance from another similar instance and then modify according to our requirements (Cloning from prototype)|Herein instead of making object using new keyword, we clone it because calling constructor is a heavy operation. Clone method by default do shallow copy.|
 |Factory|The factory pattern takes out the responsibility of instantiating a object from the class to a Factory class.| need to create objects based on some input criteria (At Runtime) or logic without exposing the instantiation logic to the client|
-|Abstract Factory|Allows us to create a Factory for factory classes.||
+|Abstract Factory|Allows us to create a Factory for factory classes.|In simple term, It is factory of factory. |
 |Builder|Creating an object step by step and a method to finally get the object instance.|When some optional paremeters are not to be used at the time of object creation.|
 |------|Structural|-------|
 |Adapter|Provides an interface between two unrelated entities so that they can work together.||
@@ -28,6 +28,9 @@
 |Interpreter|defines a grammatical representation for a language and provides an interpreter to deal with this grammar.||
 |Iterator|used to provide a standard way to traverse through a group of Objects.||
 |Memento|The memento design pattern is used when we want to save the state of an object so that we can restore later on.||
+
+## Abstract Factory Pattern
+It is used to create factorries of factory. Simply, in factory pattern we have got to create multiple classes which implements the method in that interface but here in we create a seperate interface for different factories which is used ultimately. 
 
 ## Factory Design Pattern 
 It is to be used when the type object which needs to be created, is determined at the runtime on the basis of the paremeter passed. Lets assume that you have a interface which has many implementing class which class needs to be instantiated, would be determined on the basis of the parameter passed. Whatever parameter will be passed, we will return the object of the class by reintantiating it. It is beneficial, when we are need to use different implementation on the basis of the incoming parameter then we can pass it through the factory and can instantiate object on the basis of the parameter.  
