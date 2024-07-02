@@ -5,9 +5,9 @@
 |-----|  CREATIONAL|----|
 |  Singleton | The singleton pattern restricts the initialization of a class to ensure that only one instance of the class can be created. |Herein, we create a static instance and we check, If the instance is null then assign it with a newly created object and If it is not null then return it right away.|
 |Prototype|Creating a new object instance from another similar instance and then modify according to our requirements (Cloning from prototype)|Herein instead of making object using new keyword, we clone it because calling constructor is a heavy operation. Clone method by default do shallow copy.|
-|Factory|The factory pattern takes out the responsibility of instantiating a object from the class to a Factory class.|Did not understand well|
+|Factory|The factory pattern takes out the responsibility of instantiating a object from the class to a Factory class.| need to create objects based on some input criteria (At Runtime) or logic without exposing the instantiation logic to the client|
 |Abstract Factory|Allows us to create a Factory for factory classes.||
-|Builder|Creating an object step by step and a method to finally get the object instance.||
+|Builder|Creating an object step by step and a method to finally get the object instance.|When some optional paremeters are not to be used at the time of object creation.|
 |------|Structural|-------|
 |Adapter|Provides an interface between two unrelated entities so that they can work together.||
 |Composite|Used when we have to implement a part-whole hierarchy. For example, a diagram made of other pieces such as circle, square, triangle, etc.||
@@ -28,6 +28,59 @@
 |Interpreter|defines a grammatical representation for a language and provides an interpreter to deal with this grammar.||
 |Iterator|used to provide a standard way to traverse through a group of Objects.||
 |Memento|The memento design pattern is used when we want to save the state of an object so that we can restore later on.||
+
+## Factory Design Pattern 
+It is to be used when the type object which needs to be created, is determined at the runtime on the basis of the paremeter passed. Lets assume that you have a interface which has many implementing class which class needs to be instantiated, would be determined on the basis of the parameter passed. Whatever parameter will be passed, we will return the object of the class by reintantiating it. 
+
+```
+// Product interface
+interface Shape {
+    void draw();
+}
+
+// Concrete Products
+class Circle implements Shape {
+    public void draw() {
+        System.out.println("Drawing Circle");
+    }
+}
+
+class Square implements Shape {
+    public void draw() {
+        System.out.println("Drawing Square");
+    }
+}
+
+// Factory
+class ShapeFactory {
+    public Shape getShape(String shapeType) {
+        if (shapeType == null) {
+            return null;
+        }
+        if (shapeType.equalsIgnoreCase("CIRCLE")) {
+            return new Circle();
+        } else if (shapeType.equalsIgnoreCase("SQUARE")) {
+            return new Square();
+        }
+        return null;
+    }
+}
+
+// Client
+public class FactoryPatternDemo {
+    public static void main(String[] args) {
+        ShapeFactory shapeFactory = new ShapeFactory();
+
+        // Get an object of Circle and call its draw method.
+        Shape shape1 = shapeFactory.getShape("CIRCLE");
+        shape1.draw();
+
+        // Get an object of Square and call its draw method.
+        Shape shape2 = shapeFactory.getShape("SQUARE");
+        shape2.draw();
+    }
+}
+```
 
 ## Builder Design Pattern
 Builder Pattern is perfect for constructing complex objects with many optional parameters and ensuring that the object is immutable and consistent after construction.
