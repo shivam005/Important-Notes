@@ -29,6 +29,91 @@
 |Iterator|used to provide a standard way to traverse through a group of Objects.||
 |Memento|The memento design pattern is used when we want to save the state of an object so that we can restore later on.||
 
+## Builder Design Pattern
+Builder Pattern is perfect for constructing complex objects with many optional parameters and ensuring that the object is immutable and consistent after construction.
+```
+// Product class
+class Computer {
+    // required parameters
+    private String HDD;
+    private String RAM;
+
+    // optional parameters
+    private boolean isGraphicsCardEnabled;
+    private boolean isBluetoothEnabled;
+
+    private Computer(ComputerBuilder builder) {
+        this.HDD = builder.HDD;
+        this.RAM = builder.RAM;
+        this.isGraphicsCardEnabled = builder.isGraphicsCardEnabled;
+        this.isBluetoothEnabled = builder.isBluetoothEnabled;
+    }
+
+    // Getters
+
+    public String getHDD() {
+        return HDD;
+    }
+
+    public String getRAM() {
+        return RAM;
+    }
+
+    public boolean isGraphicsCardEnabled() {
+        return isGraphicsCardEnabled;
+    }
+
+    public boolean isBluetoothEnabled() {
+        return isBluetoothEnabled;
+    }
+
+    // Builder class
+    public static class ComputerBuilder {
+        // required parameters
+        private String HDD;
+        private String RAM;
+
+        // optional parameters
+        private boolean isGraphicsCardEnabled;
+        private boolean isBluetoothEnabled;
+
+        public ComputerBuilder(String hdd, String ram) {
+            this.HDD = hdd;
+            this.RAM = ram;
+        }
+
+        public ComputerBuilder setGraphicsCardEnabled(boolean isGraphicsCardEnabled) {
+            this.isGraphicsCardEnabled = isGraphicsCardEnabled;
+            return this;
+        }
+
+        public ComputerBuilder setBluetoothEnabled(boolean isBluetoothEnabled) {
+            this.isBluetoothEnabled = isBluetoothEnabled;
+            return this;
+        }
+
+        public Computer build() {
+            return new Computer(this);
+        }
+    }
+}
+
+// Client
+public class BuilderPatternDemo {
+    public static void main(String[] args) {
+        Computer computer = new Computer.ComputerBuilder("500 GB", "8 GB")
+                .setGraphicsCardEnabled(true)
+                .setBluetoothEnabled(true)
+                .build();
+
+        System.out.println("Computer Config: " + computer.getHDD() + ", " + computer.getRAM());
+        System.out.println("Graphics Card Enabled: " + computer.isGraphicsCardEnabled());
+        System.out.println("Bluetooth Enabled: " + computer.isBluetoothEnabled());
+    }
+}
+
+```
+
 ## State Design Pattern
 Which method(from which class) needs to be invoked would be deciced on the basis of the state of the object. Firstly, we will fix the state of any object to something and each time, method would be invoked on the current state only. Each state would have same number of methods but will have different implementation. Once a method is invoked on a particular state, we will make sure to change the state as well because the consecutive method needs to be invoked on the upcoming state only. 
 Example: 
