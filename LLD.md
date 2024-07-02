@@ -31,84 +31,55 @@
 
 ## Builder Design Pattern
 Builder Pattern is perfect for constructing complex objects with many optional parameters and ensuring that the object is immutable and consistent after construction.
+It allows method chaining and ensures that the fields of the Builder instance are properly set before creating the target object.
+Usually, in order to prevent the optional parameter, we have got to create multiple parametrized constructor but this problem can be resolved here by creating a single constructor which would take same instance as parameter and would populate the values initialized.
 ```
-// Product class
-class Computer {
-    // required parameters
-    private String HDD;
-    private String RAM;
+public class BuilderDesignPattern {
 
-    // optional parameters
-    private boolean isGraphicsCardEnabled;
-    private boolean isBluetoothEnabled;
+    String name;
+    String someThingOptional;
+    Integer age;
 
-    private Computer(ComputerBuilder builder) {
-        this.HDD = builder.HDD;
-        this.RAM = builder.RAM;
-        this.isGraphicsCardEnabled = builder.isGraphicsCardEnabled;
-        this.isBluetoothEnabled = builder.isBluetoothEnabled;
+    @Override
+    public String toString() {
+        return "BuilderDesignPattern{" +
+                "name='" + name + '\'' +
+                ", someThingOptional='" + someThingOptional + '\'' +
+                ", age=" + age +
+                '}';
     }
 
-    // Getters
+    public BuilderDesignPattern(BuilderDesignPattern builder){
+        this.name=builder.name;
+        this.age= builder.age;
+        this.someThingOptional= builder.someThingOptional;
+    }
+    public BuilderDesignPattern(){
 
-    public String getHDD() {
-        return HDD;
     }
 
-    public String getRAM() {
-        return RAM;
+    public BuilderDesignPattern setname(String name){
+        this.name = name;
+        return this;
     }
 
-    public boolean isGraphicsCardEnabled() {
-        return isGraphicsCardEnabled;
+    public BuilderDesignPattern setsomeThingOptional(String someThingOptional){
+        this.someThingOptional = someThingOptional;
+        return this;
     }
 
-    public boolean isBluetoothEnabled() {
-        return isBluetoothEnabled;
+    public BuilderDesignPattern setage(Integer age){
+        this.age = age;
+        return this;
     }
 
-    // Builder class
-    public static class ComputerBuilder {
-        // required parameters
-        private String HDD;
-        private String RAM;
-
-        // optional parameters
-        private boolean isGraphicsCardEnabled;
-        private boolean isBluetoothEnabled;
-
-        public ComputerBuilder(String hdd, String ram) {
-            this.HDD = hdd;
-            this.RAM = ram;
-        }
-
-        public ComputerBuilder setGraphicsCardEnabled(boolean isGraphicsCardEnabled) {
-            this.isGraphicsCardEnabled = isGraphicsCardEnabled;
-            return this;
-        }
-
-        public ComputerBuilder setBluetoothEnabled(boolean isBluetoothEnabled) {
-            this.isBluetoothEnabled = isBluetoothEnabled;
-            return this;
-        }
-
-        public Computer build() {
-            return new Computer(this);
-        }
+    public BuilderDesignPattern build(){
+        return new BuilderDesignPattern(this);
     }
-}
 
-// Client
-public class BuilderPatternDemo {
     public static void main(String[] args) {
-        Computer computer = new Computer.ComputerBuilder("500 GB", "8 GB")
-                .setGraphicsCardEnabled(true)
-                .setBluetoothEnabled(true)
-                .build();
-
-        System.out.println("Computer Config: " + computer.getHDD() + ", " + computer.getRAM());
-        System.out.println("Graphics Card Enabled: " + computer.isGraphicsCardEnabled());
-        System.out.println("Bluetooth Enabled: " + computer.isBluetoothEnabled());
+        System.out.println( new BuilderDesignPattern().setage(11).setname("name").setsomeThingOptional("optional").build());
+        System.out.println( new BuilderDesignPattern().setage(11).setname("name").build());
     }
 }
 
