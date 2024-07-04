@@ -29,6 +29,23 @@ If matches then return it.
 return array;
     }
 ```
+```
+    public boolean check(int[] arr, int k){
+        HashMap<Integer, Integer> hm = new HashMap<>();
+        boolean flag=false;
+        for(int i=0;i<arr.length;i++){
+            int comp=k-arr[i];
+
+            if(hm.containsKey(arr[i])){
+                flag= true;
+                break;
+            }
+            hm.put(comp,i);
+        }
+        return flag;
+
+    }
+```
 ## RemoveDuplicateFromSortedArray {Move Unique Element to Front}
 Sort the Array. 
 Start traversing from first index and check whether present one is different than the current one and 
