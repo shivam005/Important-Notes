@@ -43,22 +43,6 @@ This method waits for all the task to be completed and then shuts down the execu
 4). submit(Runnable task) -> This takes runnable as the input and return future which consist of info related to task rather than actual output.
 
 5). submit(Callable<T> task) -> This takes callable as the input and return the future as the output of pending task result.
-
-6). invokeAll(Callable<T> task) -> It is the blocking function which executes the list of tasks and waits for all of them to finish and returns the list of future as the same order tasks provided to method. 
-
-7). invokeAny(Callable<T> task) -> It waits for atleast one task to get completed and returns the result (not the future) for a completed task and cancels any unfinished tasks. 
-
-##### Future
-1). boolean isDone() -> It returns the boolean value and checks whether the task has completed or not. Completion means termination, exception or cancellation. 
-
-2). boolean isCancelled() -> returns true if this task was cancelled befire it completed normally. 
-
-3). boolean cancel(boolean mayinterruptIfRunning) -> Attempts to cancel a task, returns true if cancelled suceesfully and false it already completed or could not cancel. 
-
-4). V get() -> wait if necessary for the computation to complete and then retrieves the result. 
-
-5). V get(long timeout, TimeUnit unit) -> wait for the given time and then retrieves the result if any or gives timeout. 
-
 ```
 public class Concurrency {
 
@@ -80,14 +64,82 @@ result from main is 11
 main is running in last line
 ```
 
+6). invokeAll(Callable<T> task) -> It is the blocking function which executes the list of tasks and waits for all of them to finish and returns the list of future as the same order tasks provided to method. 
 ```
+public class Concurrency {
+
+    public static void main(String[] args) throws ExecutionException, InterruptedException {
+        System.out.println(Thread.currentThread().getName() + " is running in first line");
+        ExecutorService executorService = Executors.newSingleThreadExecutor();
+        Callable<Integer> task1 = () -> 2 + 3;
+        Callable<Integer> task2 = () -> 5 + 3;
+        List<Future<Integer>> futures = executorService.invokeAll(Arrays.asList(task1, task2));
+        for(int i=0; i<futures.size();i++){
+            System.out.println("Outputs are "+ futures.get(i).get());
+        }
+        System.out.println(Thread.currentThread().getName() + " is running in last line");
+        executorService.shutdown();
+    }
+}
+Output:
+main is running in first line
+Outputs are 5
+Outputs are 8
+main is running in last line
 ```
+
+7). invokeAny(Callable<T> task) -> It waits for atleast one task to get completed and returns the result (not the future) for a completed task and cancels any unfinished tasks. 
+
+##### Future
+1). boolean isDone() -> It returns the boolean value and checks whether the task has completed or not. Completion means termination, exception or cancellation. 
+
+2). boolean isCancelled() -> returns true if this task was cancelled befire it completed normally. 
+
+3). boolean cancel(boolean mayinterruptIfRunning) -> Attempts to cancel a task, returns true if cancelled suceesfully and false it already completed or could not cancel. 
+
+4). V get() -> wait if necessary for the computation to complete and then retrieves the result. 
+
+5). V get(long timeout, TimeUnit unit) -> wait for the given time and then retrieves the result if any or gives timeout. 
+
+
+ 
 #### newFixedThreadPool(nThreads)
 Uses a fixed number of threads operating off a shared unbounded queue. If all threads are active, new tasks wait in the queue.
 #### newCachedThreadPool()
 Creates new threads as needed but will reuse previously constructed threads when they are available. Threads that are idle for 60 seconds are terminated and removed from the cache.
 #### newSingleThreadScheduledExecutor()
-To run tasks after certain delay or to run task periodically. 
+To run tasks after certain delay or to run task periodically. It extends executor service hence It has all the methods in common and additionally It has following methods:
+1). public <V> ScheduledFuture<V> schedule(Callable<V> callable, long delay, TimeUnit unit);
+
+2). public ScheduledFuture<?> scheduleAtFixedRate(Runnable command, long initialDelay, long period, TimeUnit unit);
+
+3). public ScheduledFuture<?> scheduleWithFixedDelay(Runnable command, long initialDelay,long delay,TimeUnit unit);
+```
+public class Concurrency {
+
+    public static void main(String[] args) throws ExecutionException, InterruptedException {
+        System.out.println(Thread.currentThread().getName() + " is running in first line");
+        ScheduledExecutorService executorService = Executors.newSingleThreadScheduledExecutor();
+        Runnable task1 = () -> System.out.println("Hi There, Task 1");
+        Callable<String> task2 = () -> "Hi There, Task 2";
+        ScheduledFuture<?> scheduledFuture = executorService.scheduleWithFixedDelay(task1, 5, 5, TimeUnit.SECONDS);
+        System.out.println(scheduledFuture.get());
+        System.out.println(Thread.currentThread().getName() + " is running in last line");
+        executorService.shutdown();
+    }
+}
+Output:
+main is running in first line
+Hi There, Task 1
+Hi There, Task 1
+Hi There, Task 1
+Hi There, Task 1
+.
+.
+.
+Hi There, Task 1
+```
+
 #### newScheduledThreadPool(corePoolSize)
 Same as scheduled thread pool, just it takes corepoolsize as input. 
 #### newWorkStealingPool()
