@@ -363,10 +363,28 @@ public int longestSubSeq(int[] arr){
 ```
 ## Remove odd numbers from arraylist
 It is a  tricky question with the simple logic. If you will run a loop to filter out the even number from 0 to n then whenever you remove any element the indices are shifted which sometimes skips the elements and causes problem. Hence, the simple solution is to run the loop in the reverse order from n to 0, It would change the indices in the backward direction hence would not affect elements. 
-## 
+## Find first and last index of an element in the array (O(n))
+Create two variables first and last and assign -1 value to it. Now iterate the array and check if the current element is not equal to target then continue the iteration and if the condition gets false then check if the first variable is equal to -1 and if true then assign the value else assign the current index value to last.
 ```
+ public void check(int[] arr, int  k){
+        int first =-1;
+        int last =-1;
+        for(int i=0; i< arr.length;i++){
+            if(arr[i]!=k){
+                continue;
+            }
+            if(first==-1){
+                first=i;
+            }else{
+                last=i;
+            }
+
+        }
+        System.out.println(first +"  "+last);
+    }
 ```
-## 
+## Find first and last index of an element in the array (O(log(n)))
+
 ```
 ```
 ## 
