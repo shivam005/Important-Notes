@@ -144,3 +144,62 @@ Hi There, Task 1
 Same as scheduled thread pool, just it takes corepoolsize as input. 
 #### newWorkStealingPool()
 Suitable for a large number of short-lived tasks that can be efficiently distributed among available processors.
+
+#### Use two thread to count the number of elements in the array
+```
+ public AtomicInteger print(int[]  arr){
+        ExecutorService executorService = null;
+        AtomicInteger atomicInteger = new AtomicInteger();
+        try {
+            executorService = Executors.newFixedThreadPool(5);
+            executorService.submit(() -> {
+                for (int i = 0; i < arr.length / 2; i++) {
+                    atomicInteger.incrementAndGet();
+                }
+            });
+            executorService.submit(() -> {
+                for (int i = arr.length / 2; i < arr.length; i++) {
+                    atomicInteger.incrementAndGet();
+                }
+            });
+            return atomicInteger;
+        }catch (Exception e){
+
+        }finally {
+            executorService.shutdown();
+        }
+        return atomicInteger;
+    }
+```
+#### Print n number using two threads
+```
+    public AtomicInteger print(int n){
+        ExecutorService executorService = null;
+        AtomicInteger atomicInteger = new AtomicInteger();
+        try {
+            executorService = Executors.newFixedThreadPool(5);
+            executorService.submit(() -> {
+                    for(int i=0; i<n/2;i++){
+                        int i1 = atomicInteger.incrementAndGet();
+                        System.out.println(Thread.currentThread()+":"+i1);
+                    }
+            });
+            executorService.submit(() -> {
+                for(int i=n/2; i<n;i++){
+                    int i1 = atomicInteger.incrementAndGet();
+                    System.out.println(Thread.currentThread()+":"+i1);
+                }
+            });
+            return atomicInteger;
+        }catch (Exception e){
+
+        }finally {
+            executorService.shutdown();
+        }
+        return atomicInteger;
+    }
+// Output: Will not be in order.
+```
+#### Print n number using two threads, in ordered fashion
+```
+```
