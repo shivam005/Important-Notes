@@ -202,6 +202,7 @@ Suitable for a large number of short-lived tasks that can be efficiently distrib
 ```
 #### Print n number using two threads, in ordered fashion
 Here, I am using the countdownlatch to achieve this. I am using two methods of countdownlatch which is countDown() and await(). So, when we will invoke the countdown method then it would say that the first thread has finished its task and the other thread can execute and the other method which await wouild be called on the second one which would wait for the countdown() to be invoked. 
+(It is useless as we are making other one to wait then why not to write the single threaded code or go for better option.) 
 ```
   public AtomicInteger print(int n){
         CountDownLatch latch = new CountDownLatch(1);
