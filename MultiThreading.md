@@ -201,5 +201,46 @@ Suitable for a large number of short-lived tasks that can be efficiently distrib
 // Output: Will not be in order.
 ```
 #### Print n number using two threads, in ordered fashion
+Here, I am using the countdownlatch to achieve this. I am using two methods of countdownlatch which is countDown() and await(). So, when we will invoke the countdown method then it would say that the first thread has finished its task and the other thread can execute and the other method which await wouild be called on the second one which would wait for the countdown() to be invoked. 
 ```
+  public AtomicInteger print(int n){
+        CountDownLatch latch = new CountDownLatch(1);
+
+        ExecutorService executorService = null;
+        AtomicInteger atomicInteger = new AtomicInteger();
+
+        try {
+            executorService = Executors.newFixedThreadPool(5);
+            executorService.submit(() -> {
+                    for(int i=0; i<n/2;i++){
+                        int i1 = atomicInteger.incrementAndGet();
+                        System.out.println(Thread.currentThread()+":"+i1);
+                    }
+                    latch.countDown();
+            });
+            executorService.submit(() -> {
+                for(int i=n/2; i<n;i++){
+                    try {
+                        latch.await();
+                    } catch (InterruptedException e) {
+                        throw new RuntimeException(e);
+                    }
+                    int i1 = atomicInteger.incrementAndGet();
+                    System.out.println(Thread.currentThread()+":"+i1);
+                }
+            });
+            return atomicInteger;
+        }catch (Exception e){
+
+        }finally {
+            executorService.shutdown();
+            try {
+                executorService.awaitTermination(5, TimeUnit.NANOSECONDS);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+        return atomicInteger;
+    }
+
 ```
