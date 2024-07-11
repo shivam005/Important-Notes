@@ -245,3 +245,8 @@ Here, I am using the countdownlatch to achieve this. I am using two methods of c
     }
 
 ```
+#### What will happen when two different synchronized method inside a class are being invoked by two different thread
+Since they both are associated with one object, hence when the first thread would be executing first method then second thread will have to wait to invoke the second method as the intrinsic lock will get applied on an object. 
+Hence, the solution to this problem is to avoid the method level synchornization and to put the lock over the lines of code which is there in critical section. 
+
+#### 
