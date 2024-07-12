@@ -271,6 +271,6 @@ This problem can be effectively handled by using ASCII values. Ascii value for c
       }
     }
 
-      System.out.println(res);
+      System.out.println(res+count);
 // Output: a3x1b2c2d
 ```
