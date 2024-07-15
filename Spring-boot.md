@@ -35,3 +35,35 @@ There are 6 scope of Bean but last 4 are limited to web aware application or web
 |@PropertySource("DemoApplication.properties")| As we happened to define app.properties name in the config.xml. Herein, using this @PropertySource we can define the name directly using annotation|
 |||
 
+### Transaction Management
+|   Annotation | Description |
+| --- | ----------- |
+|@Transactional|By default, the transaction will roll back on runtime exceptions (unchecked exceptions) and errors. It will not roll back on checked exceptions.|
+|@Transactional(rollbackFor = Exception.class)|You can specify which exceptions should cause a rollback using the rollbackFor attribute.|
+|@Transactional(noRollbackFor = CustomException.class)|Use the noRollbackFor attribute to specify exceptions that should not cause a rollback.|
+|PlatformTransactionManager|If you need more control over the transaction then go for it | 
+```
+    @Autowired
+    private PlatformTransactionManager transactionManager;
+TransactionDefinition def = new DefaultTransactionDefinition();
+TransactionStatus status = transactionManager.getTransaction(def);
+transactionManager.commit(status);
+transactionManager.rollback(status);
+```
+|   @Transactional Attributes | Description |
+| --- | ----------- |
+|PROPAGATION_REQUIRED: |Support a current transaction; create a new one if none exists.|
+|PROPAGATION_REQUIRES_NEW:| Create a new transaction, suspending the current transaction if one exists.|
+|PROPAGATION_MANDATORY:| Support a current transaction; throw an exception if no current transaction exists.|
+|PROPAGATION_NOT_SUPPORTED:| Execute non-transactionally, suspending the current transaction if one exists.|
+|PROPAGATION_NEVER: |Execute non-transactionally; throw an exception if a transaction exists.|
+|PROPAGATION_NESTED:| Execute within a nested transaction if a current transaction exists.|
+|ISOLATION_DEFAULT:| Use the default isolation level of the underlying database.|
+|ISOLATION_READ_UNCOMMITTED:| Allow reading uncommitted changes.|
+|ISOLATION_READ_COMMITTED:| Prevent dirty reads; allow non-repeatable reads and phantom reads.|
+|ISOLATION_REPEATABLE_READ:| Prevent dirty reads and non-repeatable reads; allow phantom reads.|
+|ISOLATION_SERIALIZABLE:| Prevent dirty reads, non-repeatable reads, and phantom reads.|
+|TIMEOUT_DEFAULT:| Use the default timeout of the underlying transaction system.|
+|TIMEOUT:| Specify a custom timeout.|
+|readOnly:| Indicate whether the transaction is read-only.|
+
