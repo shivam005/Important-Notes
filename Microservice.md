@@ -1,3 +1,9 @@
+### How service discovery works?
+It is not good practice to hit on any specific server which might have multiple instance running. Hence, in order to manage this, service discovery is used. We first make a euraka server which is annotated with @EnableEurekaServer on the main method. Eureka uses 8761 as the default port. Further all client applications hold the eurake client discovery as the dependency and in application to properties, we define "spring.application.name=my-service-name" in order to group the services together. Whenever the clients come up then the Eureka client (a part of the client application) sends a registration request to the Eureka server. This request includes metadata about the client application, such as the application name, instance ID, and health check URL.
+The major advantage is that we nomore need to use IP and port to hit any service rather we can use the service name defined in the application.properties in order to communicate with the service.
+Eureka's primary role is service discovery, which involves maintaining a registry of available services and their instances. 
+For load balancing purpose, we can use Ribbon. Ribbon is a client-side load balancer that can work with Eureka. When a client requests a service, Ribbon uses the list of available instances (fetched from Eureka) to distribute the load across those instances.
+
 ### Dora (DevOps Research and Assessment) Metrics:
 It is meant to assess the devops best practices, It is analyzed based on below mentioned points:
  1. Frequency of deployments 
