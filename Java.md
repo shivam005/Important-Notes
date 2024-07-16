@@ -54,7 +54,8 @@ any changes in the instance whenever we perform any assignment then we just chan
 it does not make any change in the instance rather it create a new shell address which starts pointing to the same instance which is lying
 in the string constant pool. Hence, String instance is immuatable but there reference is mutable. 
 
+## What happends when an instance variable is made final
+Whenever we make any instance variable final then it can be only intialized once using either direct assignment or constructor. It would remain unique for an individual object. If we want to make it unique "per class" then it is recommended to make it "static".
 
-
-
+##
 
