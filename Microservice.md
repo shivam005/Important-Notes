@@ -4,8 +4,8 @@ The major advantage is that we nomore need to use IP and port to hit any service
 Eureka's primary role is service discovery, which involves maintaining a registry of available services and their instances. 
 For load balancing purpose, we can use Ribbon. Ribbon is a client-side load balancer that can work with Eureka. When a client requests a service, Ribbon uses the list of available instances (fetched from Eureka) to distribute the load across those instances.
 
-### How Circuit Breaker works?
-If a service is down whose response is needed in order for another service to keep on functioning. We can introduce a fallback method using @HysterixCommand(fallbackMethod="somefallbackmethodname") on the top of the method which is actually invoking http request to another service. We would define a threshold and if after hitting the service more than threshold, if we fail to get response then this fallback method is executed(We usally mention the response of the service which is up and were failing because of another service which is down). 
+### How Circuit Breaker works? @
+If a service is down whose response is needed in order for another service to keep on functioning. We can introduce a fallback method using @HysterixCommand(fallbackMethod="somefallbackmethodname") on the top of the method which is actually invoking http request to another service. We would define a threshold and if after hitting the service more than threshold, if we fail to get response then this fallback method is executed(We usally mention the response of the service which is up and were failing because of another service which is down). In reality, the method which has been annotated with @HysterixCommand does not hit the API directly rather it creates the proxy out of it and the proxy actually hits the service and if it come up as down then it directly invokes the fallback one. 
 
 ### Dora (DevOps Research and Assessment) Metrics:
 It is meant to assess the devops best practices, It is analyzed based on below mentioned points:
