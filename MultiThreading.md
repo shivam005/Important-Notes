@@ -251,6 +251,10 @@ Hence, the solution to this problem is to avoid the method level synchornization
 
 #### Fork-Join Pool
 Herein, whenever we fork any constructor it internally invokes the compute method and recursively It goes on reduced upto the threshold and then the actual method get invoked. Finally It computes the result and returns it and then finally using join() we merge them and return them.
+1. <T> ForkJoinTask<T> submit(Callable<T> task) :: Submits a Callable task for execution and returns a ForkJoinTask representing the task.
+2. ForkJoinTask<?> submit(Runnable task) :: Submits a Runnable task for execution and returns a ForkJoinTask representing the task.
+3. <T> T invoke(ForkJoinTask<T> task) :: Submits a ForkJoinTask for execution and waits for its completion, then returns the result.
+4. void execute(Runnable task) :: Executes a Runnable task asynchronously
 ```
  package org.java.practicepackage;
 
