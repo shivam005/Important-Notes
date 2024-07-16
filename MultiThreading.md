@@ -249,4 +249,64 @@ Here, I am using the countdownlatch to achieve this. I am using two methods of c
 Since they both are associated with one object, hence when the first thread would be executing first method then second thread will have to wait to invoke the second method as the intrinsic lock will get applied on an object. 
 Hence, the solution to this problem is to avoid the method level synchornization and to put the lock over the lines of code which is there in critical section. 
 
-#### 
+#### Fork-Join Pool
+Herein, whenever we fork any constructor it internally invokes the compute method and recursively It goes on reduced upto the threshold and then the actual method get invoked. Finally It computes the result and returns it and then finally using join() we merge them and return them.
+```
+ package org.java.practicepackage;
+
+import java.util.concurrent.*;
+
+public class ForkJoinSearch extends RecursiveTask<Integer> {
+
+    Integer target;
+    int[] arr;
+    int left;
+    int right;
+
+    public  ForkJoinSearch(Integer target, int[] arr,  int left, int right){
+        this.target = target;
+        this.arr= arr;
+        this.left=left;
+        this.right = right;
+    }
+
+    @Override
+    protected Integer compute() {
+        int size = left - right + 1;
+        if(size>3){
+        int mid = (left+right)/2;
+        ForkJoinSearch task1= new ForkJoinSearch(   target, arr, 0,mid );
+        ForkJoinSearch task2= new ForkJoinSearch(      target, arr, mid, arr.length -1);
+        task2.fork();
+        task1.fork();
+        int result = task1.join() + task2.join();
+
+        return result;}
+        else {
+            return find();
+        }
+    }
+
+    public Integer find(){
+        int count=0;
+        for(int i=0; i< arr.length;i++){
+            if(arr[i]==target){
+                count++;
+            }
+        }
+        return count;
+    }
+    public static void main(String[] args) throws ExecutionException, InterruptedException {
+        long l = System.currentTimeMillis();
+        int[] arr = {2,2,2,2,2,3,2,2,5,5,1,5,2,2,2,2,3,2,2,5,5,1,5,2,2,2,2,3,2,2,5,5,1,5,2,2,2,2,3,2,2,5,5,1,5};
+        int target =2;
+        ForkJoinSearch task= new ForkJoinSearch( 2, arr, 0, arr.length-1);
+        ForkJoinPool pool = new ForkJoinPool();
+        Integer invoke = pool.invoke(task);
+        System.out.println(invoke);
+        long k = System.currentTimeMillis();
+        System.out.println( k-l +" "+ TimeUnit.MILLISECONDS);
+    }
+}
+
+```
