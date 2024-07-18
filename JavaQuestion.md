@@ -104,3 +104,21 @@ Metaspace is also there which is used to store metadata about classes, such as c
 | Shenandoah GC         | Low pause times, evolving feature set   | Yes              | Fully          | Low pause times                | Higher CPU/memory overhead, evolving  |
 | Epsilon GC            | Performance testing, external memory management | No               | No             | Zero GC overhead               | Memory will eventually run out        |
 
+### Data Structure and their initiat size
+
+# Java Data Structures Default Initial Sizes
+
+| Data Structure      | Default Initial Size / Capacity | Description                                                                 |
+|---------------------|---------------------------------|-----------------------------------------------------------------------------|
+| ArrayList           | 10                              | A resizable array implementation of the `List` interface.                   |
+| HashMap             | 16 (initial capacity), 0.75 (load factor) | A hash table-based implementation of the `Map` interface.               |
+| HashSet             | 16 (initial capacity), 0.75 (load factor) | A hash table implementation of the `Set` interface.                      |
+| LinkedHashMap       | 16 (initial capacity), 0.75 (load factor) | A hash table and linked list implementation of the `Map` interface with predictable iteration order. |
+| LinkedHashSet       | 16 (initial capacity), 0.75 (load factor) | A hash table and linked list implementation of the `Set` interface with predictable iteration order. |
+| LinkedList          | Not fixed (size grows dynamically) | A doubly-linked list implementation of the `List` and `Deque` interfaces. |
+| TreeMap             | Not applicable (size grows dynamically) | A Red-Black tree-based implementation of the `NavigableMap` interface. |
+| TreeSet             | Not applicable (size grows dynamically) | A NavigableSet implementation based on a TreeMap.                          |
+| PriorityQueue       | 11                              | A priority heap-based implementation of the `Queue` interface.             |
+| ConcurrentHashMap   | 16 (initial capacity), 0.75 (load factor), 16 (concurrency level) | A hash table supporting full concurrency of retrievals and adjustable expected concurrency for updates. |
+| Vector              | 10                              | A synchronized, resizable array implementation of the `List` interface.    |
+| Stack               | Not fixed (extends Vector, so initial size is 10) | A last-in, first-out (LIFO) stack of objects.                          |
