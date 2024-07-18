@@ -104,7 +104,7 @@ Metaspace is also there which is used to store metadata about classes, such as c
 | Shenandoah GC         | Low pause times, evolving feature set   | Yes              | Fully          | Low pause times                | Higher CPU/memory overhead, evolving  |
 | Epsilon GC            | Performance testing, external memory management | No               | No             | Zero GC overhead               | Memory will eventually run out        |
 
-### Data Structure and their initiat size
+ 
 
 # Java Data Structures Default Initial Sizes
 
