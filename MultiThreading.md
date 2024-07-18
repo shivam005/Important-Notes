@@ -106,7 +106,7 @@ main is running in last line
 #### newFixedThreadPool(nThreads)
 Uses a fixed number of threads operating off a shared unbounded queue. If all threads are active, new tasks wait in the queue.
 #### newCachedThreadPool()
-Creates new threads as needed but will reuse previously constructed threads when they are available. Threads that are idle for 60 seconds are terminated and removed from the cache.
+Creates new threads as needed but will reuse previously constructed threads when they are available. Threads that are idle for 60 seconds are terminated and removed from the cache. dynamically grow and shrink as needed.
 #### newSingleThreadScheduledExecutor()
 To run tasks after certain delay or to run task periodically. It extends executor service hence It has all the methods in common and additionally It has following methods:
 1). public <V> ScheduledFuture<V> schedule(Callable<V> callable, long delay, TimeUnit unit);
