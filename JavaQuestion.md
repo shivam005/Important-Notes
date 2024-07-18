@@ -91,3 +91,16 @@ Eden Space >> Survivor space >> Tenured Space >> Metaspace(Expand and shrink siz
 When Eden(young gen) space gets filled up then a minor GC runs which cleans up the memory, the objects which survives more GC than threshold are promoted to survivor space(Young gen) and who survives here are further promoted to tenured space (Old Gen Space) when the old gen gets filled up then major GC is called up which considerably releases memory but as heavy as to impact the main thread. 
 Metaspace is also there which is used to store metadata about classes, such as class names, method names, field names, and other class-related information. 
 "-verbose:gc" It can be used in  the command to have verbose info related to gc. 
+
+### Garbage Collectors
+
+| **Garbage Collector** | **Use Case**                            | **Generational** | **Concurrent** | **Advantages**                | **Disadvantages**                      |
+|-----------------------|-----------------------------------------|------------------|----------------|--------------------------------|---------------------------------------|
+| Serial GC             | Small/single-threaded applications      | Yes              | No             | Simple, low overhead           | Long pauses, not for large/multi-threaded apps |
+| Parallel GC           | Multi-threaded, throughput-focused apps | Yes              | No             | Good throughput                | Longer pauses, less suitable for low-latency apps |
+| CMS GC                | Low-pause-time applications             | Yes              | Partly         | Low pause times                | Higher CPU, fragmentation, concurrent mode failures |
+| G1 GC                 | Large heap, balanced performance        | Yes              | Partly         | Predictable pause times        | Complex tuning                         |
+| ZGC                   | Extremely low-latency, large heap       | Yes              | Fully          | Very low pause times, handles large heaps | Higher CPU/memory overhead             |
+| Shenandoah GC         | Low pause times, evolving feature set   | Yes              | Fully          | Low pause times                | Higher CPU/memory overhead, evolving  |
+| Epsilon GC            | Performance testing, external memory management | No               | No             | Zero GC overhead               | Memory will eventually run out        |
+
