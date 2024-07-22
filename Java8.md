@@ -97,6 +97,46 @@ charList.stream().map(x->String.valueOf(x)).reduce("",(x,y)->x + ""+y)
 list1.stream().reduce((x,y)->x*y).get()
 ```
 
+### Stream()
+# Java Stream API Methods
+
+| Method                         | Input Parameter                                  | Return Type                        |
+|--------------------------------|--------------------------------------------------|------------------------------------|
+| `filter`                       | `Predicate<? super T>`                           | `Stream<T>`                        |
+| `map`                          | `Function<? super T, ? extends R>`               | `Stream<R>`                        |
+| `flatMap`                      | `Function<? super T, ? extends Stream<? extends R>>` | `Stream<R>`                        |
+| `distinct`                     | None                                             | `Stream<T>`                        |
+| `sorted`                       | None                                             | `Stream<T>`                        |
+| `sorted`                       | `Comparator<? super T>`                          | `Stream<T>`                        |
+| `peek`                         | `Consumer<? super T>`                            | `Stream<T>`                        |
+| `limit`                        | `long`                                           | `Stream<T>`                        |
+| `skip`                         | `long`                                           | `Stream<T>`                        |
+| `forEach`                      | `Consumer<? super T>`                            | `void`                             |
+| `forEachOrdered`               | `Consumer<? super T>`                            | `void`                             |
+| `toArray`                      | `IntFunction<A[]>`                               | `A[]`                              |
+| `reduce`                       | `BinaryOperator<T>`                              | `Optional<T>`                      |
+| `reduce`                       | `T, BinaryOperator<T>`                           | `T`                                |
+| `reduce`                       | `U, BiFunction<U, ? super T, U>, BinaryOperator<U>` | `U`                                |
+| `collect`                      | `Collector<? super T, A, R>`                     | `R`                                |
+| `collect`                      | `Supplier<R>, BiConsumer<R, ? super T>, BiConsumer<R, R>` | `R`                                |
+| `min`                          | `Comparator<? super T>`                          | `Optional<T>`                      |
+| `max`                          | `Comparator<? super T>`                          | `Optional<T>`                      |
+| `count`                        | None                                             | `long`                             |
+| `anyMatch`                     | `Predicate<? super T>`                           | `boolean`                          |
+| `allMatch`                     | `Predicate<? super T>`                           | `boolean`                          |
+| `noneMatch`                    | `Predicate<? super T>`                           | `boolean`                          |
+| `findFirst`                    | None                                             | `Optional<T>`                      |
+| `findAny`                      | None                                             | `Optional<T>`                      |
+| `iterator`                     | None                                             | `Iterator<T>`                      |
+| `spliterator`                  | None                                             | `Spliterator<T>`                   |
+| `isParallel`                   | None                                             | `boolean`                          |
+| `sequential`                   | None                                             | `Stream<T>`                        |
+| `parallel`                     | None                                             | `Stream<T>`                        |
+| `unordered`                    | None                                             | `Stream<T>`                        |
+| `onClose`                      | `Runnable`                                       | `Stream<T>`                        |
+| `close`                        | None                                             | `void`                             |
+
+Note: The input parameter types and return types use generic types such as `T`, `R`, `U`, `A`, which are placeholders for the actual types.
 
 
 
