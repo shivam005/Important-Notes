@@ -314,3 +314,9 @@ public class ForkJoinSearch extends RecursiveTask<Integer> {
 }
 
 ```
+### Semaphore
+A semaphore is used to manage the number of concurrent accesses that can be granted to threads. We can set the number of permits in the semaphore, and based on the number of permits, threads will be able to access a resource concurrently.
+
+
+
+
