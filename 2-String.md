@@ -274,3 +274,29 @@ This problem can be effectively handled by using ASCII values. Ascii value for c
       System.out.println(res+count);
 // Output: a3x1b2c2d
 ```
+### Replace the vowels with frequency of number of their occurances in the string
+Herein, I am storing the frequency of the numbers into the HashMap and eachtime I am coming across any vowel, I am replacing it with the frequency and at the same time, I am also increasing the frequency by 1. 
+```
+public class SomeClass {
+    public static void main(String[] args) {
+    String str ="This is a string which has some";
+        HashMap<Character, Integer> hm = new HashMap<>();
+        hm.put('a',1);
+        hm.put('e',1);
+        hm.put('i',1);
+        hm.put('o',1);
+        hm.put('u',1);
+        char[] chars = str.toCharArray();
+        StringBuilder stringBuilder = new StringBuilder();
+        for(int i=0; i<chars.length;i++){
+        if(hm.containsKey(chars[i])){
+            stringBuilder.append( hm.get(chars[i])) ;
+             hm.put(chars[i],hm.get(chars[i])+1  ) ;
+        }else{
+            stringBuilder.append(chars[i]);
+        }
+    }
+        System.out.println(stringBuilder);
+    }
+}
+```
