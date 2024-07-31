@@ -96,7 +96,11 @@ charList.stream().map(x->String.valueOf(x)).reduce("",(x,y)->x + ""+y)
 ```
 list1.stream().reduce((x,y)->x*y).get()
 ```
+### Find the department wise heighest salary using stream from the list of employee
+```
+        Map<String, Optional<Employee>> collect2 = list.stream().collect(Collectors.groupingBy(x -> x.getDept(), Collectors.maxBy(Comparator.comparingInt(x -> x.getSalary()))));
 
+```
 ### Stream()
 # Java Stream API Methods
 
