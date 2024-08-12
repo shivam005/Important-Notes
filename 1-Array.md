@@ -387,8 +387,24 @@ Create two variables first and last and assign -1 value to it. Now iterate the a
 
 ```
 ```
-## 
+## Find the sum of k largest element (O(n^2))
 ```
+ public int find(int[] arr, int k){
+        ArrayList<Integer> al = new ArrayList<>();
+        int max=0;
+        for(int i=0; i< arr.length-k+1;i++){
+            int sum=0;
+            for(int j=i; j< i+k;j++){
+                sum=sum+arr[j];
+            }
+            if(sum>max){
+                al.add(sum);
+                max=sum;
+            }
+
+        }
+        return al.stream().max(Integer::compare).get();
+    }
 ```
 ## 
 ```
