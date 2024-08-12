@@ -71,8 +71,11 @@ Tweets containing media|10%|
 |Tweets storage span|5 years|
 
 Daily active users -> 150 Million 
+
 Average Tweets per user -> 150 x 2/(24x60x60) =  3472.22 tweets per second ~ 3500 tweets per second
+
 Hence, QPS -> 3500 QPS
+
 Peak QPS (100% Users) -> 3500 x 2 = 7000 QPS
  #### Storage Requirement Estimation
  |AVG Tweet Size|Size|
