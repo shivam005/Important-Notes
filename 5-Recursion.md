@@ -10,6 +10,8 @@ If there is only one character in the string or it is empty then we can return t
     }
 ```
 ### Find factorial
+For values of n greater than 1, the function calls itself twice: once with n-1 and once with n-2.
+This continues until the base cases are reached. Each recursive call further breaks down the problem until it reaches the base cases.
 As we know, factorial of 1 or less than 1 is always 1, hence we keep on multiplying the given number with the n-1.
 ```
     public int fact(int n){
