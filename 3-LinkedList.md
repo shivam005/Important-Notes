@@ -56,3 +56,30 @@ LinkedList list= new LinkedList();
 }
 
 ```
+### Find the middle element
+In order to find the middle element, first find the size of the linked list and once we have the size then find the middle index and now keep on traversing the linkedlist until the middle element is found. 
+```
+    public static int size(Node head){
+        Node currentNode=head;
+        int count=1;
+        while (currentNode.next!=null){
+            count++;
+            currentNode=currentNode.next;
+        }
+        return count;
+    }
+
+    public void findMiddle(Node head){
+        int mid = size(head)/2;
+        Node currentNode=head;
+        while(mid!=0){
+            currentNode=currentNode.next;
+            mid--;
+            if(mid==0){
+                System.out.println(currentNode.data);
+            }
+        }
+    }
+
+
+```
