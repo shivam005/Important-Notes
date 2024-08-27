@@ -23,7 +23,7 @@ As we know, factorial of 1 or less than 1 is always 1, hence we keep on multiply
 
 ```
 ### Find nth fibonacci 
-
+Herein, we know the first and the zeroth fibo number. Hence, we submit for the calculation of sum of n-1 and n-2.  
 ```
     public  int find(int n){
         if(n==1 ){
