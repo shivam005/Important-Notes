@@ -81,5 +81,9 @@ In order to find the middle element, first find the size of the linked list and 
         }
     }
 
+It can also be resolved using slow and fast poiner technique wherein one pointer would be running twice as faster as slower one. 
+```
+
+```
 
 ```
