@@ -302,6 +302,11 @@ public class BuilderFactoryDemo {
 }
 ```
 ### Prototype
+When you use super.clone(), it creates a copy of the current object, but the specific class that is instantiated depends on the actual class of the object on which clone() is called. Here’s how it works:
+
+Cloning in Java: When you call super.clone(), it uses the clone() method from the Object class, which creates a shallow copy of the object. The actual class type of the object determines which implementing class is used for the cloning process.
+
+Implementation: If your class overrides the clone() method, you typically call super.clone() within that method. The object returned by super.clone() is of the same type as the object that called the method. This means that if you have a subclass that overrides clone(), it will create an instance of that subclass.
 ```
 public interface Shape extends Cloneable {
     Shape clone();
