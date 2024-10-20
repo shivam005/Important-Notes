@@ -67,3 +67,12 @@ transactionManager.rollback(status);
 |TIMEOUT:| Specify a custom timeout.|
 |readOnly:| Indicate whether the transaction is read-only.|
 
+
+### Important Terminology
+|   Term | Description |
+| --- | ----------- |
+|@RequestParam String name | "/greet?name=John" |
+|@QueryParam("name") String name| "/greet?name=John" It is part of JAX-RS and same as @RequestParam|
+|@PathVariable String name| "/greet/John"|
+
+
