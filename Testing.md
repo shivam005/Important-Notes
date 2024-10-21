@@ -20,13 +20,15 @@ public class RestControllerTest {
     @Autowired
     MockMvc mockMvc;
 
-    @MockBean
+    @MockBean 
     RestRepository restRepository;
 
-    @MockBean
+    @MockBean // Automatically replaces a bean in the Spring context with the mock, making it available for autowiring. 
     RestService restService;
 
-    @InjectMocks
+// @Mock is also similar to @MockBean but it does not interact with application context, hence @InjectMock sort of annotation can not be used here. 
+
+    @InjectMocks    // Mockito will try to inject any available mocks (created with @Mock) into that field
     RestController restController;
 
     @BeforeEach
