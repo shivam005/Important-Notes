@@ -14,23 +14,37 @@
 
 ### Write code to test controller
 ```
-@WebMvcTest(UserController.class)
-public class UserControllerTest {
+ @WebMvcTest(RestController.class)
+public class RestControllerTest {
 
     @Autowired
-    private MockMvc mockMvc;
+    MockMvc mockMvc;
 
     @MockBean
-    private UserService userService;
+    RestRepository restRepository;
+
+    @MockBean
+    RestService restService;
+
+    @InjectMocks
+    RestController restController;
+
+    @BeforeEach
+    public void setUp(){
+        MockitoAnnotations.openMocks(this); // Initializes the mocks and inject it,
+        // If not used then we may encounter issues like null-pointer.
+    }
 
     @Test
-    public void testGetUser() throws Exception {
-        when(userService.getUser(1L)).thenReturn(new User(1L, "John"));
-
-        mockMvc.perform(get("/users/1"))
-               .andExpect(status().isOk())
-               .andExpect(jsonPath("$.name").value("John"));
+    public void getEmployeeByidTest() throws Exception {
+        when(restRepository.findById(1L)).thenReturn(Optional.of(new Employee(1L,"shiv",22)));
+        mockMvc.perform(get("/api/employee?id=1")
+                        .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.name").value("shiv"))
+                .andExpect(jsonPath("$.age").value(22));
     }
 }
+
 
 ```
