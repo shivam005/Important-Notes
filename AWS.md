@@ -2,18 +2,23 @@
 
 | Keywords | Description |
 | --- | ----------- |
-| | |
-| | |
-| | |
-| | |
-| | |
-| | |
-| | |
-| | |
-| | |
-| | |
-| | |
-| | |
+|Amazon EC2 + ELB | Traditional Approach (Virtual Servers + Load Balancing)|
+|AWS Elastic Beanstalk |Simplify management of web apps and simple batch apps. Automatically
+creates EC2 + ELB (load balancing and auto scaling) |
+|AWS Elastic Container
+Service (ECS) |Simplify running of microservices with Docker containers. Run containers in
+EC2 based ECS Clusters. |
+| Amazon EKS (Elastic Kubernetes Service)|Run Managed Kubernetes Clusters in AWS |
+|AWS Fargate |Serverless version of ECS/EKS |
+|AWS Lambda  | Serverless - Do NOT worry about servers|
+|AWS Batch |Manage batch jobs (AWS Fargate, Amazon EC2 & Spot Instances) |
+|Elastic Load Balancer| It has different types as below:|
+|Application Load Balancer (ALB) |Supports content-based routing  (path- or host-based routing), Works at the application layer. Best suited for microservices and containerized applications. Lambadas, EC2, web app using IP, ECS |
+|Network Load Balancer (NLB) | Designed for ultra-low latency and high-performance requirements. Operates at the transport layer. Provides static IP addresses and elastic IP support.Ideal for handling large volumes of TCP/UDP requests or workloads requiring extreme performance.|
+|Gateway Load Balancer (GWLB) |Works at Layer 3 and serves as a bump-in-the-wire for network traffic. Designed to route traffic through network security appliances like firewalls. Ideal for deploying and managing third-party virtual appliances. |
+|Amazon RDS |Supports PostgreSQL, MySQL (InnoDB storage engine full supported), MariaDB
+(Enhanced MySQL), Oracle Database and Microsoft SQL Server. |
+|Amazon Aurora | MySQL and PostgreSQL-compatible, Provides "Global Database" option|
 | | |
 | | |
 | | |
