@@ -82,3 +82,15 @@ output:
 [4, 5, 7, 8]
 [1, 2, 10, 10]
 ```
+
+### LC 1207. Unique Number of Occurrences or frequency of each element should be unique
+```
+        Map<Integer, Long> collect = Arrays.stream(arr).boxed().collect(Collectors.groupingBy(x -> x, Collectors.counting()));
+        long count = collect.entrySet().stream().map(x -> x.getValue()).distinct().count();
+        long count1 = collect.entrySet().stream().map(x -> x.getValue()).count();
+        if(count!=count1){
+            return false;
+        }
+        return true;
+```
+
