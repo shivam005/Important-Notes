@@ -30,6 +30,25 @@ Kafka Server / Broker :: 9092
 ```
  .\bin\windows\kafka-console-consumer.bat --bootstrap-server localhost:9092 --topic shivam-topic --from-beginning
 ```
+#### To run the kafka server without ZooKeeper. 
+When running Kafka without ZooKeeper, it operates in what is known as KRaft mode (Kafka Raft mode). In this mode, Kafka uses an internal consensus protocol called Kafka Raft (Algorithm) (KRaft) to manage metadata within broker and handle leader election tasks that were previously managed by ZooKeeper. 
+It can be done using Kraft using following steps: 
+1. Create some UUID either using some online generator or command.
+2. Using this uuid to create some kraft logg directory. 
+```
+ .\bin\windows\kafka-storage.bat format --standalone -t <UUID> -c .\config\kraft\reconfig-server.properties
+ .\bin\windows\kafka-storage.bat format --standalone -t "f2381f67-755e-4ac0-aea6-99bdd9653bd4" -c .\config\kraft\reconfig-server.properties
+```
+3. Start the kafka server directory
+```
+ .\bin\windows\kafka-server-start.bat .\config\kraft\reconfig-server.properties
+```
+
+
+
+
+
+
 ## Kafka Configuration
 Configuring storage in a Kafka server involves setting parameters in the `server.properties` file (or equivalent configuration file) that control how Kafka uses disk space, stores data, and manages log files. Here’s a detailed guide on defining and managing storage for a Kafka server:
 
