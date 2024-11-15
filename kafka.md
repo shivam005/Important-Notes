@@ -52,11 +52,24 @@ It can be done using Kraft using following steps:
 ```
  .\bin\windows\kafka-metadata-quorum.bat --bootstrap-server localhost:9092 describe --status
 ```
-#### 
-
-
-
-
+#### To run the kafka and zookeeper as the docker container (Docker Compose File). 
+```
+version: '3'
+services:
+  zookeeper:
+    image: wurstmeister/zookeeper
+    container_name: zookeeper
+    ports:
+      - "2181:2181"
+  kafka:
+    image: wurstmeister/kafka
+    container_name: kafka
+    ports:
+      - "9092:9092"
+    environment:
+      KAFKA_ADVERTISED_HOST_NAME: localhost
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+```
 ## Kafka Configuration
 Configuring storage in a Kafka server involves setting parameters in the `server.properties` file (or equivalent configuration file) that control how Kafka uses disk space, stores data, and manages log files. Here’s a detailed guide on defining and managing storage for a Kafka server:
 
