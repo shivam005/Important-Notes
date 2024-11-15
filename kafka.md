@@ -70,6 +70,45 @@ services:
       KAFKA_ADVERTISED_HOST_NAME: localhost
       KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
 ```
+
+## Kafka Integration with Spring-boot
+#### Application.properties for producer
+```
+spring.kafka.producer.bootstrap-servers=localhost:9092
+spring.kafka.producer.key-serializer= org.apache.kafka.common.serialization.StringSerializer
+spring.kafka.producer.value-serializer= org.springframework.kafka.support.serializer.JsonSerializer
+```
+
+#### Application.properties for consumer
+```
+spring.kafka.consumer.bootstrap-servers=localhost:9092
+spring.kafka.consumer.group-id=myGroup
+spring.kafka.consumer.key-deserializer=org.apache.kafka.common.serialization.StringDeserializer
+spring.kafka.consumer.value-deserializer=org.springframework.kafka.support.serializer.JsonDeserializer
+```
+#### Service 
+```
+    @Autowired
+    KafkaTemplate< String, Object> kafkaTemplate;
+    
+    public void pubishMessage(String message){
+        CompletableFuture<SendResult<String, Object>> publishMessage = kafkaTemplate.send("mytopic", message);
+        publishMessage.whenComplete((res, ex) -> {
+           if(ex==null){
+               System.out.println(res.getRecordMetadata().toString() +" "+ res.getRecordMetadata().topic());
+           } else {
+               System.out.println(ex.fillInStackTrace());
+           }
+        });
+    }
+```
+```
+    @KafkaListener(topics="mytopic")
+    public void consumeMessage(String message){
+        System.out.println(message);
+    }
+```
+
 ## Kafka Configuration
 Configuring storage in a Kafka server involves setting parameters in the `server.properties` file (or equivalent configuration file) that control how Kafka uses disk space, stores data, and manages log files. Here’s a detailed guide on defining and managing storage for a Kafka server:
 
