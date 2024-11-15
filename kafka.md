@@ -30,7 +30,8 @@ Kafka Server / Broker :: 9092
 ```
  .\bin\windows\kafka-console-consumer.bat --bootstrap-server localhost:9092 --topic shivam-topic --from-beginning
 ```
-#### To run the kafka server without ZooKeeper. 
+#### To run the kafka server without ZooKeeper. (Kraft post 3.3 version is production ready)
+""""""POST 4.0 version Zookeerper support will be completely removed"""""""""""""""""""
 When running Kafka without ZooKeeper, it operates in what is known as KRaft mode (Kafka Raft mode). In this mode, Kafka uses an internal consensus protocol called Kafka Raft (Algorithm) (KRaft) to manage metadata within broker and handle leader election tasks that were previously managed by ZooKeeper. 
 It can be done using Kraft using following steps: 
 1. Create some UUID either using some online generator or command.
@@ -46,6 +47,10 @@ It can be done using Kraft using following steps:
 #### To Decode log file, we can use kafka-dump-log.bat  
 ```
 ..\..\..\kafka_2.12-3.9.0\bin\windows\kafka-dump-log.bat --cluster-metadata-decoder --files .\00000000000000000000.log --print-data-log
+```
+#### To check the status of cluster (Kafka metadata quorum)
+```
+ .\bin\windows\kafka-metadata-quorum.bat --bootstrap-server localhost:9092 describe --status
 ```
 #### 
 
