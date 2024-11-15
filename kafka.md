@@ -43,8 +43,11 @@ It can be done using Kraft using following steps:
 ```
  .\bin\windows\kafka-server-start.bat .\config\kraft\reconfig-server.properties
 ```
-
-
+#### To Decode log file, we can use kafka-dump-log.bat  
+```
+..\..\..\kafka_2.12-3.9.0\bin\windows\kafka-dump-log.bat --cluster-metadata-decoder --files .\00000000000000000000.log --print-data-log
+```
+#### 
 
 
 
