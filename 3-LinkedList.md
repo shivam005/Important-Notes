@@ -21,11 +21,11 @@ public class LinkedList {
         if(list.head==null){
             list.head = node;
         }else{
-            Node last= list.head;
-            while (last.next!=null){
-                last= last.next;
+            Node current= list.head;
+            while (current.next!=null){
+                current= current.next;
             }
-            last.next= node;
+            current.next= node;
         }
         return list;
     }
