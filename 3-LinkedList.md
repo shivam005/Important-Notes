@@ -30,7 +30,26 @@ public void print(LinkedList list){
      }
 }
 ```
-
+### Delete Last Node of Linked List
+Herein we just need to check untill the head.next.next==null and once we find it, we can assign the value of head.next to null, in this way the last node will get lost automically.
+Two edge cases to consider are:
+1. If the input linked list is empty, we return null.
+2. If there is only one node in the list, that node itself will be the tail, therefore we return null after deleting that node.
+```
+    public void deleteTheTail(LinkedList list){
+//corner case
+     if(list.head==null || list.head.next==null){
+         return;
+     }
+//corner case
+     Node current = list.head;
+     while (current.next.next!=null){
+         current=current.next;
+     }
+     current.next=null;
+    }
+```
+### 
 ## Implement Linked List
 ```
 @Data
