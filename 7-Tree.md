@@ -1,3 +1,18 @@
+#### Number of Binary Trees on the basis of given Nodes
+Using the catalen number, we can calculate it. 
+```
+T(n)=(1 / n+1) * ( 2*nCn)
+Here, n is the number of nodes available. 
+```
+T(n)=(from i=1 to n) ∑T(i-1)*T(n-i)
+```
+
+```
+#### Maximum Height of binary trees 
+```
+2^n-1
+here, n is the number of nodes
+```
 ## Tree
 Tree is a hierarchical data structure that consists of nodes connected by edges. 
 1. Node :: A Node is the fundamental building block of a tree. Each node contains a value (data) and references (or pointers) to other nodes (children).
