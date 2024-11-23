@@ -49,7 +49,19 @@ Two edge cases to consider are:
      current.next=null;
     }
 ```
-### 
+### Size of linkedlist
+```
+    public int size(LinkedList list){
+     Node current = list.head;
+     int count =0;
+     while(current!=null){
+         count++;
+         current=current.next;
+
+     }
+     return count;
+    }
+```
 ## Implement Linked List
 ```
 @Data
