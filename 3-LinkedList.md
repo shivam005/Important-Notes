@@ -1,3 +1,36 @@
+### Singly LinkedList
+In case of linkedlist, we basically create a Node which holds data and another node inside it which is named as next. Though, internally since java is passed by reference hence we say that next is actually the pointer point to next node. 
+Now, as we have node in place, hence in order to create singly linkedlist we can simply define a node instance and can name it as head. 
+ 
+### Insertion into singly linked list
+In order to insert data into linkedlist, we first need to check whether the whole list is empty or not. Hence, we will check the head node and if it empty then assign the new Node with intialized value into it. Else, we will have to iterate the linkedlist wherein we will create a variable which will hold the value of "next" node and we will keep on going deeper till the value of the variable is null. Once, it is null then we can assign our node here. 
+```
+ public LinkedList insert(LinkedList list, int d){
+     Node node = new Node(d);
+     if(list.head==null){
+         list.head=node;
+     }else {
+         Node current = list.head;
+         while (current.next!=null){
+             current=current.next;
+         }
+         current.next=node;
+     }
+     return list;
+ }
+```
+### Printing singly linkedlist
+In order to print, while the head node is null. We will keep on iterating it by assigning the current node next value into it. Untill, it is null we will keep on printing it. 
+```
+public void print(LinkedList list){
+     Node current = list.head;
+     while (current.next!=null){
+         System.out.println(current.data);
+         current=current.next;
+     }
+}
+```
+
 ## Implement Linked List
 ```
 @Data
