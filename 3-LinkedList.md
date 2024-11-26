@@ -49,6 +49,25 @@ Two edge cases to consider are:
      current.next=null;
     }
 ```
+
+### Finding element in the linkedList
+Just traverse the linkedlist and check for the data and if it is found then return it. 
+```
+ public boolean find(LinkedList list, int d){
+      if(list.head.data.equals(d)){
+          return true;
+      }else {
+          Node current =  list.head;
+          while (current!=null){
+              if(current.data.equals(d)){
+                  return true;
+              }
+              current=current.next;
+          }
+      }
+      return false;
+    }
+```
 ### Size of linkedlist
 ```
     public int size(LinkedList list){
@@ -147,6 +166,7 @@ In order to find the middle element, first find the size of the linked list and 
 
 It can also be resolved using slow and fast poiner technique wherein one pointer would be running twice as faster as slower one. 
 ```
+
 
 ```
 
