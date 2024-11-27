@@ -218,6 +218,7 @@ public class DoubleLinkedList {
 
 ```
 ### Insert at the end of the doubly linked list 
+Traverse the list and go at the end and put the new element node there in the next node. Also add the last node in the previous node of last element node. 
 ```
 public  Node insertAtEnd(int data){
         Node newNode= new Node(data);
