@@ -219,5 +219,18 @@ public class DoubleLinkedList {
 ```
 ### Insert at the end of the doubly linked list 
 ```
-
+public  Node insertAtEnd(int data){
+        Node newNode= new Node(data);
+        if(this.head==null){
+            this.head=newNode;
+        }else {
+            Node curr= this.head;
+            while (curr.next!=null){ // Herein we are preventing curr to become
+                curr=curr.next; // null as then we will not be able to read it as the object itself become null. hence we are looking upto its next value is not null. 
+            }
+            curr.next=newNode;
+            newNode.prev=curr;
+        }
+        return head;
+    }
 ```
