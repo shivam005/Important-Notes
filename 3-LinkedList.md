@@ -166,6 +166,21 @@ In order to find the middle element, first find the size of the linked list and 
 
 It can also be resolved using slow and fast poiner technique wherein one pointer would be running twice as faster as slower one. 
 ```
+### Reverse the linkedlist
+```
+public Node ReverseLinkedList(Node head) {
+        Node current = head; // Points to the current node being processed.
+        Node prev = null; //  Tracks the previous node in the reversed list. Initially, there is no previous node.
+        while(current != null){
+            Node front = current.next; // This stores the reference to the next node in the original list, so we don't lose it after reversing the pointer.
+            current.next = prev; // This changes the next pointer of the current node to point to the previous node, effectively reversing the link.
+            prev = current; // prev moves to the current node to become the new "previous node" for the next iteration.
+            current = front; // current moves to the saved next node (front) to continue the traversal.
+        }
+   return prev; // After the loop, prev points to the new head of the reversed linked list. The function returns prev.
+    }
+
+```
 # Doubly Linked List
 ### Insert at the beginning
 Herein, we have the head node.Do it in the following steps:
@@ -235,3 +250,4 @@ public  Node insertAtEnd(int data){
         return head;
     }
 ```
+### Reverse the DLL
