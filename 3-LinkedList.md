@@ -2,7 +2,7 @@
 In case of linkedlist, we basically create a Node which holds data and another node inside it which is named as next. Though, internally since java is passed by reference hence we say that next is actually the pointer point to next node. 
 Now, as we have node in place, hence in order to create singly linkedlist we can simply define a node instance and can name it as head. 
  
-### Insertion into singly linked list
+### Insertion at begining into singly linked list
 In order to insert data into linkedlist, we first need to check whether the whole list is empty or not. Hence, we will check the head node and if it empty then assign the new Node with intialized value into it. Else, we will have to iterate the linkedlist wherein we will create a variable which will hold the value of "next" node and we will keep on going deeper till the value of the variable is null. Once, it is null then we can assign our node here. 
 ```
  public LinkedList insert(LinkedList list, int d){
@@ -166,8 +166,58 @@ In order to find the middle element, first find the size of the linked list and 
 
 It can also be resolved using slow and fast poiner technique wherein one pointer would be running twice as faster as slower one. 
 ```
+# Doubly Linked List
+### Insert at the beginning
+Herein, we have the head node.Do it in the following steps:
+1. Put the head node in the "next" node of new element node.
+2. Insert the new element node in the "previous" node of head node;
+3. make the new element node as head. 
+```
+public class Node {
+    int data;
+    Node next;
+    Node prev;
 
+    public Node(int data){
+        this.data=data;
+        next=null;
+        prev=null;
+    }
 
+    public Node(int data, Node next, Node prev) {
+        this.data = data;
+        this.next = next;
+        this.prev = prev;
+    }
+}
+
+```
+```
+public class DoubleLinkedList {
+    Node head;
+    public  Node insertAtBeginning( int data){
+        Node newNode= new Node(data);
+        if(this.head==null){
+            this.head=newNode;
+        }else {
+            newNode.next=head;
+            this.head.prev=newNode;
+            head=newNode;
+        }
+    return head;
+    }
+
+    public void print(){
+       Node node= this.head;
+       while (node!=null){
+           System.out.println(node.data);
+           node=node.next;
+       }
+    }
+}
+
+```
+### Insert at the end of the doubly linked list 
 ```
 
 ```
