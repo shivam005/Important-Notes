@@ -166,6 +166,18 @@ In order to find the middle element, first find the size of the linked list and 
 
 It can also be resolved using slow and fast poiner technique wherein one pointer would be running twice as faster as slower one. 
 ```
+### Find the middle element using fast and slow pointer or Tortoise-Hare Algorithm
+```
+    public Node findMiddleUsingFastandSlow(Node head){
+        Node fast = head;
+        Node slow=head;
+        while (fast!=null  ){  //   while (fast != null && fast.next != null && slow != null) {
+            slow=slow.next;
+            fast=fast.next.next;
+        }
+     return slow;
+    }
+```
 ### Reverse the linkedlist
 ```
 public Node ReverseLinkedList(Node head) {
@@ -181,73 +193,3 @@ public Node ReverseLinkedList(Node head) {
     }
 
 ```
-# Doubly Linked List
-### Insert at the beginning
-Herein, we have the head node.Do it in the following steps:
-1. Put the head node in the "next" node of new element node.
-2. Insert the new element node in the "previous" node of head node;
-3. make the new element node as head. 
-```
-public class Node {
-    int data;
-    Node next;
-    Node prev;
-
-    public Node(int data){
-        this.data=data;
-        next=null;
-        prev=null;
-    }
-
-    public Node(int data, Node next, Node prev) {
-        this.data = data;
-        this.next = next;
-        this.prev = prev;
-    }
-}
-
-```
-```
-public class DoubleLinkedList {
-    Node head;
-    public  Node insertAtBeginning( int data){
-        Node newNode= new Node(data);
-        if(this.head==null){
-            this.head=newNode;
-        }else {
-            newNode.next=head;
-            this.head.prev=newNode;
-            head=newNode;
-        }
-    return head;
-    }
-
-    public void print(){
-       Node node= this.head;
-       while (node!=null){
-           System.out.println(node.data);
-           node=node.next;
-       }
-    }
-}
-
-```
-### Insert at the end of the doubly linked list 
-Traverse the list and go at the end and put the new element node there in the next node. Also add the last node in the previous node of last element node. 
-```
-public  Node insertAtEnd(int data){
-        Node newNode= new Node(data);
-        if(this.head==null){
-            this.head=newNode;
-        }else {
-            Node curr= this.head;
-            while (curr.next!=null){ // Herein we are preventing curr to become
-                curr=curr.next; // null as then we will not be able to read it as the object itself become null. hence we are looking upto its next value is not null. 
-            }
-            curr.next=newNode;
-            newNode.prev=curr;
-        }
-        return head;
-    }
-```
-### Reverse the DLL
