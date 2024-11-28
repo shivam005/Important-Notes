@@ -448,3 +448,111 @@ https://www.digitalocean.com/community/tutorials/adapter-design-pattern-java
 ## Facade Design pattern
 It is one of the Structural design patterns. Facade design pattern is more like a helper for client applications. its purpose is to provide a single interface rather than multiple interfaces that does the similar kind of jobs. 
 Facade design pattern provide a wrapper interface on top of the existing interface to help client application.
+
+# SOLID Principles
+### Single Responsibility Principle (SRP)
+Definition: A class should have only one reason to change, meaning it should have only one responsibility.
+Why it matters:
+Improves code readability and maintainability.
+Avoids coupling unrelated functionality.
+```
+class Report {
+    public void generateReport() {
+        // Code to generate report
+    }
+}
+
+class ReportSaver {
+    public void saveToFile(Report report) {
+        // Code to save report to a file
+    }
+}
+// Now, each class has a single responsibility.
+```
+### Open/Closed Principle (OCP)
+Definition: Software entities (classes, methods, etc.) should be open for extension but closed for modification.
+Why it matters:
+Enhances code extensibility.
+Reduces the risk of introducing bugs when modifying existing code.
+```
+abstract class Discount {
+    public abstract double calculate(double price);
+}
+
+class NewYearDiscount extends Discount {
+    public double calculate(double price) {
+        return price * 0.10;
+    }
+}
+
+class BlackFridayDiscount extends Discount {
+    public double calculate(double price) {
+        return price * 0.20;
+    }
+}
+// Now, you can extend the Discount class without modifying existing code.
+```
+###  Liskov Substitution Principle (LSP)
+Objects of a superclass should be replaceable with objects of a subclass without affecting the correctness of the program.
+```
+However, the additional methods in a subclass that aren't part of the parent class's interface can seem like a violation of LSP because:
+1. When you treat an object as an instance of its parent class, you will only have access to methods defined in the parent class.
+2. Any methods unique to the subclass will not be visible unless you cast the object back to the subclass type.
+Technically, it doesn't break the Liskov Substitution Principle because LSP doesn't demand that all features of a subclass are visible when treated as an instance of the parent class. LSP is primarily concerned with ensuring that subclass behavior does not contradict or invalidate the behavior expected from the parent class.
+```
+### Interface Segregation Principle (ISP)
+Definition: A class should not be forced to implement interfaces it does not use.
+Why it matters:
+Prevents bloated interfaces.
+Keeps implementations focused and clear.
+```
+interface Workable {
+    void work();
+}
+
+interface Eatable {
+    void eat();
+}
+
+class Human implements Workable, Eatable {
+    public void work() {
+        // Human works
+    }
+
+    public void eat() {
+        // Human eats
+    }
+}
+
+class Robot implements Workable {
+    public void work() {
+        // Robot works
+    }
+}
+```
+###  Dependency Inversion Principle (DIP)
+Definition: High-level modules should not depend on low-level modules. Both should depend on abstractions.
+Abstractions should not depend on details. Details should depend on abstractions.
+Why it matters:
+Reduces tight coupling.
+Makes code easier to test and maintain.
+```
+interface InputDevice {
+    void input();
+}
+
+class Keyboard implements InputDevice {
+    public void input() {
+        // Keyboard implementation
+    }
+}
+
+class Computer {
+    private InputDevice inputDevice;
+
+    public Computer(InputDevice inputDevice) {
+        this.inputDevice = inputDevice; // Loosely coupled
+    }
+}
+// Here, Computer depends on the InputDevice abstraction, not the Keyboard implementation.
+```
