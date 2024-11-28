@@ -20,7 +20,7 @@ In order to insert data into linkedlist, we first need to check whether the whol
  }
 ```
 ### Printing singly linkedlist
-In order to print, while the head node is null. We will keep on iterating it by assigning the current node next value into it. Untill, it is null we will keep on printing it. 
+In order to print, while the head node is not null. We will keep on iterating it by assigning the current node next value into it. Untill, it is null we will keep on printing it. 
 ```
 public void print(LinkedList list){
      Node current = list.head;
@@ -191,5 +191,29 @@ public Node ReverseLinkedList(Node head) {
         }
    return prev; // After the loop, prev points to the new head of the reversed linked list. The function returns prev.
     }
-
+```
+```
+public LinkedList reverse(LinkedList list){
+        Stack<Integer> stack = new Stack<>();
+        LinkedList linkedList = new LinkedList();
+       Node curr=  list.head;
+       while (curr!=null){
+           stack.add(curr.data);
+           curr=curr.next;
+       }
+       for(int j=stack.size()-1;j>=0; j--) {
+           int i = stack.get(j);
+           Node newNode = new Node(i);
+           if (linkedList.head == null) {
+                linkedList.head=newNode;
+           }else {
+               Node current= linkedList.head;
+               while (current.next!=null){
+                   current=current.next;
+               }
+               current.next=newNode;
+           }
+       }
+       return linkedList;
+    }
 ```
