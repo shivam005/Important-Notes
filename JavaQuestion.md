@@ -43,6 +43,36 @@ public class EmployeeComparatorByAddress implements Comparator<Employee> {
 
  ```
 
+#### Custom Comparator
+Herein, we are sorting the Student on the basis of grade which would be done on the basis of the order of arrangement hence we will use indexOf().  
+```
+package somepackage.practice;
+
+import java.util.*;
+
+public class GradeComparator   {
+
+    public static void main(String[] args) {
+        List<String> gradeOrder = Arrays.asList("A+","A","A-","B+","B","B-","C");
+        Comparator<Student> comparator = new Comparator<Student>() {
+            @Override
+            public int compare(Student o1, Student o2) {
+                int i = gradeOrder.indexOf(o1.grade);
+                int i1 = gradeOrder.indexOf(o2.grade);
+                return i-i1;
+            }
+        };
+        ArrayList<Student> al = new ArrayList<>();
+        al.add(new Student("Abc","C"));
+        al.add(new Student("Bbc","A"));
+        al.add(new Student("Cbb","A+"));
+        al.add(new Student("Dbb","B"));
+        Collections.sort(al,comparator);
+        System.out.println(al);
+    }
+}
+
+```
 
 ### What is serialVersionUID ?
 the automatically-generated UID is generated based on a class name, implemented interfaces, and all public and protected members. 
