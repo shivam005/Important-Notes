@@ -5,33 +5,27 @@ then we make comparison to the maxsum element which has the sum value of first k
 package somepackage.array;
 
 public class ContantWindow {
-
-    public int check1(int[] arr, int k) {
-        int l = 0;
-        int r = k - 1;
+  public int calculate(int[] arr, int k){
+        int j=k; int i=0;
         int n = arr.length;
-        int sum = 0;
-        int maxSum = 0;
-        for (int q = 0; q < k; q++) {
-            sum = sum + arr[q];
+        int sum =0;
+        int maxSum=0;
+        for(int q =0; q<k;q++){
+            sum =sum+arr[q];
         }
-        maxSum = sum;
-        while (r < n - 1) {
-            sum = sum - arr[l] + arr[r + 1];
+        while (j<n){
+            sum = sum -arr[i]+arr[j];
             maxSum = Math.max(maxSum, sum);
-            l++;
-            r++;
+            i++;j++;
         }
         return maxSum;
     }
- 
-
     public static void main(String[] args) {
-
-        int[] arr = {4, 5, 4, 6, 7, 8, 3};
-        int check = new ContantWindow().check1(arr, 3);
-        System.out.println(check);
+    int[] arr ={1,2,3,4,5,6,7,8};
+        int i = new FindMaxSumofAlltheSubArrayOfSizeK().calculate(arr, 2);
+        System.out.println(i);
     }
 }
+output:: 15
 
 ```
