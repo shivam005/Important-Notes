@@ -67,6 +67,7 @@ transactionManager.rollback(status);
 |TIMEOUT:| Specify a custom timeout.|
 |readOnly:| Indicate whether the transaction is read-only.|
 
+If we are using requires new then a new transaction will be created, we can use it for retry mechanism which would be independent of current transaction. 
 
 ### Important Terminology
 |   Term | Description |
