@@ -6,6 +6,27 @@ If j-i+1 is becoming equal to the k then increase the ith pointer and if the ele
 package somepackage.twopointerslidingwindow;
 
 public class MaximumNumberOfVowelsInSubstringOfGivenLength {
+//Tried by myself, herein just keep an eye when am i updating the maxVowel count. 
+   public int count(String str, int k){
+        char[] arr = str.toCharArray();
+        int i =0, j=0, n= arr.length, maxCount=0;
+        int count=0;
+        while (j<n){
+            if(j-i+1<=k){
+                if(isVowel(arr[j])){
+                    count++;
+                }
+                maxCount = Math.max(count, maxCount);
+                j++;
+            }else {
+                if(isVowel(arr[i])){
+                    count--;
+                }
+                i++;
+            }
+        }
+        return maxCount;
+    }
 
     public int check( String str, int k){
         char[] arr=str.toCharArray();
