@@ -27,7 +27,7 @@ A satellite orbit refers to the curved path a satellite follows around a celesti
 	5.	Sun-Synchronous Orbit:
 	•	Altitude: 600–800 km.
 	•	Uses: Earth observation and remote sensing.
-	•	Characteristics: Passes over the same region at the same local solar time daily.
+	•	Characteristics: Passes over the same region at the same local solar time daily. It helps us in collecting the images in same light and shadow which can be compared over long time range. 
 	6.	Elliptical Orbit:
 	•	Shape: Highly elliptical rather than circular.
 	•	Uses: Specialized missions, such as Molniya orbits for high-latitude communications.
