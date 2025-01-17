@@ -131,7 +131,7 @@ Conclusion
 Satellites, when strategically used, have the potential to transform lives by bridging the urban-rural divide, empowering marginalized communities, and supporting sustainable development. ISRO, through its innovative programs, continues to play a pivotal role in harnessing space technology for the betterment of society and national growth.
 
 
-
+### Satellite Techniques
 Satellites use a variety of advanced techniques to measure the physical and chemical properties of Earth’s surface, atmosphere, or celestial bodies. These techniques leverage the interaction of electromagnetic radiation (light, radar, etc.) with matter to gather precise data. Here are the key methods:
 
 1. Synthetic Aperture Radar (SAR)
