@@ -28,6 +28,14 @@ A satellite orbit refers to the curved path a satellite follows around a celesti
 	•	Altitude: 600–800 km.
 	•	Uses: Earth observation and remote sensing.
 	•	Characteristics: Passes over the same region at the same local solar time daily. It helps us in collecting the images in same light and shadow which can be compared over long time range. 
+Usually it is also called as polar sun synchronous satellite because it moves at 90 degree inclination which will let it cover all points on earth and sun remains exactly above it.
+The shape of Earth is not a perfect sphere; it is an oblate spheroid, meaning it is slightly flattened at the poles and bulges at the equator. This oblateness causes gravitational perturbations, which lead to the precession of satellite orbits—small shifts in the satellite’s orbital plane over time.
+
+In most cases, this precessional motion is undesirable as it causes deviations from the satellite’s intended position. However, in the case of sun-synchronous satellites, this precession becomes beneficial. Sun-synchronous satellites are designed to maintain a consistent angle with respect to the Sun, enabling them to pass over the same part of the Earth at the same local solar time every day.
+
+This is achieved by taking advantage of Earth’s gravitational bulge, which causes a predictable precession in the satellite’s orbital plane. By carefully designing the satellite’s orbit, this precession can be synchronized with Earth’s annual revolution around the Sun (approximately 365 days or 360 degrees). Thus, the satellite’s orbital plane precesses at a rate of approximately 1 degree per day, aligning itself with the Sun’s position as Earth revolves.
+
+This mechanism ensures that the satellite remains sun-synchronous, providing consistent lighting conditions for imaging or observation, which is critical for applications like weather monitoring, environmental studies, and resource mapping.
 	6.	Elliptical Orbit:
 	•	Shape: Highly elliptical rather than circular.
 	•	Uses: Specialized missions, such as Molniya orbits for high-latitude communications.
