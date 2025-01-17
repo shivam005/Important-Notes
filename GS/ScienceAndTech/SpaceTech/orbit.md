@@ -99,9 +99,9 @@ This mechanism ensures that the satellite remains sun-synchronous, providing con
 	•	Assist in post-disaster recovery and rehabilitation by mapping affected areas.
 	•	Example: Cartosat and RISAT series by ISRO.
 
-Role of ISRO in Social Upliftment
+#### Role of ISRO in Social Upliftment
 
-ISRO (Indian Space Research Organisation) has significantly contributed to India’s social and economic development through its satellite programs.
+#### ISRO (Indian Space Research Organisation) has significantly contributed to India’s social and economic development through its satellite programs.
 	1.	Education and Awareness:
 	•	Programs like EDUSAT (GSAT-3) provide remote education and online training for rural and underprivileged areas.
 	•	Facilitate e-learning platforms for schools and universities.
