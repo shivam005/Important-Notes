@@ -105,22 +105,22 @@ ISRO (Indian Space Research Organisation) has significantly contributed to India
 	1.	Education and Awareness:
 	•	Programs like EDUSAT (GSAT-3) provide remote education and online training for rural and underprivileged areas.
 	•	Facilitate e-learning platforms for schools and universities.
-	2.	Healthcare:
+	#### 2.	Healthcare:
 	•	Telemedicine programs connect rural health centers with specialist doctors in urban areas.
 	•	Provide diagnostic and consultation services in remote locations.
-	3.	Agriculture and Rural Development:
+	#### 3.	Agriculture and Rural Development:
 	•	Satellites like Resourcesat help monitor crops, soil conditions, and irrigation systems.
 	•	Facilitate the planning of rural development programs like watershed management.
-	4.	Disaster Management:
+	#### 4.	Disaster Management:
 	•	ISRO’s satellite systems provide real-time data for disaster forecasting, monitoring, and relief.
 	•	Support the National Remote Sensing Centre (NRSC) for disaster management.
-	5.	Navigation Services:
+	#### 5.	Navigation Services:
 	•	ISRO’s NavIC navigation system benefits transportation, logistics, and maritime activities.
 	•	Empower fishermen with precise location data and weather updates.
-	6.	Environmental Protection:
+	#### 6.	Environmental Protection:
 	•	Satellites help monitor deforestation, pollution, and water resources.
 	•	Contribute to sustainable urban and rural planning.
-	7.	Connectivity and Communication:
+	#### 7.	Connectivity and Communication:
 	•	ISRO’s GSAT series enhances connectivity for remote villages, improving e-governance and digital literacy.
 	•	Promote economic activities by enabling e-commerce in rural areas.
 
