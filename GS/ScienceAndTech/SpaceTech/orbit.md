@@ -1,3 +1,5 @@
+what do you ask yourself when you read something??
+
 A satellite orbit refers to the curved path a satellite follows around a celestial body, such as Earth, the Moon, or another planet. Orbits are determined by a balance between the satellite’s velocity and the gravitational pull of the body it is orbiting. Here’s an overview of satellite orbits and their types:
 
 #### Key Parameters of an Orbit
