@@ -36,6 +36,7 @@ In most cases, this precessional motion is undesirable as it causes deviations f
 This is achieved by taking advantage of Earth’s gravitational bulge, which causes a predictable precession in the satellite’s orbital plane. By carefully designing the satellite’s orbit, this precession can be synchronized with Earth’s annual revolution around the Sun (approximately 365 days or 360 degrees). Thus, the satellite’s orbital plane precesses at a rate of approximately 1 degree per day, aligning itself with the Sun’s position as Earth revolves.
 
 This mechanism ensures that the satellite remains sun-synchronous, providing consistent lighting conditions for imaging or observation, which is critical for applications like weather monitoring, environmental studies, and resource mapping.
+
 	6.	Elliptical Orbit:
 	•	Shape: Highly elliptical rather than circular.
 	•	Uses: Specialized missions, such as Molniya orbits for high-latitude communications.
