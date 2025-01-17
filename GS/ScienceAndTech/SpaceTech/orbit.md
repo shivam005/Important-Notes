@@ -114,9 +114,11 @@ This mechanism ensures that the satellite remains sun-synchronous, providing con
 	#### 4.	Disaster Management:
 	•	ISRO’s satellite systems provide real-time data for disaster forecasting, monitoring, and relief.
 	•	Support the National Remote Sensing Centre (NRSC) for disaster management.
+
 	#### 5.	Navigation Services:
 	•	ISRO’s NavIC navigation system benefits transportation, logistics, and maritime activities.
 	•	Empower fishermen with precise location data and weather updates.
+
 	#### 6.	Environmental Protection:
 	•	Satellites help monitor deforestation, pollution, and water resources.
 	•	Contribute to sustainable urban and rural planning.
