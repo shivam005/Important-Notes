@@ -377,3 +377,17 @@ Conclusion
 ISRO’s satellites have transformed India’s socio-economic landscape by empowering rural communities, advancing disaster preparedness, and supporting national development. With continued innovation, ISRO remains a key player in leveraging space technology for social good.
 
 
+## Navigational satellite
+These satellite is used to find the exact location of some point on earth, Navic is the indian navigational satellite.
+It requires atleast 4 navigational satellite to determine the exact point on earth because we need to have lattitude, longitude,altitude of the destination and origin point and the fourth satellite is used to correct clock error.
+
+#### Why Clock Errors Matter
+	1.	Distance Calculation: Navigation systems use the time it takes for a signal to travel from a satellite to a receiver to calculate distance.
+
+\text{Distance} = \text{Speed of Light} \times \text{Travel Time}
+
+If the receiver’s clock is slightly off, the travel time (and thus the calculated distance) will be incorrect.
+	2.	Positioning Errors: Even a small clock error (e.g., 1 microsecond) can result in a position error of hundreds of meters because signals travel at the speed of light (~300,000 km/s).
+
+
+
