@@ -432,3 +432,22 @@ Strategic Importance
 	•	Strengthens a nation’s technological capabilities and global competitiveness.
 	•	Enhances resilience in critical sectors like defense, communications, and transportation.
 
+
+---
+
+## Summary Table
+
+| Feature           | NavIC                        | GPS                           |
+|-------------------|------------------------------|-------------------------------|
+| **Origin**         | India (ISRO)                | United States (DoD)           |
+| **Coverage**       | Regional (India + 1,500 km) | Global                        |
+| **Satellites**     | 7 (GEO + GSO)               | 24 (MEO)                      |
+| **Accuracy**       | ~5-10 meters regionally     | ~10-20 meters globally        |
+| **Frequency**      | L5, S bands                 | L1, L2, L5 bands              |
+| **Applications**   | Regional services           | Global navigation             |
+| **Independence**   | Fully independent           | US-controlled                 |
+
+---
+
+Both systems are robust, but NavIC is tailored for India and the surrounding region, while GPS remains a global standard.
+
