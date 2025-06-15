@@ -1,8 +1,53 @@
 ### IOC Container 
 IOC containers are implemented using two ways:
-1. BeanFactory (Basic Feature) Only to be used when memory consumption is critical.
+1. BeanFactory (Basic Feature) Only to be used when memory consumption is critical. (As of Spring 2.0, XmlBeanFactory is deprecated and using ApplicationContext is recommended.)
+```
+import org.springframework.beans.factory.BeanFactory;
+import org.springframework.beans.factory.xml.XmlBeanFactory;
+import org.springframework.core.io.ClassPathResource;
+
+public class BeanFactoryExample {
+    public static void main(String[] args) {
+        // Create the BeanFactory using an XML configuration file
+        BeanFactory beanFactory = new XmlBeanFactory(new ClassPathResource("beans.xml"));
+
+        // Retrieve a bean from the factory
+        MyBean myBean = (MyBean) beanFactory.getBean("myBean");
+        
+        // Use the bean
+        myBean.doSomething();
+    }
+}
+```
 2. ApplicationContext (Advanced Feature) preferrable to be used. 
 ApplicationContext is the extended version of BeanFactory as It extends ListableBeanFactory which further extends BeanFactory.
+```
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+public class ApplicationContextExample {
+    public static void main(String[] args) {
+        // Create the ApplicationContext using an XML configuration file
+        ApplicationContext context = new ClassPathXmlApplicationContext("beans.xml");
+
+        // Retrieve a bean from the context
+        MyBean myBean = (MyBean) context.getBean("myBean");
+
+        // Use the bean
+        myBean.doSomething();
+    }
+}
+```
+```
+// bean.xml
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans 
+                           http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="myBean" class="com.example.MyBean" />
+</beans>
+```
 ```
 // XML Based
      ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("Config.xml");
