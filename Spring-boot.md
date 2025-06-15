@@ -119,6 +119,6 @@ If we are using requires new then a new transaction will be created, we can use 
 | --- | ----------- |
 |@RequestParam String name | "/greet?name=John" |
 |@QueryParam("name") String name| "/greet?name=John" It is part of JAX-RS and same as @RequestParam|
-|@PathVariable String name| "/greet/John" (Placeholder needs to be defined in @GetMapping(/api/{name}))|
+|@PathVariable String name| "/greet/John" (Placeholder needs to be defined in @GetMapping("/api/{name}"))|
 
 
