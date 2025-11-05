@@ -5,3 +5,25 @@
 |Closed-source LLMs Model|OpenAI's GPT-4, Anthropic's Claude, Gemini (Google)|
 |Open-Source LLMs Model|LLaMA (Meta), Falcon, Mistral, BLOOM|
 
+### To transform agentic AI from hype to reality, AWS has identified four key enablers:
+
+1. Advanced model reasoning capabilities provide smarter, more cost-effective foundation models.
+
+2. Robust data and knowledge integration grounds agents in enterprise context and proprietary data.
+
+3. Scalable infrastructure and AI agent communication protocols such as Model Context Protocol (MCP) and Agent-to-Agent (A2A) protocol to ensure secure agent operation and connectivity.
+
+4. Sophisticated agent development and orchestration tools enable the design, deployment, and management of agents at scale.
+
+### Strands Agents
+Need to study
+
+#### The key difference? We're moving from AI that assists with specific tasks: Analyze → Summarize
+#### to AI that autonomously manages entire processes: Analyze → Recommend → Plan → Execute → Monitor → Adapt
+
+#### While generative AI excels at creating content and providing insights, agentic AI takes this further by understanding objectives, planning actions, and executing decisions over time. This represents a fundamental shift from assistance to autonomy - from tools that help us think to agents that help us do.
+AI is......
+Responsive: AI performs a single task
+Suggestive: AI is human-directed, provides suggestions
+Proactive: AI automatically monitors
+Autonomous: Agentic AI learns and adapts
