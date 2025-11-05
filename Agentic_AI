@@ -1,2 +1,7 @@
 ## What is agentic AI?
 #### It is an 
+| Terminology| Description |
+| --- | ----------- |
+|Closed-source LLMs Model|OpenAI's GPT-4, Anthropic's Claude, Gemini (Google)|
+|Open-Source LLMs Model|LLaMA (Meta), Falcon, Mistral, BLOOM|
+
