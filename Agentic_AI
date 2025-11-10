@@ -29,6 +29,29 @@ Proactive: AI automatically monitors
 Autonomous: Agentic AI learns and adapts
 
 
+#### There are some issues with the AI agents like 
+## Agent Hallucination 
+which can be managed using Amazon Bedrock Guardrails and AgentCore.
+## Agent Co-ordination Failure
+Consensus Protocols (agents must 'check in' with each other), Conflict Resolution (Assigning different priority level), State Management (By maintaining'single source of truth').
+AWS has AgentCore's coordination services, helping agents work together smoothly.
+
+#### Further for an agent to avoid costly mistake, we can set confidence scoring, Establishing some threshold (Like only refund upto 500 Rs.), Configiring rollbacks. 
+
+#### MCP (Model Context Protocol)
+Standardized AI integration: Your tools become instantly compatible with any MCP-enabled AI system
+Reduced integration costs: No custom connectors for each AI platform
+Ecosystem participation: Join a broader network of interoperable tools
+Competitive advantage: Early adopters gain distribution through AI marketplaces
+
+#### A2A (Agent-to-Agent Communication)
+Automated partnerships: AI agents negotiate and execute business processes autonomously
+Dynamic supply chains: Real-time optimization without human intervention
+New revenue models: Usage-based pricing, micro-transactions between agents
+Operational efficiency: 24/7 automated business operations
+
+
+
 cd /root && mkdir -p langchain-lab && cd langchain-lab
 python3 -m venv venv && source venv/bin/activate
 pip install --upgrade pip uv
