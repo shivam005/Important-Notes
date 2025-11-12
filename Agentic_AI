@@ -50,7 +50,7 @@ Dynamic supply chains: Real-time optimization without human intervention
 New revenue models: Usage-based pricing, micro-transactions between agents
 Operational efficiency: 24/7 automated business operations
 
-
+#### There are 2 types of models 1. LLM (Text generation model) and 2. Diffusion Model (Image generation model)
 
 cd /root && mkdir -p langchain-lab && cd langchain-lab
 python3 -m venv venv && source venv/bin/activate
