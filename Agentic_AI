@@ -50,14 +50,17 @@ Dynamic supply chains: Real-time optimization without human intervention
 New revenue models: Usage-based pricing, micro-transactions between agents
 Operational efficiency: 24/7 automated business operations
 
-#### There are 2 types of models 1. LLM (Text generation model) and 2. Diffusion Model (Image generation model)
+#### There are 2 types of models 
+1. LLM (Text generation model) :: Eg. ChatGPT wherein GPT stands for Generative Pretrained Transformer. Transformer is basically a loop which keeps on predicting the next word until it find some meaningful sentance. It converts the sentences into token and assign a token id.  
+2. Diffusion Model (Image generation model)
 
 cd /root && mkdir -p langchain-lab && cd langchain-lab
 python3 -m venv venv && source venv/bin/activate
 pip install --upgrade pip uv
 
 # Core LangChain packages
-uv pip install langchain langchain-community langchain-core langchain-text-splitters langchain-huggingface
+uv pip install langc
+hain langchain-community langchain-core langchain-text-splitters langchain-huggingface
 
 # LLM Providers
 uv pip install langchain-openai langchain-anthropic langchain-google-genai
