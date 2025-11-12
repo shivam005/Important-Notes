@@ -51,7 +51,7 @@ New revenue models: Usage-based pricing, micro-transactions between agents
 Operational efficiency: 24/7 automated business operations
 
 #### There are 2 types of models 
-1. LLM (Text generation model) :: Eg. ChatGPT wherein GPT stands for Generative Pretrained Transformer. Transformer is basically a loop which keeps on predicting the next word until it find some meaningful sentance. It converts the sentences into token and assign a token id.  
+1. LLM (Text generation model) :: Eg. ChatGPT wherein GPT stands for Generative Pretrained Transformer. Transformer is basically a loop which keeps on predicting the next word until it find some meaningful sentance (It keeps on passing the previous formed sentence to transformer and it predicts the next word). It converts the sentences into token and assign a token id. These token id are nothing but the array of some numbers which can be further used.   
 2. Diffusion Model (Image generation model)
 
 cd /root && mkdir -p langchain-lab && cd langchain-lab
